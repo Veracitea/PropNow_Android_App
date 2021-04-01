@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:background="#D2D4DA">
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="300dp"
+            android:layout_height="96dp"
+            android:paddingTop="70dp"
+            android:paddingLeft="50dp"
+            android:text="Sign Up/Login"
+            android:textAlignment="center"
+            android:textColor="#0B0A0A"
+            android:textSize="20sp" />
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="82dp"
+            android:layout_height="69dp"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="47dp"
+            android:layout_marginEnd="316dp"
+            android:layout_marginBottom="54dp"
+            app:srcCompat="@drawable/ic_action_name" />
+        <View
+            android:id="@+id/divider"
+            android:layout_width="500dp"
+            android:layout_height="10dp"
+            android:layout_marginTop="160dp"
+            android:layout_marginEnd="4dp"
+            android:color="#2196F3"
+            android:background="?android:attr/dividerHorizontal" />
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:onClick="ClickHome">
+
+
+        <ImageView
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="0dp"
+            android:src="@drawable/ic_home"
+           />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Main Menu"
+            android:textColor="@color/black"
+            android:padding="12dp"
+            android:layout_marginStart="0dp"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:onClick="ClickViewGrantsInfo">
+
+        <ImageView
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="0dp"
+            android:src="@drawable/ic_info"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="View Grants Information"
+            android:textColor="@color/black"
+            android:padding="12dp"
+            android:layout_marginStart="0dp"
+           />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:onClick="ClickViewAgentInfo">
+
+        <ImageView
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="0dp"
+            android:src="@drawable/ic_list"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="View Agent Profiles"
+            android:textColor="@color/black"
+            android:padding="12dp"
+            android:layout_marginStart="0dp"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:onClick="ClickHomeCalculator">
+
+        <ImageView
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="0dp"
+            android:src="@drawable/ic_calc"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Home Calculator"
+            android:textColor="@color/black"
+            android:padding="12dp"
+            android:layout_marginStart="0dp"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:onClick="ClickMyListings">
+
+        <ImageView
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="0dp"
+            android:src="@drawable/ic_list"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="My Listings"
+            android:textColor="@color/black"
+            android:padding="12dp"
+            android:layout_marginStart="0dp"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:onClick="ClickInbox">
+
+        <ImageView
+            android:layout_width="83dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="0dp"
+            android:src="@drawable/ic_inbox" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_weight="1"
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:text="Inbox" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:onClick="ClickSettings"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="0dp"
+            android:src="@drawable/ic_settings" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_weight="1"
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:text="Settings" />
+    </LinearLayout>
+
+
+
+</LinearLayout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="price_values">
+        <item>0.0</item>
+        <item>75.0</item>
+    </array>
+    <array name="storey_values">
+        <item>1</item>
+        <item>3</item>
+    </array>
+    <array name="rooms_values">
+        <item>0</item>
+        <item>3</item>
+    </array>
+</resources>
