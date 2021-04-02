@@ -217,6 +217,10 @@ public class AdvancedFilters extends AppCompatActivity {
         redirectActivity(AdvancedFilters.this, MainActivity.class);
     }
 
+    public void ClickApply(View view) {
+        redirectActivity(AdvancedFilters.this, ResultsPage.class);
+    }
+
     public static void redirectActivity(Activity activity, Class aClass) {
         //Initialize intent
         Intent intent = new Intent(activity,aClass);

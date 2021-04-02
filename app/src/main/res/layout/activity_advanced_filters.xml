@@ -410,6 +410,7 @@
         android:layout_marginStart="292dp"
         android:layout_marginLeft="292dp"
         android:layout_marginBottom="92dp"
+        android:onClick="ClickApply"
         android:text="Apply"
         app:backgroundTint="#3F51B5"
         app:layout_constraintBottom_toBottomOf="parent"
