@@ -49,4 +49,10 @@
     <string name="drop">drop</string>
     <string name="cal">cal</string>
     <string name="button">button</string>
+    <string name="check_eligibilty">Check Eligibilty</string>
+    <string name="available_grants">Available grants</string>
+    <string name="cpf_housing_grants_for_hdb_flats">CPF Housing Grants for HDB Flats</string>
+    <string name="temporary_loan_scheme">Temporary Loan Scheme</string>
+    <string name="you_could_receive_cpf_housing_grants_of_up_to_80_000_to_help_finance_the_purchase_of_your_new_flat">You could receive CPF Housing Grants of up to $80,000 to help finance the purchase of your new flat.</string>
+    <string name="the_temporary_loan_scheme_helps_ease_your_cash_flow_when_purchasing_a_new_flat_and_selling_your_current_one">The temporary loan scheme helps ease your cash flow when purchasing a new flat and selling your current one.</string>
 </resources>

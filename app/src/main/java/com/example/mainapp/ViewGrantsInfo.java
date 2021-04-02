@@ -24,6 +24,10 @@ public class ViewGrantsInfo extends AppCompatActivity {
         MainActivity.closeDrawer(drawerLayout);
     }
 
+    public void ClickEligibility(View view){
+        MainActivity.redirectActivity(this, ViewEligibility.class);
+    }
+
     //SIDEBAR OPTIONS - FUNCTIONS
     public void ClickMenu(View view){ MainActivity.openDrawer(drawerLayout); }
 
