@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
                 redirectActivity(activity,HomeCalculator.class);
             }
         });
-        //signup
+        //back
         builder.setNegativeButton("Back", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
