@@ -148,10 +148,9 @@ public class MainActivity extends AppCompatActivity {
 
     //HOME CALC
 
-    public void ClickHomeCalculator(View view){//, boolean loggedIn){
-        redirectActivity(this,HomeCalculator.class);
-//        if (loggedIn){redirectActivity(this,HomeCalculator.class);}
-//        else{login(this);}
+    public void ClickHomeCalculator(View view, boolean loggedIn){
+        if (loggedIn){redirectActivity(this,HomeCalculator.class);}
+        else{login(this);}
     }
 
     //MY LISTINGS
