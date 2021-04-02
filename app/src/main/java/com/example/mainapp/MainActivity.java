@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
    // TextView filters;
     //ImageButton filters2;
     ImageView houseInfo;
-    ToggleButton favorites;
+    //ToggleButton favorites;
     //for login
     boolean loggedIn;
 
@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
        // filters = findViewById(R.id.textView3);
         // filters2 = findViewById(R.id.imageButton3);
         houseInfo = findViewById(R.id.imageView2);
-        favorites = findViewById(R.id.toggleButton2);
+        //favorites = findViewById(R.id.toggleButton2);
 
 // change all this to redirect activity
         ARcamera.setOnClickListener(new View.OnClickListener() { //clicking on AR camera button
@@ -64,12 +64,12 @@ public class MainActivity extends AppCompatActivity {
                 setContentView(R.layout.activity_house_info);
             }
         });
-        favorites.setOnClickListener(new View.OnClickListener() { //clicking on filter favorites
-            @Override
-            public void onClick(View v) {
-                setContentView(R.layout.activity_favorites);
-            }
-        });
+//        favorites.setOnClickListener(new View.OnClickListener() { //clicking on filter favorites
+//            @Override
+//            public void onClick(View v) {
+//                setContentView(R.layout.activity_favorites);
+//            }
+//        });
     }
 
 
@@ -148,10 +148,9 @@ public class MainActivity extends AppCompatActivity {
 
     //HOME CALC
 
-    public void ClickHomeCalculator(View view){//, boolean loggedIn){
-        redirectActivity(this,HomeCalculator.class);
-//        if (loggedIn){redirectActivity(this,HomeCalculator.class);}
-//        else{login(this);}
+    public void ClickHomeCalculator(View view, boolean loggedIn){
+        if (loggedIn){redirectActivity(this,HomeCalculator.class);}
+        else{login(this);}
     }
 
     //MY LISTINGS

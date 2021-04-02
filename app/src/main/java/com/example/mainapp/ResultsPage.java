@@ -17,7 +17,7 @@ public class ResultsPage extends AppCompatActivity {
     TextView filters;
     ImageButton filters2;
     ImageView houseInfo;
-    ToggleButton favorites;
+//    ToggleButton favorites;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +29,7 @@ public class ResultsPage extends AppCompatActivity {
         filters = findViewById(R.id.textView3);
         filters2 = findViewById(R.id.imageButton3);
         houseInfo = findViewById(R.id.imageView);
-        favorites = findViewById(R.id.toggleButton2);
+//        favorites = findViewById(R.id.toggleButton2);
 
         ARcamera.setOnClickListener(new View.OnClickListener() { //clicking on AR camera button
             @Override
@@ -61,12 +61,12 @@ public class ResultsPage extends AppCompatActivity {
                 setContentView(R.layout.activity_house_info);
             }
         });
-        favorites.setOnClickListener(new View.OnClickListener() { //clicking on filter favorites
-            @Override
-            public void onClick(View v) {
-                setContentView(R.layout.activity_favorites);
-            }
-        });
+//        favorites.setOnClickListener(new View.OnClickListener() { //clicking on filter favorites
+//            @Override
+//            public void onClick(View v) {
+//                setContentView(R.layout.activity_favorites);
+//            }
+//        });
     }
 
 }
