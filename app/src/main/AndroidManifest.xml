@@ -15,6 +15,11 @@
         <activity android:name=".Inbox" />
         <activity android:name=".Settings" />
         <activity android:name=".HomeCalculator" />
+        <activity android:name=".ResultsPage"/>
+        <activity android:name=".ARSearchPermission"/>
+        <activity android:name=".favorites"/>
+        <activity android:name=".houseInfo"/>
+        <activity android:name=".searchBar"/>
         <activity android:name=".ViewGrantsInfo" />
         <activity android:name=".ViewAgentInfo" />
         <activity android:name=".AdvancedFilters"/>
