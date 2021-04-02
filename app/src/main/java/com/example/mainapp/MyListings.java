@@ -60,4 +60,5 @@ public class MyListings extends AppCompatActivity {
     public void ClickSettings(View view){
         MainActivity.redirectActivity(this,Settings.class);
     }
+
 }
