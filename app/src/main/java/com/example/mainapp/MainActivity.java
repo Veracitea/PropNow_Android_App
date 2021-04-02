@@ -27,7 +27,9 @@ public class MainActivity extends AppCompatActivity {
     //ImageButton filters2;
     ImageView houseInfo;
     ToggleButton favorites;
+    //for login
     boolean loggedIn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         loggedIn = TRUE;
