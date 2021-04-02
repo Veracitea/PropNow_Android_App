@@ -34,7 +34,7 @@ public class AdvancedFilters extends AppCompatActivity {
         setContentView(R.layout.activity_advanced_filters);
         drawerLayout = findViewById(R.id.drawer_layout);
 
-        //multiselect boxes
+        //multislect boxes
         primary = findViewById(R.id.multiselect);
         secondary = findViewById(R.id.multiselect2);
         //rangesliders
