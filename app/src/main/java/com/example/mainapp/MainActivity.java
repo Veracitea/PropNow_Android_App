@@ -5,7 +5,9 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +17,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
+import static java.lang.Boolean.TRUE;
+
 public class MainActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     ImageButton ARcamera;
@@ -23,8 +27,10 @@ public class MainActivity extends AppCompatActivity {
     //ImageButton filters2;
     ImageView houseInfo;
     ToggleButton favorites;
+    boolean loggedIn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        loggedIn = TRUE;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //addListenerOnButton();
@@ -91,6 +97,31 @@ public class MainActivity extends AppCompatActivity {
         closeDrawer(drawerLayout);
     }
 
+    //login permission popup
+    private static void login(Activity activity) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        builder.setTitle("Login Required");
+        builder.setMessage("Please login to unlock feature");
+        //login
+        builder.setPositiveButton("Login/Sign Up", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                activity.finishAffinity();
+                //REDIRECT TO LOGIN PAGE !!!!!!!!!!!!!!!!!!!!!!!!!!!
+                redirectActivity(activity,HomeCalculator.class);
+            }
+        });
+        //signup
+        builder.setNegativeButton("Back", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                activity.finishAffinity();
+            }
+        });
+
+        builder.show();
+    }
+
     //SIDEBAR OPTIONS - FUNCTIONS
     public void ClickMenu(View view){
         openDrawer(drawerLayout);
@@ -114,8 +145,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //HOME CALC
-    public void ClickHomeCalculator(View view){
-        redirectActivity(this,HomeCalculator.class);
+
+    public void ClickHomeCalculator(View view, boolean loggedIn){
+        if (loggedIn){redirectActivity(this,HomeCalculator.class);}
+        else{login(this);}
     }
 
     //MY LISTINGS
