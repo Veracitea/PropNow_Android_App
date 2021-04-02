@@ -214,20 +214,11 @@ public class AdvancedFilters extends AppCompatActivity {
     }
 
     public void ClickBackBtn(View view){
-        redirectActivity(AdvancedFilters.this, MainActivity.class);
+        MainActivity.redirectActivity(AdvancedFilters.this, MainActivity.class);
     }
 
     public void ClickApply(View view) {
-        redirectActivity(AdvancedFilters.this, ResultsPage.class);
-    }
-
-    public static void redirectActivity(Activity activity, Class aClass) {
-        //Initialize intent
-        Intent intent = new Intent(activity,aClass);
-        //set flag
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        //start activity
-        activity.startActivity(intent);
+        MainActivity.redirectActivity(AdvancedFilters.this, ResultsPage.class);
     }
 
     //SIDEBAR OPTIONS - FUNCTIONS

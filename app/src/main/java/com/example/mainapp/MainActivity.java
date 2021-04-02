@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
         builder.setNegativeButton("Back", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                activity.finishAffinity();
+                dialog.cancel();
             }
         });
 
@@ -149,8 +149,9 @@ public class MainActivity extends AppCompatActivity {
     //HOME CALC
 
     public void ClickHomeCalculator(View view, boolean loggedIn){
-        if (loggedIn){redirectActivity(this,HomeCalculator.class);}
-        else{login(this);}
+//        if (loggedIn){redirectActivity(this,HomeCalculator.class);}
+//        else{login(this);}
+        login(this);
     }
 
     //MY LISTINGS

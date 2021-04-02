@@ -70,14 +70,8 @@ public class searchBar extends AppCompatActivity {
 
     public void ClickBackBtn2(View view){
         System.out.println("BACK BUTTON CLICKED");
-        redirectActivity(this, Inbox.class);
+        MainActivity.redirectActivity(this, MainActivity.class);
     }
-    public static void redirectActivity(Activity activity, Class aClass) {
-        //Initialize intent
-        Intent intent = new Intent(activity,aClass);
-        //set flag
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        //start activity
-        activity.startActivity(intent);
-    }
+
+
 }
