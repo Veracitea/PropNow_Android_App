@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MainApp">
-        <activity android:name=".ViewEligibility"></activity>
+        <activity android:name=".Homecalc3"></activity>
+        <activity android:name=".Homecalc2" />
+        <activity android:name=".ViewEligibility" />
         <activity android:name=".MyListings" />
         <activity android:name=".EditInbox" />
         <activity android:name=".MonicaGeller" />

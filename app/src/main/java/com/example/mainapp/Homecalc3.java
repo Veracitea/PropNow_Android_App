@@ -6,46 +6,30 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 
-public class HomeCalculator extends AppCompatActivity {
+public class Homecalc3 extends AppCompatActivity {
     DrawerLayout drawerLayout;
     ImageButton myimagebutton;
-    Button mybutton;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_calculator);
-        myimagebutton = (ImageButton) findViewById(R.id.imageButton2);
+        setContentView(R.layout.activity_homecalc3);
+        myimagebutton = (ImageButton) findViewById(R.id.imageButton5);
 
         myimagebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent intentloadnewactivity = new Intent(HomeCalculator.this, Homecalc2.class);
+                Intent intentloadnewactivity = new Intent(Homecalc3.this, HomeCalculator.class);
                 startActivity(intentloadnewactivity);
-
-
-            }
-        });
-        mybutton = (Button) findViewById(R.id.buttoncalc2);
-
-        mybutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intentloadnew = new Intent(HomeCalculator.this, Homecalc3.class);
-                startActivity(intentloadnew);
 
 
             }
         });
         drawerLayout = findViewById(R.id.drawer_layout);
     }
-
 
     @Override
     protected void onPause() {
@@ -71,7 +55,7 @@ public class HomeCalculator extends AppCompatActivity {
     }
 
     //HOME CALC
-    public void ClickHomeCalculator(View view){ recreate(); }
+    public void ClickHomeCalculator(View view){  MainActivity.redirectActivity(this, HomeCalculator.class);}
 
     //MY LISTINGS
     public void ClickMyListings(View view){
@@ -91,3 +75,6 @@ public class HomeCalculator extends AppCompatActivity {
         MainActivity.redirectActivity(this,Settings.class);
     }
 }
+
+
+

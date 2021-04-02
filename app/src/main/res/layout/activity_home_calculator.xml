@@ -19,14 +19,28 @@
             android:layout_height="match_parent"
             tools:context=".MainActivity">
 
+            <Button
+                android:id="@+id/buttoncalc2"
+                android:layout_width="416dp"
+                android:layout_height="68dp"
+                android:text="@string/calculate"
+                android:textColor="#172CA1"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:backgroundTint="#D6D6D6"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
             <TextView
                 android:id="@+id/colourbox"
-                android:layout_width="407dp"
-                android:layout_height="94dp"
+                android:layout_width="419dp"
+                android:layout_height="78dp"
                 android:background="@drawable/box2"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0" />
@@ -36,7 +50,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="240dp"
+                android:layout_marginTop="196dp"
                 android:text="@string/date_of_birth"
                 android:textColor="#030404"
                 android:textSize="20sp"
@@ -48,7 +62,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="300dp"
+                android:layout_marginTop="264dp"
                 android:text="@string/monthly_salary"
                 android:textColor="#030404"
                 android:textSize="20sp"
@@ -60,7 +74,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="364dp"
+                android:layout_marginTop="336dp"
                 android:text="@string/ordinary_account"
                 android:textColor="#030404"
                 android:textSize="20sp"
@@ -72,7 +86,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="452dp"
+                android:layout_marginTop="424dp"
                 android:text="@string/type_of"
                 android:textColor="#030404"
                 android:textSize="20sp"
@@ -84,7 +98,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="476dp"
+                android:layout_marginTop="448dp"
                 android:text="@string/employment"
                 android:textColor="#030404"
                 android:textSize="20sp"
@@ -96,7 +110,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="388dp"
+                android:layout_marginTop="360dp"
                 android:text="@string/bal"
                 android:textColor="#030404"
                 android:textSize="20sp"
@@ -110,10 +124,10 @@
                 android:background="?android:attr/listDivider"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.793" />
+                app:layout_constraintVertical_bias="0.735" />
 
             <View
                 android:id="@+id/divider4"
@@ -125,7 +139,7 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.903" />
+                app:layout_constraintVertical_bias="0.856" />
 
             <View
                 android:id="@+id/divider2"
@@ -135,14 +149,14 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.202" />
+                app:layout_constraintVertical_bias="0.178" />
 
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="92dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginStart="88dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/home_calculator"
                 android:textColor="#0D208C"
                 android:textSize="30sp"
@@ -153,8 +167,8 @@
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="112dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="84dp"
                 android:text="@string/only_applies_to_buying_hdb_resale_flats"
                 android:textColor="#172CA1"
                 android:textSize="16sp"
@@ -166,7 +180,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="168dp"
+                android:layout_marginTop="136dp"
                 android:text="@string/buyer_1"
                 android:textColor="#172CA1"
                 android:textSize="27sp"
@@ -178,7 +192,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="552dp"
+                android:layout_marginTop="520dp"
                 android:text="@string/buyer_2"
                 android:textColor="#172CA1"
                 android:textSize="27sp"
@@ -191,16 +205,16 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.95"/>
+                app:layout_constraintVertical_bias="0.185" />
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="194dp"
                 android:layout_height="38dp"
-                android:layout_marginStart="188dp"
-                android:layout_marginTop="240dp"
+                android:layout_marginStart="200dp"
+                android:layout_marginTop="196dp"
                 android:hint="@string/date"
                 android:inputType="date"
                 app:layout_constraintStart_toStartOf="parent"
@@ -210,8 +224,8 @@
                 android:id="@+id/editTextDate4"
                 android:layout_width="194dp"
                 android:layout_height="38dp"
-                android:layout_marginStart="188dp"
-                android:layout_marginTop="300dp"
+                android:layout_marginStart="200dp"
+                android:layout_marginTop="252dp"
                 android:hint="@string/salary"
                 android:inputType="number"
                 app:layout_constraintStart_toStartOf="parent"
@@ -221,8 +235,8 @@
                 android:id="@+id/editTextDate5"
                 android:layout_width="194dp"
                 android:layout_height="38dp"
-                android:layout_marginStart="188dp"
-                android:layout_marginTop="376dp"
+                android:layout_marginStart="200dp"
+                android:layout_marginTop="336dp"
                 android:hint="@string/balance"
                 android:inputType="number"
                 app:layout_constraintStart_toStartOf="parent"
@@ -232,8 +246,8 @@
                 android:id="@+id/editTextDate6"
                 android:layout_width="194dp"
                 android:layout_height="38dp"
-                android:layout_marginStart="188dp"
-                android:layout_marginTop="464dp"
+                android:layout_marginStart="200dp"
+                android:layout_marginTop="412dp"
                 android:hint="@string/select"
                 android:inputType="text"
                 app:layout_constraintStart_toStartOf="parent"
@@ -246,24 +260,11 @@
                 android:contentDescription="@string/drop"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.903"
+                app:layout_constraintHorizontal_bias="0.924"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.716"
+                app:layout_constraintVertical_bias="0.637"
                 app:srcCompat="@android:drawable/arrow_down_float" />
-
-            <ImageButton
-                android:id="@+id/imageButton4"
-                android:layout_width="40dp"
-                android:layout_height="41dp"
-                android:contentDescription="@string/cal"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.921"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.356"
-                app:srcCompat="@android:drawable/ic_menu_my_calendar" />
 
             <ImageButton
                 android:id="@+id/imageButton2"
@@ -273,17 +274,12 @@
                 android:contentDescription="@string/button"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.92"
+                app:layout_constraintHorizontal_bias="0.953"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0"
+                app:layout_constraintVertical_bias="0.928"
                 app:srcCompat="@android:drawable/ic_input_add" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-        
-
-
-
-
 
 
     </LinearLayout>
