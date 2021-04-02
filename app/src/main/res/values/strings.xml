@@ -18,4 +18,18 @@
     <string name="id">stringg</string>
     <string name="string_id">\@string/id</string>
     <string name="string_backbutton">\@string/backbutton</string>
+    <string name="my_listings">My Listings</string>
+    <string name="blk_76_08_456">Blk 76, #08-456</string>
+    <string name="nearest_mrt_clementi">Nearest MRT: Clementi</string>
+    <string name="lorong_6_toa_payoh">Lorong 6, Toa payoh</string>
+    <string name="west_coast_road">West Coast Road</string>
+    <string name="bedrooms_4">Bedrooms: 4</string>
+    <string name="bedrooms_3">Bedrooms: 3</string>
+    <string name="blk_55_05_56">Blk 55, #05-56</string>
+    <string name="nearest_mrt_toa_payoh">Nearest MRT: Toa Payoh</string>
+    <string name="pic">pic</string>
+    <string name="back">back</string>
+    <string name="pic2">pic2</string>
+    <string name="add">add</string>
+    <string name="del">del</string>
 </resources>

@@ -40,7 +40,7 @@ public class MyListings extends AppCompatActivity {
         MainActivity.redirectActivity(this,MonicaGeller.class);
     }
 
-    //HOME CALC
+
     public void ClickHomeCalculator(View view){ MainActivity.redirectActivity(this,HomeCalculator.class); }
 
     //MY LISTINGS
@@ -60,4 +60,5 @@ public class MyListings extends AppCompatActivity {
     public void ClickSettings(View view){
         MainActivity.redirectActivity(this,Settings.class);
     }
+
 }
