@@ -28,14 +28,6 @@ public class searchBar extends AppCompatActivity {
 
 
 
-    public static void redirectActivity(Activity activity, Class aClass) {
-        //Initialize intent
-        Intent intent = new Intent(activity,aClass);
-        //set flag
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        //start activity
-        activity.startActivity(intent);
-    }
 
     //SIDEBAR OPTIONS - FUNCTIONS
     public void ClickMenu(View view){ MainActivity.openDrawer(drawerLayout); }
@@ -77,7 +69,15 @@ public class searchBar extends AppCompatActivity {
 
 
     public void ClickBackBtn2(View view){
-        MainActivity.redirectActivity(this, MainActivity.class);
+        System.out.println("BACK BUTTON CLICKED");
+        redirectActivity(this, Inbox.class);
     }
-
+    public static void redirectActivity(Activity activity, Class aClass) {
+        //Initialize intent
+        Intent intent = new Intent(activity,aClass);
+        //set flag
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        //start activity
+        activity.startActivity(intent);
+    }
 }
