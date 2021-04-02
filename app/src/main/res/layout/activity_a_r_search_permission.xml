@@ -13,7 +13,7 @@
         android:layout_marginStart="44dp"
         android:layout_marginLeft="44dp"
         android:layout_marginTop="284dp"
-        android:background="@drawable/box"
+        android:background="@drawable/box2"
         android:gravity="center_vertical|center_horizontal"
         android:text="This app wants to have access to your Camera and Location."
         android:textColor="@color/black"

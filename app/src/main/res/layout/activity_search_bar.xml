@@ -82,20 +82,19 @@
         app:layout_constraintVertical_bias="0.064" />
 
 
-
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="56dp"
-        android:layout_height="38dp"
-        android:tint="#040303"
-        android:onClick="ClickBackBtn"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.019"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.008"
-        app:srcCompat="@drawable/abc_vector_test" />
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="40dp"
+            android:layout_height="33dp"
+            android:onClick="ClickBackBtn"
+            android:tint="#040303"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.019"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.008"
+            app:srcCompat="@drawable/abc_vector_test" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
