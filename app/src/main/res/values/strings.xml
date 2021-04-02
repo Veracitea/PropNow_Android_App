@@ -32,4 +32,21 @@
     <string name="pic2">pic2</string>
     <string name="add">add</string>
     <string name="del">del</string>
+    <string name="date_of_birth">Date of birth</string>
+    <string name="type_of">Type of</string>
+    <string name="employment">employment</string>
+    <string name="date">Date</string>
+    <string name="buyer_2">Buyer 2</string>
+    <string name="balance">Balance</string>
+    <string name="ordinary_account">Ordinary account</string>
+    <string name="only_applies_to_buying_hdb_resale_flats">*Only applies to buying HDB resale flats</string>
+    <string name="buyer_1">Buyer 1</string>
+    <string name="monthly_salary">Monthly Salary</string>
+    <string name="select">Select</string>
+    <string name="bal">balance</string>
+    <string name="salary">Salary</string>
+    <string name="home_calculator">Home Calculator</string>
+    <string name="drop">drop</string>
+    <string name="cal">cal</string>
+    <string name="button">button</string>
 </resources>
