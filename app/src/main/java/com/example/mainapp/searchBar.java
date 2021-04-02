@@ -27,4 +27,5 @@ public class searchBar extends AppCompatActivity {
         //start activity
         activity.startActivity(intent);
     }
+
 }
