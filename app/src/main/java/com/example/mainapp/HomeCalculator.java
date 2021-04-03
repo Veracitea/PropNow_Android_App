@@ -41,6 +41,7 @@ public class HomeCalculator extends AppCompatActivity {
                 startActivity(intentloadnew);
 
 
+
             }
         });
         drawerLayout = findViewById(R.id.drawer_layout);
