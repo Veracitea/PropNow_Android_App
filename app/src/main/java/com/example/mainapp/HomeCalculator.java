@@ -6,13 +6,16 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Spinner;
 
 public class HomeCalculator extends AppCompatActivity {
     DrawerLayout drawerLayout;
     ImageButton myimagebutton;
     Button mybutton;
+    Spinner dropdown;
 
 
     @Override
@@ -20,6 +23,11 @@ public class HomeCalculator extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_calculator);
         myimagebutton = (ImageButton) findViewById(R.id.imageButton2);
+        dropdown = findViewById(R.id.spinner1);
+        String[] items = new String[]{"Employee", "Employee (Pensionable)", "Self-Employed Person", "CPF not applicable"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
+        dropdown.setAdapter(adapter);
+
 
         myimagebutton.setOnClickListener(new View.OnClickListener() {
             @Override
