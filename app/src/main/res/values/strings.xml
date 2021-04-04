@@ -102,4 +102,6 @@
     <string name="profile">profile</string>
     <string name="todo">TODO</string>
     <string name="required">required</string>
+    <string name="settings">Settings</string>
+    <string name="grants">Grants</string>
 </resources>
