@@ -101,5 +101,5 @@
     <string name="profile">profile</string>
     <string name="todo">TODO</string>
     <string name="required">required</string>
-  <string name="grants">Grants</string>
+    <string name="grants">Grants</string>
 </resources>

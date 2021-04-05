@@ -144,6 +144,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="96dp"
                 android:backgroundTint="#13274c"
+                android:onClick="ClickCamera"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.985"
                 app:layout_constraintStart_toStartOf="parent"

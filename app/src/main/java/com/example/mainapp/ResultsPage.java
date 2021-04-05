@@ -31,12 +31,7 @@ public class ResultsPage extends AppCompatActivity {
         houseInfo = findViewById(R.id.imageView);
 //        favorites = findViewById(R.id.toggleButton2);
 
-        ARcamera.setOnClickListener(new View.OnClickListener() { //clicking on AR camera button
-            @Override
-            public void onClick(View v) {
-                setContentView(R.layout.activity_a_r_search_permission);
-            }
-        });
+
         SearchBar.setOnClickListener(new View.OnClickListener() { //clicking on search bar
             @Override
             public void onClick(View v) {

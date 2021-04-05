@@ -9,10 +9,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import static java.lang.Boolean.FALSE;
+
 public class ViewGrantsInfo extends AppCompatActivity {
     DrawerLayout drawerLayout;
+    boolean loggedIn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        loggedIn = FALSE;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_grants_info);
         drawerLayout = findViewById(R.id.drawer_layout);
@@ -25,7 +29,8 @@ public class ViewGrantsInfo extends AppCompatActivity {
     }
 
     public void ClickEligibility(View view){
-        MainActivity.redirectActivity(this, ViewEligibility.class);
+        if (loggedIn){MainActivity.redirectActivity(this,ViewEligibility.class);}
+        else{MainActivity.login(this);}
     }
 
     //SIDEBAR OPTIONS - FUNCTIONS
