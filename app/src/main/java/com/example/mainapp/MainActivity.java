@@ -31,23 +31,19 @@ public class MainActivity extends AppCompatActivity {
     ImageView houseInfo;
     //ToggleButton favorites;
     //for login
-    boolean loggedIn;
+    boolean loggedIn = FALSE;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        loggedIn = FALSE;
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //addListenerOnButton();
         drawerLayout = findViewById(R.id.drawer_layout);
 
         SearchBar = findViewById(R.id.button);
-       // filters = findViewById(R.id.textView3);
-        // filters2 = findViewById(R.id.imageButton3);
-        houseInfo = findViewById(R.id.imageView2);
-        //favorites = findViewById(R.id.toggleButton2);
 
-// change all this to redirect activity
+        houseInfo = findViewById(R.id.imageView2);
 
         SearchBar.setOnClickListener(new View.OnClickListener() { //clicking on search bar
             @Override
@@ -62,14 +58,8 @@ public class MainActivity extends AppCompatActivity {
                 setContentView(R.layout.activity_house_info);
             }
         });
-//       favorites.setOnClickListener(new View.OnClickListener() { //clicking on filter favorites
-//            @Override
-//            public void onClick(View v) {
-//                setContentView(R.layout.activity_favorites);
-//            }
-//        });
-    }
 
+    }
 
     public static void openDrawer(DrawerLayout drawerLayout){
         drawerLayout.openDrawer(GravityCompat.START);
@@ -88,13 +78,6 @@ public class MainActivity extends AppCompatActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         //start activity
         activity.startActivity(intent);
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        //close drawer
-        closeDrawer(drawerLayout);
     }
 
     //login permission popup
@@ -144,6 +127,12 @@ public class MainActivity extends AppCompatActivity {
         builder.show();
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        //close drawer
+        closeDrawer(drawerLayout);
+    }
 
     //SIDEBAR OPTIONS - FUNCTIONS
     public void ClickMenu(View view){
@@ -155,11 +144,10 @@ public class MainActivity extends AppCompatActivity {
     public void ClickAdvFilters(View view){
         redirectActivity(this,AdvancedFilters.class);
     }
+    public void ClickCamera(View view){ camera(this); }
 
     //VIEW GRANT INFO
-    public void ClickViewGrantsInfo(View view){
-        redirectActivity(this,ViewGrantsInfo.class);
-    }
+    public void ClickViewGrantsInfo(View view){ redirectActivity(this,ViewGrantsInfo.class); }
     public void ClickEligibility(View view){
         if (loggedIn){redirectActivity(this,ViewEligibility.class);}
         else{login(this);}
@@ -167,21 +155,13 @@ public class MainActivity extends AppCompatActivity {
 
     //VIEW AGENT INFO
     public void ClickViewAgentInfo(View view){ redirectActivity(this,ViewAgentInfo.class); }
-    public void ClickAgent(View view){
-        redirectActivity(this,MonicaGeller.class);
-    }
+    public void ClickAgent(View view){ redirectActivity(this,MonicaGeller.class); }
 
     //HOME CALC
-
     public void ClickHomeCalculator(View view){
         //this code below is correct
         if (loggedIn){redirectActivity(this,HomeCalculator.class);}
         else{login(this);}
-
-    }
-
-    public void ClickCamera(View view){
-        camera(this);
     }
 
     //MY LISTINGS
@@ -202,4 +182,6 @@ public class MainActivity extends AppCompatActivity {
         redirectActivity(this,Settings.class);
     }
 
+
 }
+
