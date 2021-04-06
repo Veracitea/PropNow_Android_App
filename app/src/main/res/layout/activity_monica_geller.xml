@@ -198,6 +198,7 @@
             android:layout_height="106dp"
             android:color="#4F5571"
             android:tint="#0B23A3"
+            android:onClick="ClickInbox"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
