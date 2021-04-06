@@ -3,19 +3,59 @@ package com.example.mainapp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
+import android.widget.Spinner;
 
 import static java.lang.Boolean.FALSE;
 
-public class ViewEligibility extends AppCompatActivity {
+public class Homecalc2 extends AppCompatActivity {
     DrawerLayout drawerLayout;
+    ImageButton myimagebutton;
+    ImageButton myimagebutton1;
+    Spinner dropdown1;
     boolean loggedIn = FALSE;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_eligibility);
+        setContentView(R.layout.activity_homecalc2);
+        myimagebutton = (ImageButton) findViewById(R.id.imageButton7);
+        dropdown1 = findViewById(R.id.spinner1);
+        String[] items = new String[]{"Employee", "Employee (Pensionable)", "Self-Employed Person", "CPF not applicable"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
+        dropdown1.setAdapter(adapter);
+
+
+        myimagebutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intentloadnewactivity = new Intent(Homecalc2.this, HomeCalculator.class);
+                startActivity(intentloadnewactivity);
+
+
+            }
+        });
+        myimagebutton1 = (ImageButton) findViewById(R.id.imageButton8);
+
+        myimagebutton1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intentloadnewactivity1 = new Intent(Homecalc2.this, HomeCalculator.class);
+                startActivity(intentloadnewactivity1);
+
+
+            }
+        });
+
+
+        drawerLayout = findViewById(R.id.drawer_layout);
     }
 
     @Override
@@ -39,7 +79,10 @@ public class ViewEligibility extends AppCompatActivity {
 
     //VIEW GRANT INFO
     public void ClickViewGrantsInfo(View view){ MainActivity.redirectActivity(this,ViewGrantsInfo.class); }
-    public void ClickEligibility(View view){recreate();}
+    public void ClickEligibility(View view){
+        if (loggedIn){MainActivity.redirectActivity(this,ViewEligibility.class);}
+        else{MainActivity.login(this);}
+    }
 
     //VIEW AGENT INFO
     public void ClickViewAgentInfo(View view){ MainActivity.redirectActivity(this,ViewAgentInfo.class); }
@@ -70,3 +113,4 @@ public class ViewEligibility extends AppCompatActivity {
         MainActivity.redirectActivity(this,Settings.class);
     }
 }
+

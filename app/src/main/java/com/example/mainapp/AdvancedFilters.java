@@ -17,9 +17,12 @@ import com.google.android.material.slider.RangeSlider;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import static java.lang.Boolean.FALSE;
+
 public class AdvancedFilters extends AppCompatActivity {
 
     DrawerLayout drawerLayout;
+    boolean loggedIn=FALSE;
     CheckBox cbPrice, cbRooms, cbLease, cbStorey;
     TextView primary,secondary;
     RangeSlider rsPrice, rsRooms, rsLease, rsStorey;
@@ -204,15 +207,6 @@ public class AdvancedFilters extends AppCompatActivity {
 
     }
 
-
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        //close drawer
-        MainActivity.closeDrawer(drawerLayout);
-    }
-
     public void ClickBackBtn(View view){
         MainActivity.redirectActivity(AdvancedFilters.this, MainActivity.class);
     }
@@ -221,25 +215,37 @@ public class AdvancedFilters extends AppCompatActivity {
         MainActivity.redirectActivity(AdvancedFilters.this, ResultsPage.class);
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        //close drawer
+        MainActivity.closeDrawer(drawerLayout);
+    }
 
     //SIDEBAR OPTIONS - FUNCTIONS
-    public void ClickMenu(View view){ MainActivity.openDrawer(drawerLayout); }
+    public void ClickMenu(View view){
+        MainActivity.openDrawer(drawerLayout);
+    }
 
     //MAIN MENU
-    public void ClickHome(View view){ MainActivity.redirectActivity(this,MainActivity.class); }
+    public void ClickHome(View view){ recreate(); }
     public void ClickAdvFilters(View view){ recreate(); }
+    public void ClickCamera(View view){ MainActivity.camera(this); }
 
     //VIEW GRANT INFO
     public void ClickViewGrantsInfo(View view){ MainActivity.redirectActivity(this,ViewGrantsInfo.class); }
 
+
     //VIEW AGENT INFO
     public void ClickViewAgentInfo(View view){ MainActivity.redirectActivity(this,ViewAgentInfo.class); }
-    public void ClickAgent(View view){
-        MainActivity.redirectActivity(this,MonicaGeller.class);
-    }
+    public void ClickAgent(View view){ MainActivity.redirectActivity(this,MonicaGeller.class); }
 
     //HOME CALC
-    public void ClickHomeCalculator(View view){ MainActivity.redirectActivity(this,HomeCalculator.class); }
+    public void ClickHomeCalculator(View view){
+        //this code below is correct
+        if (loggedIn){MainActivity.redirectActivity(this,HomeCalculator.class);}
+        else{MainActivity.login(this);}
+    }
 
     //MY LISTINGS
     public void ClickMyListings(View view){

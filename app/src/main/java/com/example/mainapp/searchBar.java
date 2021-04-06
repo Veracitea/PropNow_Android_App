@@ -8,8 +8,12 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import static java.lang.Boolean.FALSE;
+
 public class searchBar extends AppCompatActivity {
     DrawerLayout drawerLayout;
+    //for login
+    boolean loggedIn=FALSE;
 
     //changes
     @Override
@@ -18,6 +22,12 @@ public class searchBar extends AppCompatActivity {
         setContentView(R.layout.activity_search_bar);
         drawerLayout = findViewById(R.id.drawer_layout);
     }
+
+    public void ClickBackBtn2(View view){
+        MainActivity.redirectActivity(this, MainActivity.class);
+    }
+
+
     @Override
     protected void onPause() {
         super.onPause();
@@ -25,28 +35,35 @@ public class searchBar extends AppCompatActivity {
         MainActivity.closeDrawer(drawerLayout);
     }
 
-
-
-
-
     //SIDEBAR OPTIONS - FUNCTIONS
-    public void ClickMenu(View view){ MainActivity.openDrawer(drawerLayout); }
+    public void ClickMenu(View view){
+        MainActivity.openDrawer(drawerLayout);
+    }
 
     //MAIN MENU
-    public void ClickHome(View view){ MainActivity.redirectActivity(this,MainActivity.class); }
-    public void ClickAdvFilters(View view){ recreate(); }
+    public void ClickHome(View view){ recreate(); }
+    public void ClickAdvFilters(View view){
+        MainActivity.redirectActivity(this,AdvancedFilters.class);
+    }
+    public void ClickCamera(View view){ MainActivity.camera(this); }
 
     //VIEW GRANT INFO
     public void ClickViewGrantsInfo(View view){ MainActivity.redirectActivity(this,ViewGrantsInfo.class); }
+    public void ClickEligibility(View view){
+        if (loggedIn){MainActivity.redirectActivity(this,ViewEligibility.class);}
+        else{MainActivity.login(this);}
+    }
 
     //VIEW AGENT INFO
     public void ClickViewAgentInfo(View view){ MainActivity.redirectActivity(this,ViewAgentInfo.class); }
-    public void ClickAgent(View view){
-        MainActivity.redirectActivity(this,MonicaGeller.class);
-    }
+    public void ClickAgent(View view){ MainActivity.redirectActivity(this,MonicaGeller.class); }
 
     //HOME CALC
-    public void ClickHomeCalculator(View view){ MainActivity.redirectActivity(this,HomeCalculator.class); }
+    public void ClickHomeCalculator(View view){
+        //this code below is correct
+        if (loggedIn){MainActivity.redirectActivity(this,HomeCalculator.class);}
+        else{MainActivity.login(this);}
+    }
 
     //MY LISTINGS
     public void ClickMyListings(View view){
@@ -67,17 +84,4 @@ public class searchBar extends AppCompatActivity {
     }
 
 
-
-    public void ClickBackBtn2(View view){
-        System.out.println("BACK BUTTON CLICKED");
-        redirectActivity(this, Inbox.class);
-    }
-    public static void redirectActivity(Activity activity, Class aClass) {
-        //Initialize intent
-        Intent intent = new Intent(activity,aClass);
-        //set flag
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        //start activity
-        activity.startActivity(intent);
-    }
 }

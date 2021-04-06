@@ -5,17 +5,29 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 
 import static java.lang.Boolean.FALSE;
 
-public class ViewEligibility extends AppCompatActivity {
+public class Login extends AppCompatActivity {
+    android.widget.Spinner spinner;
     DrawerLayout drawerLayout;
     boolean loggedIn = FALSE;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_eligibility);
+        setContentView(R.layout.activity_login);
+        spinner = findViewById(R.id.spinner1);
+
+        // PRIMARY spinner
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.spinner_options, android.R.layout.simple_spinner_item);
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        spinner.setAdapter(adapter);
     }
 
     @Override
@@ -39,7 +51,10 @@ public class ViewEligibility extends AppCompatActivity {
 
     //VIEW GRANT INFO
     public void ClickViewGrantsInfo(View view){ MainActivity.redirectActivity(this,ViewGrantsInfo.class); }
-    public void ClickEligibility(View view){recreate();}
+    public void ClickEligibility(View view){
+        if (loggedIn){MainActivity.redirectActivity(this,ViewEligibility.class);}
+        else{MainActivity.login(this);}
+    }
 
     //VIEW AGENT INFO
     public void ClickViewAgentInfo(View view){ MainActivity.redirectActivity(this,ViewAgentInfo.class); }
@@ -69,4 +84,5 @@ public class ViewEligibility extends AppCompatActivity {
     public void ClickSettings(View view){
         MainActivity.redirectActivity(this,Settings.class);
     }
+
 }

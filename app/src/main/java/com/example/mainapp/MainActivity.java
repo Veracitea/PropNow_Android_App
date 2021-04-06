@@ -4,53 +4,47 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 
 public class MainActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
-    ImageButton ARcamera;
     Button SearchBar;
    // TextView filters;
     //ImageButton filters2;
     ImageView houseInfo;
     //ToggleButton favorites;
     //for login
-    boolean loggedIn;
+    boolean loggedIn = FALSE;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        loggedIn = TRUE;
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //addListenerOnButton();
         drawerLayout = findViewById(R.id.drawer_layout);
 
-        ARcamera = findViewById(R.id.imageButton11);
         SearchBar = findViewById(R.id.button);
-       // filters = findViewById(R.id.textView3);
-        // filters2 = findViewById(R.id.imageButton3);
-        houseInfo = findViewById(R.id.imageView2);
-        //favorites = findViewById(R.id.toggleButton2);
 
-// change all this to redirect activity
-        ARcamera.setOnClickListener(new View.OnClickListener() { //clicking on AR camera button
-            @Override
-            public void onClick(View v) { setContentView(R.layout.activity_a_r_search_permission);
-            }
-        });
+        houseInfo = findViewById(R.id.imageView2);
+
         SearchBar.setOnClickListener(new View.OnClickListener() { //clicking on search bar
             @Override
             public void onClick(View v) {
@@ -64,14 +58,8 @@ public class MainActivity extends AppCompatActivity {
                 setContentView(R.layout.activity_house_info);
             }
         });
-//        favorites.setOnClickListener(new View.OnClickListener() { //clicking on filter favorites
-//            @Override
-//            public void onClick(View v) {
-//                setContentView(R.layout.activity_favorites);
-//            }
-//        });
-    }
 
+    }
 
     public static void openDrawer(DrawerLayout drawerLayout){
         drawerLayout.openDrawer(GravityCompat.START);
@@ -92,15 +80,8 @@ public class MainActivity extends AppCompatActivity {
         activity.startActivity(intent);
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        //close drawer
-        closeDrawer(drawerLayout);
-    }
-
     //login permission popup
-    private static void login(Activity activity) {
+    public static void login(Activity activity) {
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         builder.setTitle("Login Required");
         builder.setMessage("Please login to unlock feature");
@@ -108,20 +89,49 @@ public class MainActivity extends AppCompatActivity {
         builder.setPositiveButton("Login/Sign Up", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                activity.finishAffinity();
+                //activity.finishAffinity();
                 //REDIRECT TO LOGIN PAGE !!!!!!!!!!!!!!!!!!!!!!!!!!!
-                redirectActivity(activity,HomeCalculator.class);
+                redirectActivity(activity,Login.class);
             }
         });
-        //back
+//        //back
         builder.setNegativeButton("Back", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                activity.finishAffinity();
+                dialog.cancel();
             }
         });
-
         builder.show();
+    }
+
+    //camera permission popup
+    public static void camera(Activity activity) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        builder.setTitle("Permission Required");
+        builder.setMessage("This app wants to have access to your Camera and Location.");
+        //login
+        builder.setPositiveButton("Allow", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //redirect to CAMERA!!!!!!!!!!!
+                redirectActivity(activity,HomeCalculator.class);
+            }
+        });
+//        //back
+        builder.setNegativeButton("Deny", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        builder.show();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        //close drawer
+        closeDrawer(drawerLayout);
     }
 
     //SIDEBAR OPTIONS - FUNCTIONS
@@ -134,21 +144,22 @@ public class MainActivity extends AppCompatActivity {
     public void ClickAdvFilters(View view){
         redirectActivity(this,AdvancedFilters.class);
     }
+    public void ClickCamera(View view){ camera(this); }
 
     //VIEW GRANT INFO
-    public void ClickViewGrantsInfo(View view){
-        redirectActivity(this,ViewGrantsInfo.class);
+    public void ClickViewGrantsInfo(View view){ redirectActivity(this,ViewGrantsInfo.class); }
+    public void ClickEligibility(View view){
+        if (loggedIn){redirectActivity(this,ViewEligibility.class);}
+        else{login(this);}
     }
 
     //VIEW AGENT INFO
     public void ClickViewAgentInfo(View view){ redirectActivity(this,ViewAgentInfo.class); }
-    public void ClickAgent(View view){
-        redirectActivity(this,MonicaGeller.class);
-    }
+    public void ClickAgent(View view){ redirectActivity(this,MonicaGeller.class); }
 
     //HOME CALC
-
-    public void ClickHomeCalculator(View view, boolean loggedIn){
+    public void ClickHomeCalculator(View view){
+        //this code below is correct
         if (loggedIn){redirectActivity(this,HomeCalculator.class);}
         else{login(this);}
     }
@@ -173,3 +184,4 @@ public class MainActivity extends AppCompatActivity {
 
 
 }
+

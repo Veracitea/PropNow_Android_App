@@ -64,6 +64,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="116dp"
         android:text="Advanced Filters"
+        android:onClick="ClickAdvFilters"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#193465"
         android:textStyle="bold"
@@ -72,42 +73,45 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+        <ImageButton
+            android:id="@+id/imageButton3"
+            style="@android:style/Widget.Holo.ImageButton"
+            android:layout_width="16dp"
+            android:layout_height="19dp"
+            android:layout_marginTop="116dp"
+            android:onClick="ClickAdvFilters"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.724"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@android:drawable/arrow_down_float" />
+
+        <SearchView
+    android:layout_width="297dp"
+    android:layout_height="53dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.289"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    android:animateLayoutChanges="true"
+    app:layout_constraintVertical_bias="0.064" />
+
+
     <ImageButton
-        android:id="@+id/imageButton3"
-        style="@android:style/Widget.Holo.ImageButton"
-        android:layout_width="29dp"
-        android:layout_height="26dp"
-        android:layout_marginTop="116dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.732"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/arrow_down_float" />
-
-    <SearchView
-        android:layout_width="297dp"
-        android:layout_height="53dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.289"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:animateLayoutChanges="true"
-        app:layout_constraintVertical_bias="0.064" />
-
-
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="24dp"
-        android:layout_height="17dp"
+        android:id="@+id/imageButtonN"
+        android:layout_width="50dp"
+        android:layout_height="22dp"
+        android:backgroundTint="#cad5e3"
         android:onClick="ClickBackBtn2"
-        android:tint="#040303"
+        android:tint="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.019"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.008"
+        app:layout_constraintVertical_bias="0.004"
         app:srcCompat="@drawable/abc_vector_test" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

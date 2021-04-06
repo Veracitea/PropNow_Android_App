@@ -1,6 +1,7 @@
 package com.example.mainapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.os.Bundle;
 import android.view.View;
@@ -10,8 +11,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
+import static java.lang.Boolean.FALSE;
+
 public class ResultsPage extends AppCompatActivity {
 
+    DrawerLayout drawerLayout;
+    boolean loggedIn = FALSE;
     ImageButton ARcamera;
     Button SearchBar;
     TextView filters;
@@ -31,12 +36,7 @@ public class ResultsPage extends AppCompatActivity {
         houseInfo = findViewById(R.id.imageView);
 //        favorites = findViewById(R.id.toggleButton2);
 
-        ARcamera.setOnClickListener(new View.OnClickListener() { //clicking on AR camera button
-            @Override
-            public void onClick(View v) {
-                setContentView(R.layout.activity_a_r_search_permission);
-            }
-        });
+
         SearchBar.setOnClickListener(new View.OnClickListener() { //clicking on search bar
             @Override
             public void onClick(View v) {
@@ -61,12 +61,61 @@ public class ResultsPage extends AppCompatActivity {
                 setContentView(R.layout.activity_house_info);
             }
         });
-//        favorites.setOnClickListener(new View.OnClickListener() { //clicking on filter favorites
-//            @Override
-//            public void onClick(View v) {
-//                setContentView(R.layout.activity_favorites);
-//            }
-//        });
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        //close drawer
+        MainActivity.closeDrawer(drawerLayout);
+    }
+
+    //SIDEBAR OPTIONS - FUNCTIONS
+    public void ClickMenu(View view){
+        MainActivity.openDrawer(drawerLayout);
+    }
+
+    //MAIN MENU
+    public void ClickHome(View view){ recreate(); }
+    public void ClickAdvFilters(View view){
+        MainActivity.redirectActivity(this,AdvancedFilters.class);
+    }
+    public void ClickCamera(View view){ MainActivity.camera(this); }
+
+    //VIEW GRANT INFO
+    public void ClickViewGrantsInfo(View view){ MainActivity.redirectActivity(this,ViewGrantsInfo.class); }
+    public void ClickEligibility(View view){
+        if (loggedIn){MainActivity.redirectActivity(this,ViewEligibility.class);}
+        else{MainActivity.login(this);}
+    }
+
+    //VIEW AGENT INFO
+    public void ClickViewAgentInfo(View view){ MainActivity.redirectActivity(this,ViewAgentInfo.class); }
+    public void ClickAgent(View view){ MainActivity.redirectActivity(this,MonicaGeller.class); }
+
+    //HOME CALC
+    public void ClickHomeCalculator(View view){
+        //this code below is correct
+        if (loggedIn){MainActivity.redirectActivity(this,HomeCalculator.class);}
+        else{MainActivity.login(this);}
+    }
+
+    //MY LISTINGS
+    public void ClickMyListings(View view){
+        MainActivity.redirectActivity(this,MyListings.class);
+    }
+
+    //INBOX
+    public void ClickInbox(View view){
+        MainActivity.redirectActivity(this,Inbox.class);
+    }
+    public void ClickEditInbox(View view){
+        MainActivity.redirectActivity(this,EditInbox.class);
+    }
+
+    //SETTINGS
+    public void ClickSettings(View view){
+        MainActivity.redirectActivity(this,Settings.class);
     }
 
 }

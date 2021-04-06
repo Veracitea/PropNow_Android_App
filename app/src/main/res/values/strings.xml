@@ -56,4 +56,50 @@
     <string name="temporary_loan_scheme">Temporary Loan Scheme</string>
     <string name="you_could_receive_cpf_housing_grants_of_up_to_80_000_to_help_finance_the_purchase_of_your_new_flat">You could receive CPF Housing Grants of up to $80,000 to help finance the purchase of your new flat.</string>
     <string name="the_temporary_loan_scheme_helps_ease_your_cash_flow_when_purchasing_a_new_flat_and_selling_your_current_one">The temporary loan scheme helps ease your cash flow when purchasing a new flat and selling your current one.</string>
+    <string name="calculate">Calculate</string>
+    <string name="cancel">cancel</string>
+    <string name="hdb_resale_flat">HDB Resale Flat</string>
+    <string name="_356_990_00">$356,990.00</string>
+    <string name="purchase_price">purchase price</string>
+    <string name="loan_amount">Loan amount</string>
+    <string name="loan_period_years">Loan period (years)</string>
+    <string name="downpayment">Downpayment</string>
+    <string name="monthly_installment">Monthly installment</string>
+    <string name="annum">annum)</string>
+    <string name="using_hdb_loan">(Using HDB Loan)</string>
+    <string name="results">Results</string>
+    <string name="possible_property">Possible property</string>
+    <string name="_300_134_00">$300,134.00</string>
+    <string name="_35_699_00">$35,699.00</string>
+    <string name="_2_30">2.30 %</string>
+    <string name="interest_rate_per">Interest rate (per</string>
+    <string name="computation">Computation</string>
+    <string name="_19">19</string>
+    <string name="_2459_19">$2459.19</string>
+    <string name="sq">sq</string>
+    <string name="uid_k74565l_nbing_ok">UID: K74565L\nBing: Ok</string>
+    <string name="phoebe_buffay">Phoebe Buffay</string>
+    <string name="uid_r56784k_nme_sure">UID: R56784K\nMe: Sure</string>
+    <string name="uid_t50678m_nphoebe_hmmm">UID: T50678M\nPhoebe: Hmmm</string>
+    <string name="ross_geller">Ross Geller</string>
+    <string name="chandler_bing">Chandler Bing</string>
+    <string name="uid_j34920k_nmike_are_you_sure">UID: J34920K\nMike: Are you sure?</string>
+    <string name="uid_k84483m_nme_yes"><![CDATA[UID: K84483M\nMe: Yes]]></string>
+    <string name="uid_k74565l_nbing_ok1">UID: K74565L\nBing: Ok</string>
+    <string name="uid_t50678m_nphoebe_hmmm1">UID: T50678M\nPhoebe: Hmmm</string>
+    <string name="amy_green">Amy Green</string>
+    <string name="uid_k84483m_nme_yes1"><![CDATA[UID: K84483M\nMe: Yes]]></string>
+    <string name="mike_hanigan">Mike Hanigan</string>
+
+    <string name="uid_r56784k_nme_sure1">UID: R56784K\nMe: Sure</string>
+
+    <string name="uid_j34920k_nmike_are_you_sure1">UID: J34920K\nMike: Are you sure?</string>
+    <string name="inbox">Inbox</string>
+
+    <string name="profile1">profile1</string>
+    <string name="profile2">profile2</string>
+    <string name="profile">profile</string>
+    <string name="todo">TODO</string>
+    <string name="required">required</string>
+    <string name="grants">Grants</string>
 </resources>
