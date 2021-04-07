@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MainApp">
-        <activity android:name=".Login"></activity>
+        <activity android:name=".Chat"></activity>
+        <activity android:name=".Login" />
         <activity android:name=".Homecalc3" />
         <activity android:name=".Homecalc2" />
         <activity android:name=".ViewEligibility" />

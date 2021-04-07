@@ -102,4 +102,10 @@
     <string name="todo">TODO</string>
     <string name="required">required</string>
     <string name="grants">Grants</string>
+    <string name="hou">hou</string>
+    <string name="option">option</string>
+    <string name="cam">cam</string>
+    <string name="mic">mic</string>
+    <string name="chat">chat</string>
+
 </resources>

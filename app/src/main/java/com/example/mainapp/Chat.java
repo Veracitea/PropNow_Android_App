@@ -5,19 +5,31 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.CheckBox;
+import android.widget.ImageButton;
+import android.widget.PopupMenu;
 
-import static java.lang.Boolean.FALSE;
-
-public class Inbox extends AppCompatActivity {
+public class Chat extends AppCompatActivity {
     DrawerLayout drawerLayout;
-    boolean loggedIn = FALSE;
+    ImageButton button;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_inbox);
-        drawerLayout = findViewById(R.id.drawer_layout);
+        setContentView(R.layout.activity_chat);
+        button = findViewById(R.id.imageButton4);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopupMenu popup = new PopupMenu(Chat.this, v);
+                popup.setOnMenuItemClickListener((PopupMenu.OnMenuItemClickListener) Chat.this);
+                popup.inflate(R.menu.popup_menu);
+                popup.show();
+            }
+        });
     }
+
+
 
     @Override
     protected void onPause() {
@@ -41,8 +53,8 @@ public class Inbox extends AppCompatActivity {
     //VIEW GRANT INFO
     public void ClickViewGrantsInfo(View view){ MainActivity.redirectActivity(this,ViewGrantsInfo.class); }
     public void ClickEligibility(View view){
-        if (loggedIn){MainActivity.redirectActivity(this,ViewEligibility.class);}
-        else{MainActivity.login(this);}
+        MainActivity.redirectActivity(this,ViewEligibility.class);
+        //else{MainActivity.login(this);}
     }
 
     //VIEW AGENT INFO
@@ -52,8 +64,8 @@ public class Inbox extends AppCompatActivity {
     //HOME CALC
     public void ClickHomeCalculator(View view){
         //this code below is correct
-        if (loggedIn){MainActivity.redirectActivity(this,HomeCalculator.class);}
-        else{MainActivity.login(this);}
+       MainActivity.redirectActivity(this,HomeCalculator.class);
+       // else{MainActivity.login(this);}
     }
 
     //MY LISTINGS
