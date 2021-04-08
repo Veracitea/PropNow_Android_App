@@ -1,9 +1,13 @@
 package com.example.mainapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
@@ -21,13 +25,39 @@ public class Chat extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PopupMenu popup = new PopupMenu(Chat.this, v);
-                popup.setOnMenuItemClickListener((PopupMenu.OnMenuItemClickListener) Chat.this);
-                popup.inflate(R.menu.popup_menu);
-                popup.show();
+                showPopup(v);
             }
         });
     }
+    public void showPopup(View v) {
+        PopupMenu popup = new PopupMenu(this, v);
+        MenuInflater inflater = popup.getMenuInflater();
+        inflater.inflate(R.menu.popup_menu, popup.getMenu());
+        popup.show();
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()) {
+            case R.id.camera:
+                System.out.println("CLICKED ON CAMERA");
+                MainActivity.camera(this);
+                MainActivity.redirectActivity(this,HomeCalculator.class);//change later!
+                return true;
+//            case R.id.photo:
+//                delete(item);
+//                return true;
+            default:
+                return false;
+        }
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.popup_menu, menu);  // for the two icons in action bar
+        return true;
+    }
+
+
+
 
 
 
