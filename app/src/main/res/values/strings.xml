@@ -107,5 +107,11 @@
     <string name="cam">cam</string>
     <string name="mic">mic</string>
     <string name="chat">chat</string>
+    <string name="change_contact_information1">Change contact information</string>
+    <string name="edit_information_of_second_buye1r">Edit information of second buyer</string>
+    <string name="delete_account1">Delete account</string>
+    <string name="notifications1">Notifications</string>
+    <string name="edit_bio1">Edit bio</string>
+    <string name="change_font_size1">Change font size</string>
 
 </resources>

@@ -76,8 +76,8 @@
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="88dp"
-                android:layout_marginEnd="40dp"
+                android:layout_marginTop="92dp"
+                android:layout_marginEnd="44dp"
                 android:text="@string/name_rachel_green"
                 android:textColor="#0B0A0A"
                 android:textSize="22sp"
@@ -122,83 +122,94 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/textView7"
+            <Button
+                android:id="@+id/button4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="188dp"
-                android:text="@string/edit_bio"
-                android:textColor="#040303"
-                android:textSize="25sp"
+                android:backgroundTint="#FFFFFF"
+                android:text="@string/change_contact_information1"
+                android:textColor="#000000"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.085"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintHorizontal_bias="0.247"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.413" />
 
-            <TextView
-                android:id="@+id/textView6"
+            <Button
+                android:id="@+id/button5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="380dp"
-                android:text="@string/change_contact_information"
-                android:textColor="#040303"
-                android:textSize="25sp"
+                android:backgroundTint="#FFFFFF"
+                android:text="@string/change_font_size1"
+                android:textColor="#000000"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.294"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintHorizontal_bias="0.105"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.515" />
 
-            <TextView
-                android:id="@+id/textView9"
+            <Button
+                android:id="@+id/button6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="252dp"
-                android:text="@string/notifications"
-                android:textColor="#040303"
-                android:textSize="25sp"
+                android:backgroundTint="#FFFFFF"
+                android:text="@string/notifications1"
+                android:textColor="#000000"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.104"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintHorizontal_bias="0.09"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.612" />
 
-            <TextView
-                android:id="@+id/textView8"
+            <Button
+                android:id="@+id/button7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="316dp"
-                android:text="@string/change_font_size"
-                android:textColor="#040303"
-                android:textSize="25sp"
+                android:backgroundTint="#FFFFFF"
+                android:text="@string/edit_bio1"
+                android:textColor="#000000"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.127"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintHorizontal_bias="0.072"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.711" />
 
-            <TextView
-                android:id="@+id/textView11"
+            <Button
+                android:id="@+id/button8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="60dp"
-                android:text="@string/delete_account"
-                android:textColor="#040303"
-                android:textSize="25sp"
+                android:backgroundTint="#FFFFFF"
+                android:text="@string/edit_information_of_second_buye1r"
+                android:textColor="#000000"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.116"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.818" />
 
-            <TextView
-                android:id="@+id/textView10"
+            <Button
+                android:id="@+id/button9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="128dp"
-                android:text="@string/edit_information_of_second_buyer"
-                android:textColor="#040303"
-                android:textSize="25sp"
+                android:backgroundTint="#FFFFFF"
+                android:text="@string/delete_account1"
+                android:textColor="#000000"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.583"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintHorizontal_bias="0.098"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.909" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
