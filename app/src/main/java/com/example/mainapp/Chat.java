@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
+import android.widget.Toast;
 
 public class Chat extends AppCompatActivity {
     DrawerLayout drawerLayout;
@@ -34,22 +35,49 @@ public class Chat extends AppCompatActivity {
         MenuInflater inflater = popup.getMenuInflater();
         inflater.inflate(R.menu.popup_menu, popup.getMenu());
         popup.show();
+
+        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                                             public boolean onMenuItemClick(MenuItem item) {
+                                                 switch (item.getItemId()) {
+                                                     case R.id.camera:
+                                                         //Toast.makeText(Chat.this, "Keyword!", Toast.LENGTH_SHORT).show();
+                                                         MainActivity.camera(Chat.this);
+                                                         return true;
+                                                     case R.id.photo:
+                                                         // redirect to gallery
+                                                         return true;
+                                                     case R.id.doc:
+                                                         // redirect to documents
+                                                         return true;
+                                                     case R.id.location:
+                                                         // redirect to map
+                                                         return true;
+                                                     case R.id.contact:
+                                                         // redirect to contacts
+                                                         return true;
+                                                     default:
+                                                         return false;
+                                                 }
+                                             }
+                                         });
     }
 
-    public boolean onOptionsItemSelected(MenuItem item){
-        switch (item.getItemId()) {
-            case R.id.camera:
-                System.out.println("CLICKED ON CAMERA");
-                MainActivity.camera(this);
-                MainActivity.redirectActivity(this,HomeCalculator.class);//change later!
-                return true;
-//            case R.id.photo:
-//                delete(item);
+
+//    public boolean onOptionsItemSelected(MenuItem item){
+//        switch (item.getItemId()) {
+//            case R.id.camera:
+//                System.out.println("CLICKED ON CAMERA");
+//              //  MainActivity.camera(this);
+//                MainActivity.redirectActivity(this,HomeCalculator.class);//change later!
 //                return true;
-            default:
-                return false;
-        }
-    }
+////            case R.id.photo:
+////                delete(item);
+////                return true;
+//            default:
+//                recreate();
+//                return false;
+//        }
+//    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.popup_menu, menu);  // for the two icons in action bar
