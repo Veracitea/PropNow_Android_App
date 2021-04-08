@@ -162,49 +162,40 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageButton
-        android:id="@+id/imageButton4"
-        android:layout_width="50dp"
-        android:layout_height="45dp"
-        android:layout_marginBottom="8dp"
+            <ImageButton
+                android:id="@+id/imageButton4"
+                android:layout_width="50dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="24dp"
 
-        android:contentDescription="@string/option"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@android:drawable/ic_input_add" />
+                android:layout_marginBottom="12dp"
+                android:contentDescription="@string/option"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@android:drawable/ic_input_add" />
 
-    <ImageButton
-        android:id="@+id/imageButton5"
-        android:layout_width="54dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="72dp"
-        android:layout_marginBottom="8dp"
-        android:contentDescription="@string/cam"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_camera" />
+            <ImageButton
+                android:id="@+id/imageButton9"
+                android:layout_width="51dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="36dp"
+                android:layout_marginBottom="8dp"
+                android:contentDescription="@string/mic"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@android:drawable/ic_btn_speak_now" />
 
-    <ImageButton
-        android:id="@+id/imageButton9"
-        android:layout_width="51dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:contentDescription="@string/mic"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@android:drawable/ic_btn_speak_now" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="211dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginBottom="12dp"
-        android:contentDescription="@string/chat"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/box" />
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="211dp"
+                android:layout_height="39dp"
+                android:layout_marginStart="64dp"
+                android:layout_marginBottom="12dp"
+                android:contentDescription="@string/chat"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/imageButton9"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/box" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
