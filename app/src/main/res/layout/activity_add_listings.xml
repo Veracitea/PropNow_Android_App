@@ -62,8 +62,8 @@
 
             <Button
                 android:id="@+id/btn_addListing"
-                android:layout_width="404dp"
-                android:layout_height="61dp"
+                android:layout_width="412dp"
+                android:layout_height="65dp"
                 android:backgroundTint="#D6D6D6"
                 android:text="Add Listing"
                 android:textColor="#172CA1"
