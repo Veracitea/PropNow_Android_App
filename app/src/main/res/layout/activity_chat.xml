@@ -91,6 +91,7 @@
                 android:layout_marginTop="16dp"
                 android:contentDescription="@string/backbutton"
                 android:tint="#070707"
+                android:onClick="ClickInbox"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/abc_vector_test" />
