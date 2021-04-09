@@ -19,6 +19,7 @@ public class MyListings extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawer_layout);
     }
 
+    public void ClickAddListing(View view){MainActivity.redirectActivity(this,AddListings.class); }
 
     @Override
     protected void onPause() {
