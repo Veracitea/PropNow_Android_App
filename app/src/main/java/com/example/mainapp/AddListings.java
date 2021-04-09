@@ -25,7 +25,7 @@ public class AddListings extends AppCompatActivity {
         btn_addListing = findViewById(R.id.btn_addListing);
         et_blockNum = findViewById(R.id.et_blockNum);
         et_unitNum = findViewById(R.id.et_unitNum);
-        et_street = findViewById(R.id.et_street);
+        et_street = findViewById(R.id.et_unitNum2);
         et_bedroomNum = findViewById(R.id.et_bedroomNum);
         et_nearestMRT = findViewById(R.id.et_nearestMRT);
 
