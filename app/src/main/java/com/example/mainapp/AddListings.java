@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -19,9 +20,13 @@ public class AddListings extends AppCompatActivity {
 
     //references to buttons and other controls on layout
     DrawerLayout drawerLayout;
-    Button btn_addListing;
-    EditText et_blockNum, et_unitNum, et_street, et_bedroomNum, et_nearestMRT;
     ListView lv_houseList;
+
+    EditText et_blockNum, et_street, et_story, et_town, et_bedroomNum, et_floorArea, et_flatModel, et_leaseCommencement, et_remainingLease, et_resalePrice;
+    ImageButton btn_addImage;
+    Button btn_addListing;
+
+
 
     //getting domain and loggedIn status
     String domain = MainActivity.getDomain();
@@ -37,13 +42,20 @@ public class AddListings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_listings);
 
-
-        btn_addListing = findViewById(R.id.btn_addListing);
         et_blockNum = findViewById(R.id.et_blockNum);
-        et_unitNum = findViewById(R.id.et_unitNum);
         et_street = findViewById(R.id.et_street);
+        et_story = findViewById(R.id.et_story);
+        et_town = findViewById(R.id.et_town);
         et_bedroomNum = findViewById(R.id.et_bedroomNum);
-        et_nearestMRT = findViewById(R.id.et_nearestMRT);
+        et_floorArea = findViewById(R.id.et_floorArea);
+        et_flatModel = findViewById(R.id.et_flatModel);
+        et_leaseCommencement = findViewById(R.id.et_leaseCommencement);
+        et_remainingLease = findViewById(R.id.et_remainingLease);
+        et_resalePrice = findViewById(R.id.et_resalePrice);
+
+        btn_addImage = findViewById(R.id.btn_addImage);
+        btn_addListing = findViewById(R.id.btn_addListing);
+
 
         //for sidebar - show options by domain
         mainmenu = findViewById(R.id.mainmenu);
@@ -85,10 +97,18 @@ public class AddListings extends AppCompatActivity {
 
                 try{
                     House house = new House(-1,
+                            et_town.toString(),
                             Integer.parseInt(et_bedroomNum.getText().toString()),
                             et_blockNum.toString(),
-                            et_unitNum.toString(),
-                            et_nearestMRT.toString());
+                            et_street.toString(),
+                            et_story.toString(),
+                            et_floorArea.toString(),
+                            et_flatModel.toString(),
+                            et_leaseCommencement.toString(),
+                            et_remainingLease.toString(),
+                            et_resalePrice.toString(),
+                            130
+                            );
 
 
                     Toast.makeText(AddListings.this , house.toString(), Toast.LENGTH_SHORT).show();

@@ -10,7 +10,6 @@ public class HouseDatabaseHelper extends SQLiteOpenHelper {
 
     public static final String HOUSE_TABLE = "HOUSE_TABLE";
     public static final String COL_ID = "id";
-    public static final String COL_MONTH = "month";
     public static final String COL_TOWN = "town";
     public static final String COL_FLAT_TYPE = "flat_type";
     public static final String COL_BLOCK = "block";
@@ -31,11 +30,16 @@ public class HouseDatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String createTableStatement = "CREATE TABLE " + HOUSE_TABLE + "(" + COL_ID + " INT  NOT NULL PRIMARY KEY AUTO_INCREMENT, " + COL_MONTH + " VARCHAR(7) NOT NULL," +
+        String createTableStatement = "CREATE TABLE " + HOUSE_TABLE + "(" + COL_ID + " INT  NOT NULL PRIMARY KEY AUTO_INCREMENT, " +
                 COL_TOWN + " VARCHAR(15) NOT NULL , " + COL_FLAT_TYPE + " VARCHAR(16) NOT NULL, " + COL_BLOCK + " VARCHAR(4) NOT NULL, " + COL_STREET_NAME + " VARCHAR(20) NOT NULL," +
                 COL_STOREY_RANGE + " VARCHAR(8) NOT NULL, " + COL_FLOOR_AREA_SQM + " NUMERIC(4,1) NOT NULL, " + COL_FLAT_MODEL + " VARCHAR(22) NOT NULL, " +
                 COL_LEASE_COMMENCE_DATE + " INTEGER  NOT NULL, " + COL_REMAINING_LEASE + " VARCHAR(18) NOT NULL, " + COL_RESALE_PRICE + " NUMERIC(9,2) NOT NULL," +
                 COL_AGENT_NAME + " VARCHAR(20) NOT NULL)";
+
+        db.execSQL(createTableStatement);
+
+
+
 
     }
 //this is used if the version number changes.
