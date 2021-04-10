@@ -107,5 +107,11 @@
     <string name="cam">cam</string>
     <string name="mic">mic</string>
     <string name="chat">chat</string>
+    <string name="blocknum">Block No.</string>
+    <string name="unitNum">Unit No.</string>
+    <string name="street">Street/Avenue</string>
+    <string name="bedroomNum">No. of bedrooms</string>
+    <string name="nearestMRT">Nearest MRT(s)</string>
+    <string name="addListing">Add</string>
 
 </resources>
