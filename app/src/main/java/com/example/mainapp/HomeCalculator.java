@@ -9,8 +9,12 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 
+import static android.view.View.VISIBLE;
 import static java.lang.Boolean.FALSE;
 
 public class HomeCalculator extends AppCompatActivity {
@@ -18,8 +22,13 @@ public class HomeCalculator extends AppCompatActivity {
     ImageButton myimagebutton;
     Button mybutton;
     Spinner dropdown;
-    boolean loggedIn = FALSE;
-
+    //getting domain and loggedIn status
+    String domain = MainActivity.getDomain();
+    boolean loggedIn = MainActivity.setLoggedIn();
+    //for sidebar - show options by domain
+    LinearLayout mainmenu,viewgrants,viewagentinfo,homecalc,mylistings,inbox,settings;
+    TextView username;
+    ImageView picture,picture1,picture2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +36,40 @@ public class HomeCalculator extends AppCompatActivity {
         setContentView(R.layout.activity_home_calculator);
         myimagebutton = (ImageButton) findViewById(R.id.imageButton2);
         dropdown = findViewById(R.id.spinner1);
+
+        //for sidebar - show options by domain
+        mainmenu = findViewById(R.id.mainmenu);
+        viewgrants = findViewById(R.id.viewgrants);
+        viewagentinfo = findViewById(R.id.viewagentinfo);
+        homecalc = findViewById(R.id.homecalc);
+        mylistings = findViewById(R.id.mylistings);
+        inbox = findViewById(R.id.inbox);
+        settings = findViewById(R.id.settings);
+        username = findViewById(R.id.username);
+        picture = findViewById(R.id.picture);
+        picture1 = findViewById(R.id.picture1);
+        picture1.setVisibility(View.GONE);
+        picture2 = findViewById(R.id.picture2);
+        picture2.setVisibility(View.GONE);
+
+        //set visibility according to domain
+        if (domain=="AGENT"){  //for agents
+            viewgrants.setVisibility(View.GONE);
+            homecalc.setVisibility(View.GONE);
+            viewagentinfo.setVisibility(View.GONE);
+            username.setText("Monica Geller\nAgent ID: U273849K");
+            picture1.setVisibility(VISIBLE);
+            picture.setVisibility(View.GONE);
+        } else if (domain=="NON-AGENT"){  //for non-agents
+            mylistings.setVisibility(View.GONE);
+            username.setText("Rachel Green");
+            picture2.setVisibility(VISIBLE);
+            picture.setVisibility(View.GONE);
+        } else{  //for general users
+            mylistings.setVisibility(View.GONE);
+            inbox.setVisibility(View.GONE);
+        }
+
         String[] items = new String[]{"Employee", "Employee (Pensionable)", "Self-Employed Person", "CPF not applicable"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
         dropdown.setAdapter(adapter);

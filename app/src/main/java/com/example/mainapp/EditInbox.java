@@ -5,17 +5,61 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import static android.view.View.VISIBLE;
 import static java.lang.Boolean.FALSE;
 
 public class EditInbox extends AppCompatActivity {
     DrawerLayout drawerLayout;
-    boolean loggedIn=FALSE;
+    //getting domain and loggedIn status
+    String domain = MainActivity.getDomain();
+    boolean loggedIn = MainActivity.setLoggedIn();
+    //for sidebar - show options by domain
+    LinearLayout mainmenu,viewgrants,viewagentinfo,homecalc,mylistings,inbox,settings;
+    TextView username;
+    ImageView picture,picture1,picture2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_inbox);
         drawerLayout = findViewById(R.id.drawer_layout);
+
+        //for sidebar - show options by domain
+        mainmenu = findViewById(R.id.mainmenu);
+        viewgrants = findViewById(R.id.viewgrants);
+        viewagentinfo = findViewById(R.id.viewagentinfo);
+        homecalc = findViewById(R.id.homecalc);
+        mylistings = findViewById(R.id.mylistings);
+        inbox = findViewById(R.id.inbox);
+        settings = findViewById(R.id.settings);
+        username = findViewById(R.id.username);
+        picture = findViewById(R.id.picture);
+        picture1 = findViewById(R.id.picture1);
+        picture1.setVisibility(View.GONE);
+        picture2 = findViewById(R.id.picture2);
+        picture2.setVisibility(View.GONE);
+
+        //set visibility according to domain
+        if (domain=="AGENT"){  //for agents
+            viewgrants.setVisibility(View.GONE);
+            homecalc.setVisibility(View.GONE);
+            viewagentinfo.setVisibility(View.GONE);
+            username.setText("Monica Geller\nAgent ID: U273849K");
+            picture1.setVisibility(VISIBLE);
+            picture.setVisibility(View.GONE);
+        } else if (domain=="NON-AGENT"){  //for non-agents
+            mylistings.setVisibility(View.GONE);
+            username.setText("Rachel Green");
+            picture2.setVisibility(VISIBLE);
+            picture.setVisibility(View.GONE);
+        } else{  //for general users
+            mylistings.setVisibility(View.GONE);
+            inbox.setVisibility(View.GONE);
+        }
     }
 
     @Override

@@ -10,19 +10,65 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.PopupMenu;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import static android.view.View.VISIBLE;
 
 public class Chat extends AppCompatActivity {
     DrawerLayout drawerLayout;
     ImageButton button;
-
+    //getting domain and loggedIn status
+    String domain = MainActivity.getDomain();
+    boolean loggedIn = MainActivity.setLoggedIn();
+    //for sidebar - show options by domain
+    LinearLayout mainmenu,viewgrants,viewagentinfo,homecalc,mylistings,inbox,settings;
+    TextView username;
+    ImageView picture,picture1,picture2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
         button = findViewById(R.id.imageButton4);
+        //for sidebar - show options by domain
+        mainmenu = findViewById(R.id.mainmenu);
+        viewgrants = findViewById(R.id.viewgrants);
+        viewagentinfo = findViewById(R.id.viewagentinfo);
+        homecalc = findViewById(R.id.homecalc);
+        mylistings = findViewById(R.id.mylistings);
+        inbox = findViewById(R.id.inbox);
+        settings = findViewById(R.id.settings);
+        username = findViewById(R.id.username);
+        picture = findViewById(R.id.picture);
+        picture1 = findViewById(R.id.picture1);
+        picture1.setVisibility(View.GONE);
+        picture2 = findViewById(R.id.picture2);
+        picture2.setVisibility(View.GONE);
+
+        //set visibility according to domain
+        if (domain=="AGENT"){  //for agents
+            viewgrants.setVisibility(View.GONE);
+            homecalc.setVisibility(View.GONE);
+            viewagentinfo.setVisibility(View.GONE);
+            username.setText("Monica Geller\nAgent ID: U273849K");
+            picture1.setVisibility(VISIBLE);
+            picture.setVisibility(View.GONE);
+        } else if (domain=="NON-AGENT"){  //for non-agents
+            mylistings.setVisibility(View.GONE);
+            username.setText("Rachel Green");
+            picture2.setVisibility(VISIBLE);
+            picture.setVisibility(View.GONE);
+        } else{  //for general users
+            mylistings.setVisibility(View.GONE);
+            inbox.setVisibility(View.GONE);
+        }
+
+
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
