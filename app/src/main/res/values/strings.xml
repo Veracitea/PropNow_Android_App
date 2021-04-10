@@ -113,5 +113,6 @@
     <string name="bedroomNum">No. of bedrooms</string>
     <string name="nearestMRT">Nearest MRT(s)</string>
     <string name="addListing">Add</string>
+    <string name="new_listing">New Listing</string>
 
 </resources>
