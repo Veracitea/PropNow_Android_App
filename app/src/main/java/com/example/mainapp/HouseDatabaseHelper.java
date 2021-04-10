@@ -37,20 +37,6 @@ public class HouseDatabaseHelper extends SQLiteOpenHelper {
                 COL_LEASE_COMMENCE_DATE + " INTEGER  NOT NULL, " + COL_REMAINING_LEASE + " VARCHAR(18) NOT NULL, " + COL_RESALE_PRICE + " NUMERIC(9,2) NOT NULL," +
                 COL_AGENT_NAME + " VARCHAR(20) NOT NULL)";
 
-
-               /* CREATE TABLE HOUSE_TABLE (id INT  NOT NULL PRIMARY KEY AUTO_INCREMENT ,month VARCHAR(7) NOT NULL
-                ,town                VARCHAR(15) NOT NULL
-                ,flat_type           VARCHAR(16) NOT NULL
-                ,block               VARCHAR(4) NOT NULL
-                ,street_name         VARCHAR(20) NOT NULL
-                ,storey_range        VARCHAR(8) NOT NULL
-                ,floor_area_sqm      NUMERIC(4,1) NOT NULL
-                ,flat_model          VARCHAR(22) NOT NULL
-                ,lease_commence_date INTEGER  NOT NULL
-                ,remaining_lease     VARCHAR(18) NOT NULL
-                ,resale_price        NUMERIC(9,2) NOT NULL
-        );*/
-
     }
 //this is used if the version number changes.
     @Override
