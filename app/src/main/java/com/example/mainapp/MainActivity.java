@@ -28,17 +28,14 @@ import static java.lang.Boolean.TRUE;
 
 public class MainActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
+    Button SearchBar;
+    ImageView houseInfo;
 
     //for sidebar - show options by domain
     LinearLayout mainmenu,viewgrants,viewagentinfo,homecalc,mylistings,inbox,settings;
     TextView username;
     ImageView picture,picture1,picture2;
 
-    Button SearchBar;
-   // TextView filters;
-    //ImageButton filters2;
-    ImageView houseInfo;
-    //ToggleButton favorites;
     //for login
     boolean loggedIn = FALSE;
     String domain = "AGENT";
@@ -50,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         //addListenerOnButton();
         drawerLayout = findViewById(R.id.drawer_layout);
+
 
         //for sidebar - show options by domain
         mainmenu = findViewById(R.id.mainmenu);

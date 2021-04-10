@@ -18,7 +18,7 @@ public class HouseDatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String createTableStatement = "CREATE TABLE " + HOUSE_TABLE + "()"
+        String createTableStatement = "CREATE TABLE " + HOUSE_TABLE + "()";
 
 
                /* CREATE TABLE HOUSE_TABLE (id INT  NOT NULL PRIMARY KEY AUTO_INCREMENT ,month VARCHAR(7) NOT NULL
