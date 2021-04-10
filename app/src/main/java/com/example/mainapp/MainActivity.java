@@ -26,6 +26,28 @@ import static android.view.View.VISIBLE;
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 
+import android.os.Bundle;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
+import android.util.Log;
+import android.view.View;
+
+import android.view.Menu;
+import android.view.MenuItem;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     Button SearchBar;
@@ -57,6 +79,10 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        readUserData(); //SELF CREATED FUNC database
+        readAgentData(); //SELF CREATED FUNC database
+        
         //addListenerOnButton();
         drawerLayout = findViewById(R.id.drawer_layout);
 //        System.out.println(domain);
@@ -240,5 +266,79 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    
+    // SELF MADE FUNCTION
+    private List<databass> nonagent= new ArrayList<>();
+    private void readUserData(){
+        InputStream is = getResources().openRawResource(R.raw.nonagent); //imp class
+        BufferedReader reader = new BufferedReader(
+                new InputStreamReader(is, Charset.forName("UTF-8")) //alt enter and import class charset
+        );
+
+        String line= "";
+        try{
+            reader.readLine();
+            while((line=reader.readLine())!= null){
+                Log.d("MyActivity","Line: " + line);
+                String[] tokens= line.split(",");
+
+                databass nonagents= new databass();
+                nonagents.setUserId(Integer.parseInt(tokens[0]));
+                nonagents.setName(tokens[1]);
+                nonagents.setAge(Integer.parseInt(tokens[2]));
+                nonagents.setSalary(Integer.parseInt(tokens[3]));
+                nonagents.setPassword(tokens[4]);
+                nonagents.setDomain(tokens[5]);
+                nonagents.setEmail(tokens[6]);
+                nonagents.setNumber(tokens[7]);
+                nonagents.setSecondbuyer_name(tokens[8]);
+                nonagents.setSecondbuyer_age(tokens[9]);
+                nonagents.setSecondbuyer_salary(Integer.parseInt(tokens[10]));
+                nonagents.setRelationship(tokens[11]);
+                nonagent.add(nonagents);
+                Log.d("MyActivity","Just Created: " + nonagents);
+            }
+        }catch (IOException e){
+            Log.wtf("MyActivity","Error reading on Line: " + line,e);
+            e.printStackTrace();
+        }
+
+    }
+
+
+
+    // SELF MADE FUNCTION
+    private List<databass2> agent= new ArrayList<>();
+    private void readAgentData(){
+        InputStream iss = getResources().openRawResource(R.raw.agent); //imp class
+        BufferedReader reader = new BufferedReader(
+                new InputStreamReader(iss, Charset.forName("UTF-8")) //alt enter and import class charset
+        );
+
+        String line= "";
+        try{
+            reader.readLine();
+            while((line=reader.readLine())!= null){
+                Log.d("MyActivity","Line: " + line);
+                String[] tokens= line.split(",");
+
+                databass2 agents= new databass2();
+                agents.setUserId(Integer.parseInt(tokens[0]));
+                agents.setCompName(tokens[1]);
+                agents.setName(tokens[2]);
+                agents.setPassword(tokens[3]);
+                agents.setDomain(tokens[4]);
+                agents.setEmail(tokens[5]);
+                agents.setNumber(tokens[6]);
+                agent.add(agents);
+                Log.d("MyActivity","Just Created: " + agents);
+            }
+        }catch (IOException e){
+            Log.wtf("MyActivity","Error reading on Line: " + line,e);
+            e.printStackTrace();
+        }
+    
+    
+    
 }
 
