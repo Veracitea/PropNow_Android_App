@@ -25,7 +25,7 @@ public class AddListings extends AppCompatActivity {
         btn_addListing = findViewById(R.id.btn_addListing);
         et_blockNum = findViewById(R.id.et_blockNum);
         et_unitNum = findViewById(R.id.et_unitNum);
-        et_street = findViewById(R.id.et_unitNum2);
+        et_street = findViewById(R.id.et_street);
         et_bedroomNum = findViewById(R.id.et_bedroomNum);
         et_nearestMRT = findViewById(R.id.et_nearestMRT);
 
@@ -33,8 +33,24 @@ public class AddListings extends AppCompatActivity {
         btn_addListing.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(AddListings.this , "add button", Toast.LENGTH_SHORT).show();
 
+                try{
+                    House house = new House(-1,
+                            Integer.parseInt(et_bedroomNum.getText().toString()),
+                            et_blockNum.toString(),
+                            et_unitNum.toString(),
+                            et_nearestMRT.toString());
+
+
+                    Toast.makeText(AddListings.this , house.toString(), Toast.LENGTH_SHORT).show();
+
+                }
+                catch (Exception e){
+                    Toast.makeText(AddListings.this , "error adding house", Toast.LENGTH_SHORT).show();
+
+                }
+                
+                
             }
         });
 

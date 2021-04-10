@@ -10,28 +10,35 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import static android.view.View.VISIBLE;
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 
 public class MainActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     Button SearchBar;
-   // TextView filters;
-    //ImageButton filters2;
     ImageView houseInfo;
-    //ToggleButton favorites;
+
+    //for sidebar - show options by domain
+    LinearLayout mainmenu,viewgrants,viewagentinfo,homecalc,mylistings,inbox,settings;
+    TextView username;
+    ImageView picture,picture1,picture2;
+
     //for login
     boolean loggedIn = FALSE;
+    String domain = "AGENT";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +48,47 @@ public class MainActivity extends AppCompatActivity {
         //addListenerOnButton();
         drawerLayout = findViewById(R.id.drawer_layout);
 
+
+        //for sidebar - show options by domain
+        mainmenu = findViewById(R.id.mainmenu);
+        viewgrants = findViewById(R.id.viewgrants);
+        viewagentinfo = findViewById(R.id.viewagentinfo);
+        homecalc = findViewById(R.id.homecalc);
+        mylistings = findViewById(R.id.mylistings);
+        inbox = findViewById(R.id.inbox);
+        settings = findViewById(R.id.settings);
+        username = findViewById(R.id.username);
+        picture = findViewById(R.id.picture);
+        picture1 = findViewById(R.id.picture1);
+        picture1.setVisibility(View.GONE);
+        picture2 = findViewById(R.id.picture2);
+        picture2.setVisibility(View.GONE);
+
+        //set visibility according to domain
+        if (domain=="AGENT"){  //for agents
+            viewgrants.setVisibility(View.GONE);
+            homecalc.setVisibility(View.GONE);
+            viewagentinfo.setVisibility(View.GONE);
+            username.setText("Monica Geller\nAgent ID: U273849K");
+            picture1.setVisibility(VISIBLE);
+            picture.setVisibility(View.GONE);
+            loggedIn = true;
+        } else if (domain=="NON-AGENT"){  //for non-agents
+            mylistings.setVisibility(View.GONE);
+            username.setText("Rachel Green");
+            picture2.setVisibility(VISIBLE);
+            picture.setVisibility(View.GONE);
+            loggedIn = true;
+        } else{  //for general users
+            mylistings.setVisibility(View.GONE);
+            inbox.setVisibility(View.GONE);
+            loggedIn = false;
+        }
+
+
+        //buttons in main activity
         SearchBar = findViewById(R.id.button);
-
         houseInfo = findViewById(R.id.imageView2);
-
         SearchBar.setOnClickListener(new View.OnClickListener() { //clicking on search bar
             @Override
             public void onClick(View v) {
@@ -145,6 +189,7 @@ public class MainActivity extends AppCompatActivity {
         redirectActivity(this,AdvancedFilters.class);
     }
     public void ClickCamera(View view){ camera(this); }
+    public void ClickLogin(View view){redirectActivity(this,Login.class);};
 
     //VIEW GRANT INFO
     public void ClickViewGrantsInfo(View view){ redirectActivity(this,ViewGrantsInfo.class); }

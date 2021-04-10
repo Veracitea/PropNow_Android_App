@@ -74,4 +74,5 @@ public class MyListings extends AppCompatActivity {
         MainActivity.redirectActivity(this,Settings.class);
     }
 
+
 }
