@@ -31,6 +31,7 @@ public class AddListings extends AppCompatActivity {
     TextView username;
     ImageView picture,picture1,picture2;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
