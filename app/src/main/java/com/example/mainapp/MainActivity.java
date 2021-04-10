@@ -54,23 +54,23 @@ public class MainActivity extends AppCompatActivity {
     ImageView houseInfo;
 
     //for sidebar - show options by domain
-    LinearLayout mainmenu,viewgrants,viewagentinfo,homecalc,mylistings,inbox,settings;
+    LinearLayout mainmenu, viewgrants, viewagentinfo, homecalc, mylistings, inbox, settings;
     TextView username;
-    ImageView picture,picture1,picture2;
+    ImageView picture, picture1, picture2;
 
     //for login
     static String domain = "AGENT";
     boolean loggedIn = setLoggedIn();
 
-    public static String getDomain(){
+    public static String getDomain() {
         return domain;
     }
 
-    public static boolean setLoggedIn(){ //set loggedIn value based on domain
-            if (getDomain() == "AGENT" || getDomain() == "NON-AGENT"){
-                return true;
-            }
-            return false;
+    public static boolean setLoggedIn() { //set loggedIn value based on domain
+        if (getDomain() == "AGENT" || getDomain() == "NON-AGENT") {
+            return true;
+        }
+        return false;
     }
 
 
@@ -79,10 +79,10 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
+
         readUserData(); //SELF CREATED FUNC database
         readAgentData(); //SELF CREATED FUNC database
-        
+
         //addListenerOnButton();
         drawerLayout = findViewById(R.id.drawer_layout);
 //        System.out.println(domain);
@@ -104,19 +104,19 @@ public class MainActivity extends AppCompatActivity {
         picture2.setVisibility(View.GONE);
 
         //set visibility according to domain
-        if (domain=="AGENT"){  //for agents
+        if (domain == "AGENT") {  //for agents
             viewgrants.setVisibility(View.GONE);
             homecalc.setVisibility(View.GONE);
             viewagentinfo.setVisibility(View.GONE);
             username.setText("Monica Geller\nAgent ID: U273849K");
             picture1.setVisibility(VISIBLE);
             picture.setVisibility(View.GONE);
-        } else if (domain=="NON-AGENT"){  //for non-agents
+        } else if (domain == "NON-AGENT") {  //for non-agents
             mylistings.setVisibility(View.GONE);
             username.setText("Rachel Green");
             picture2.setVisibility(VISIBLE);
             picture.setVisibility(View.GONE);
-        } else{  //for general users
+        } else {  //for general users
             mylistings.setVisibility(View.GONE);
             inbox.setVisibility(View.GONE);
         }
@@ -142,19 +142,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public static void openDrawer(DrawerLayout drawerLayout){
+    public static void openDrawer(DrawerLayout drawerLayout) {
         drawerLayout.openDrawer(GravityCompat.START);
     }
 
-    public static void closeDrawer(DrawerLayout drawerLayout){
-        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+    public static void closeDrawer(DrawerLayout drawerLayout) {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             //when drawer is open - close drawer
             drawerLayout.closeDrawer(GravityCompat.START);
         }
     }
+
     public static void redirectActivity(Activity activity, Class aClass) {
         //Initialize intent
-        Intent intent = new Intent(activity,aClass);
+        Intent intent = new Intent(activity, aClass);
         //set flag
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         //start activity
@@ -172,7 +173,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 //activity.finishAffinity();
                 //REDIRECT TO LOGIN PAGE !!!!!!!!!!!!!!!!!!!!!!!!!!!
-                redirectActivity(activity,Login.class);
+                redirectActivity(activity, Login.class);
             }
         });
 //        //back
@@ -195,7 +196,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 //redirect to CAMERA!!!!!!!!!!!
-                redirectActivity(activity,HomeCalculator.class);
+                redirectActivity(activity, HomeCalculator.class);
             }
         });
 //        //back
@@ -216,73 +217,99 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //SIDEBAR OPTIONS - FUNCTIONS
-    public void ClickMenu(View view){
+    public void ClickMenu(View view) {
         openDrawer(drawerLayout);
     }
 
     //MAIN MENU
-    public void ClickHome(View view){ recreate(); }
-    public void ClickAdvFilters(View view){
-        redirectActivity(this,AdvancedFilters.class);
+    public void ClickHome(View view) {
+        recreate();
     }
-    public void ClickCamera(View view){ camera(this); }
-    public void ClickLogin(View view){redirectActivity(this,Login.class);};
+
+    public void ClickAdvFilters(View view) {
+        redirectActivity(this, AdvancedFilters.class);
+    }
+
+    public void ClickCamera(View view) {
+        camera(this);
+    }
+
+    public void ClickLogin(View view) {
+        redirectActivity(this, Login.class);
+    }
+
+    ;
 
     //VIEW GRANT INFO
-    public void ClickViewGrantsInfo(View view){ redirectActivity(this,ViewGrantsInfo.class); }
-    public void ClickEligibility(View view){
-        if (loggedIn){redirectActivity(this,ViewEligibility.class);}
-        else{login(this);}
+    public void ClickViewGrantsInfo(View view) {
+        redirectActivity(this, ViewGrantsInfo.class);
+    }
+
+    public void ClickEligibility(View view) {
+        if (loggedIn) {
+            redirectActivity(this, ViewEligibility.class);
+        } else {
+            login(this);
+        }
     }
 
     //VIEW AGENT INFO
-    public void ClickViewAgentInfo(View view){ redirectActivity(this,ViewAgentInfo.class); }
-    public void ClickAgent(View view){ redirectActivity(this,MonicaGeller.class); }
+    public void ClickViewAgentInfo(View view) {
+        redirectActivity(this, ViewAgentInfo.class);
+    }
+
+    public void ClickAgent(View view) {
+        redirectActivity(this, MonicaGeller.class);
+    }
 
     //HOME CALC
-    public void ClickHomeCalculator(View view){
+    public void ClickHomeCalculator(View view) {
         //this code below is correct
-       // System.out.println(loggedIn);
-        if (loggedIn){redirectActivity(this,HomeCalculator.class);}
-        else{login(this);}
+        // System.out.println(loggedIn);
+        if (loggedIn) {
+            redirectActivity(this, HomeCalculator.class);
+        } else {
+            login(this);
+        }
     }
 
     //MY LISTINGS
-    public void ClickMyListings(View view){
-        redirectActivity(this,MyListings.class);
+    public void ClickMyListings(View view) {
+        redirectActivity(this, MyListings.class);
     }
 
     //INBOX
-    public void ClickInbox(View view){
-        redirectActivity(this,Inbox.class);
+    public void ClickInbox(View view) {
+        redirectActivity(this, Inbox.class);
     }
-    public void ClickEditInbox(View view){
-        redirectActivity(this,EditInbox.class);
+
+    public void ClickEditInbox(View view) {
+        redirectActivity(this, EditInbox.class);
     }
 
     //SETTINGS
-    public void ClickSettings(View view){
-        redirectActivity(this,Settings.class);
+    public void ClickSettings(View view) {
+        redirectActivity(this, Settings.class);
     }
 
 
-    
     // SELF MADE FUNCTION
-    private List<databass> nonagent= new ArrayList<>();
-    private void readUserData(){
+    private List<com.example.myapplication.databass> nonagent = new ArrayList<>();
+
+    private void readUserData() {
         InputStream is = getResources().openRawResource(R.raw.nonagent); //imp class
         BufferedReader reader = new BufferedReader(
                 new InputStreamReader(is, Charset.forName("UTF-8")) //alt enter and import class charset
         );
 
-        String line= "";
-        try{
+        String line = "";
+        try {
             reader.readLine();
-            while((line=reader.readLine())!= null){
-                Log.d("MyActivity","Line: " + line);
-                String[] tokens= line.split(",");
+            while ((line = reader.readLine()) != null) {
+                Log.d("MyActivity", "Line: " + line);
+                String[] tokens = line.split(",");
 
-                databass nonagents= new databass();
+                com.example.myapplication.databass nonagents = new com.example.myapplication.databass();
                 nonagents.setUserId(Integer.parseInt(tokens[0]));
                 nonagents.setName(tokens[1]);
                 nonagents.setAge(Integer.parseInt(tokens[2]));
@@ -296,33 +323,33 @@ public class MainActivity extends AppCompatActivity {
                 nonagents.setSecondbuyer_salary(Integer.parseInt(tokens[10]));
                 nonagents.setRelationship(tokens[11]);
                 nonagent.add(nonagents);
-                Log.d("MyActivity","Just Created: " + nonagents);
+                Log.d("MyActivity", "Just Created: " + nonagents);
             }
-        }catch (IOException e){
-            Log.wtf("MyActivity","Error reading on Line: " + line,e);
+        } catch (IOException e) {
+            Log.wtf("MyActivity", "Error reading on Line: " + line, e);
             e.printStackTrace();
         }
 
     }
 
 
-
     // SELF MADE FUNCTION
-    private List<databass2> agent= new ArrayList<>();
-    private void readAgentData(){
+    private List<com.example.myapplication.databass2> agent = new ArrayList<>();
+
+    private void readAgentData() {
         InputStream iss = getResources().openRawResource(R.raw.agent); //imp class
         BufferedReader reader = new BufferedReader(
                 new InputStreamReader(iss, Charset.forName("UTF-8")) //alt enter and import class charset
         );
 
-        String line= "";
-        try{
+        String line = "";
+        try {
             reader.readLine();
-            while((line=reader.readLine())!= null){
-                Log.d("MyActivity","Line: " + line);
-                String[] tokens= line.split(",");
+            while ((line = reader.readLine()) != null) {
+                Log.d("MyActivity", "Line: " + line);
+                String[] tokens = line.split(",");
 
-                databass2 agents= new databass2();
+                com.example.myapplication.databass2 agents = new com.example.myapplication.databass2();
                 agents.setUserId(Integer.parseInt(tokens[0]));
                 agents.setCompName(tokens[1]);
                 agents.setName(tokens[2]);
@@ -331,14 +358,14 @@ public class MainActivity extends AppCompatActivity {
                 agents.setEmail(tokens[5]);
                 agents.setNumber(tokens[6]);
                 agent.add(agents);
-                Log.d("MyActivity","Just Created: " + agents);
+                Log.d("MyActivity", "Just Created: " + agents);
             }
-        }catch (IOException e){
-            Log.wtf("MyActivity","Error reading on Line: " + line,e);
+        } catch (IOException e) {
+            Log.wtf("MyActivity", "Error reading on Line: " + line, e);
             e.printStackTrace();
         }
-    
-    
-    
+
+
+    }
 }
 
