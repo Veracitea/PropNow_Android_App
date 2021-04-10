@@ -71,7 +71,7 @@ public class HomeCalculator extends AppCompatActivity {
     }
 
     //MAIN MENU
-    public void ClickHome(View view){ recreate(); }
+    public void ClickHome(View view){ MainActivity.redirectActivity(this,MainActivity.class); }
     public void ClickAdvFilters(View view){
         MainActivity.redirectActivity(this,AdvancedFilters.class);
     }

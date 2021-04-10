@@ -260,6 +260,7 @@
                 android:layout_marginTop="76dp"
                 android:onClick = "ClickAddListing"
                 android:contentDescription="@string/add"
+                android:onClick="ClickAddListing"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.774"
                 app:layout_constraintStart_toStartOf="parent"

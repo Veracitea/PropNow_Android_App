@@ -19,6 +19,7 @@ public class MyListings extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawer_layout);
     }
 
+    public void ClickAddListing(View view){MainActivity.redirectActivity(this,AddListings.class); }
 
     @Override
     protected void onPause() {
@@ -33,7 +34,7 @@ public class MyListings extends AppCompatActivity {
     }
 
     //MAIN MENU
-    public void ClickHome(View view){ recreate(); }
+    public void ClickHome(View view){ MainActivity.redirectActivity(this,MainActivity.class); }
     public void ClickAdvFilters(View view){
         MainActivity.redirectActivity(this,AdvancedFilters.class);
     }
