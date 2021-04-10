@@ -33,15 +33,24 @@ public class AddListings extends AppCompatActivity {
         btn_addListing.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                House house = new House(-1,
-                        Integer.parseInt(et_bedroomNum.getText().toString()),
-                        et_blockNum.toString(),
-                        et_unitNum.toString(),
-                        et_nearestMRT.toString());
+
+                try{
+                    House house = new House(-1,
+                            Integer.parseInt(et_bedroomNum.getText().toString()),
+                            et_blockNum.toString(),
+                            et_unitNum.toString(),
+                            et_nearestMRT.toString());
 
 
-                Toast.makeText(AddListings.this , house.toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddListings.this , house.toString(), Toast.LENGTH_SHORT).show();
 
+                }
+                catch (Exception e){
+                    Toast.makeText(AddListings.this , "error adding house", Toast.LENGTH_SHORT).show();
+
+                }
+                
+                
             }
         });
 
