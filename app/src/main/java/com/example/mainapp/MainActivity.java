@@ -37,8 +37,20 @@ public class MainActivity extends AppCompatActivity {
     ImageView picture,picture1,picture2;
 
     //for login
-    boolean loggedIn = FALSE;
-    String domain = "AGENT";
+    static String domain = "NON-AGENT";
+    boolean loggedIn = setLoggedIn();
+
+    public static String getDomain(){
+        return domain;
+    }
+
+    public static boolean setLoggedIn(){ //set loggedIn value based on domain
+            if (getDomain() == "AGENT" || getDomain() == "NON-AGENT"){
+                return true;
+            }
+            return false;
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +59,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         //addListenerOnButton();
         drawerLayout = findViewById(R.id.drawer_layout);
-
+//        System.out.println(domain);
+//        System.out.println(loggedIn);
 
         //for sidebar - show options by domain
         mainmenu = findViewById(R.id.mainmenu);
@@ -72,17 +85,14 @@ public class MainActivity extends AppCompatActivity {
             username.setText("Monica Geller\nAgent ID: U273849K");
             picture1.setVisibility(VISIBLE);
             picture.setVisibility(View.GONE);
-            loggedIn = true;
         } else if (domain=="NON-AGENT"){  //for non-agents
             mylistings.setVisibility(View.GONE);
             username.setText("Rachel Green");
             picture2.setVisibility(VISIBLE);
             picture.setVisibility(View.GONE);
-            loggedIn = true;
         } else{  //for general users
             mylistings.setVisibility(View.GONE);
             inbox.setVisibility(View.GONE);
-            loggedIn = false;
         }
 
 
@@ -104,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
 
     public static void openDrawer(DrawerLayout drawerLayout){
         drawerLayout.openDrawer(GravityCompat.START);
@@ -205,6 +216,7 @@ public class MainActivity extends AppCompatActivity {
     //HOME CALC
     public void ClickHomeCalculator(View view){
         //this code below is correct
+       // System.out.println(loggedIn);
         if (loggedIn){redirectActivity(this,HomeCalculator.class);}
         else{login(this);}
     }
