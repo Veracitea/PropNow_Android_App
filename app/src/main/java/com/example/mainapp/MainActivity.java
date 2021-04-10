@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView picture,picture1,picture2;
 
     //for login
-    static String domain = "NON-AGENT";
+    static String domain = "AGENT";
     boolean loggedIn = setLoggedIn();
 
     public static String getDomain(){

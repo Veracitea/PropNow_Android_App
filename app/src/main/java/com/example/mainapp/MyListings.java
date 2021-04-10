@@ -61,7 +61,6 @@ public class MyListings extends AppCompatActivity {
         }
     }
 
-    public void ClickAddListing(View view){MainActivity.redirectActivity(this,AddListings.class); }
 
     @Override
     protected void onPause() {
@@ -102,6 +101,7 @@ public class MyListings extends AppCompatActivity {
 
     //MY LISTINGS
     public void ClickMyListings(View view){recreate(); }
+    public void ClickAddListing(View view){MainActivity.redirectActivity(this,AddListings.class);}
 
     //INBOX
     public void ClickInbox(View view){
