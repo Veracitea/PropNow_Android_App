@@ -8,14 +8,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.text.TextUtils;
+
 
 import static android.view.View.VISIBLE;
 import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.valueOf;
 
 public class HomeCalculator extends AppCompatActivity {
     DrawerLayout drawerLayout;
@@ -34,6 +38,16 @@ public class HomeCalculator extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_calculator);
+        final EditText p = (EditText) findViewById(R.id.editTextNumber);
+        final EditText i = (EditText) findViewById(R.id.textInputLayout1);
+        final EditText y = (EditText) findViewById(R.id.editTextDate4);
+
+
+
+
+
+
+
         myimagebutton = (ImageButton) findViewById(R.id.imageButton2);
         dropdown = findViewById(R.id.spinner1);
 
@@ -90,6 +104,40 @@ public class HomeCalculator extends AppCompatActivity {
         mybutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String st1 = p.getText().toString();
+                String st2 = i.getText().toString();
+                String st3 = y.getText().toString();
+                if (TextUtils.isEmpty(st1)) {
+                    p.setError("Enter Prncipal Amount");
+                    p.requestFocus();
+                    return;
+                }
+                if (TextUtils.isEmpty(st2)) {
+                    i.setError("Enter Interest Rate");
+                    i.requestFocus();
+                    return;
+                }
+                if (TextUtils.isEmpty(st3)) {
+                    y.setError("Enter Years");
+                    y.requestFocus();
+                    return;
+                }
+                float p = Float.parseFloat(st1);
+                float i = Float.parseFloat(st2);
+                float y = Float.parseFloat(st3);
+                float Principal = calPric(p);
+                float Rate = calInt(i);
+                float Months = calMonth(y);
+                float Dvdnt = calDvdnt(Rate, Months);
+                float FD = calFinalDvdnt(Principal, Rate, Dvdnt);
+                float D = calDivider(Dvdnt);
+                float emi = calEmi(FD, D);
+                float TA = calTa(emi, Months);
+                float ti = calTotalInt(TA, Principal);
+                float res = emi;
+                float totint = ti;
+
+
 
                 Intent intentloadnew = new Intent(HomeCalculator.this, Homecalc3.class);
                 startActivity(intentloadnew);
@@ -98,6 +146,10 @@ public class HomeCalculator extends AppCompatActivity {
 
             }
         });
+
+
+
+
         drawerLayout = findViewById(R.id.drawer_layout);
     }
 
@@ -151,6 +203,34 @@ public class HomeCalculator extends AppCompatActivity {
     //SETTINGS
     public void ClickSettings(View view){
         MainActivity.redirectActivity(this,Settings.class);
+    }
+
+    public float calPric(float p) {
+        return (float)(p);
+    }
+    public float calInt(float i) {
+        return (float)(i / 12 / 100);
+    }
+    public float calMonth(float y) {
+        return (float)(y * 12);
+    }
+    public float calDvdnt(float Rate, float Months) {
+        return (float)(Math.pow(1 + Rate, Months));
+    }
+    public float calFinalDvdnt(float Principal, float Rate, float Dvdnt) {
+        return (float)(Principal * Rate * Dvdnt);
+    }
+    public float calDivider(float Dvdnt) {
+        return (float)(Dvdnt - 1);
+    }
+    public float calEmi(float FD, Float D) {
+        return (float)(FD / D);
+    }
+    public float calTa(float emi, Float Months) {
+        return (float)(emi * Months);
+    }
+    public float calTotalInt(float TA, float Principal) {
+        return (float)(TA - Principal);
     }
 
 }
