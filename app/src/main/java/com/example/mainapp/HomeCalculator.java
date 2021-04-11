@@ -41,6 +41,8 @@ public class HomeCalculator extends AppCompatActivity {
         final EditText p = (EditText) findViewById(R.id.editTextNumber);
         final EditText i = (EditText) findViewById(R.id.textInputLayout1);
         final EditText y = (EditText) findViewById(R.id.editTextDate4);
+        final EditText TI = (EditText) findViewById(R.id.textInputLayout3);
+        final EditText res = (EditText) findViewById(R.id.textInputLayout2);
 
 
 
@@ -108,7 +110,7 @@ public class HomeCalculator extends AppCompatActivity {
                 String st2 = i.getText().toString();
                 String st3 = y.getText().toString();
                 if (TextUtils.isEmpty(st1)) {
-                    p.setError("Enter Prncipal Amount");
+                    p.setError("Enter Principal Amount");
                     p.requestFocus();
                     return;
                 }
@@ -134,13 +136,11 @@ public class HomeCalculator extends AppCompatActivity {
                 float emi = calEmi(FD, D);
                 float TA = calTa(emi, Months);
                 float ti = calTotalInt(TA, Principal);
-                float res = emi;
-                float totint = ti;
+                res.setText(String.valueOf(emi));
+                TI.setText(String.valueOf(ti));
 
 
 
-                Intent intentloadnew = new Intent(HomeCalculator.this, Homecalc3.class);
-                startActivity(intentloadnew);
 
 
 
