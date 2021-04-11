@@ -1,8 +1,5 @@
 package com.example.mainapp;
 
-import java.time.Month;
-import java.time.LocalDate;
-
 public class House {
 
     private int id;
@@ -13,16 +10,16 @@ public class House {
     private String storey_range;
     private String floor_area_sqm;
     private String flat_model;
-    private String lease_commence_date;
+    private int lease_commence_date;
     private String remaining_lease;
-    private String resale_price;
+    private int resale_price;
     private int agent_id;
 
     //constructors
 
     public House(int id, String town, int flat_type, String block, String street_name,
-                 String storey_range, String floor_area_sqm, String flat_model, String lease_commence_date,
-                 String remaining_lease, String resale_price, int agent_id) {
+                 String storey_range, String floor_area_sqm, String flat_model, int lease_commence_date,
+                 String remaining_lease, int resale_price, int agent_id) {
         this.id = id;
         this.town = town;
         this.flat_type = flat_type;
@@ -48,9 +45,9 @@ public class House {
                 ", storey_range='" + storey_range + '\'' +
                 ", floor_area_sqm='" + floor_area_sqm + '\'' +
                 ", flat_model='" + flat_model + '\'' +
-                ", lease_commence_date='" + lease_commence_date + '\'' +
+                ", lease_commence_date=" + lease_commence_date +
                 ", remaining_lease='" + remaining_lease + '\'' +
-                ", resale_price='" + resale_price + '\'' +
+                ", resale_price=" + resale_price +
                 ", agent_id=" + agent_id +
                 '}';
     }
@@ -122,11 +119,11 @@ public class House {
         this.flat_model = flat_model;
     }
 
-    public String getLease_commence_date() {
+    public int getLease_commence_date() {
         return lease_commence_date;
     }
 
-    public void setLease_commence_date(String lease_commence_date) {
+    public void setLease_commence_date(int lease_commence_date) {
         this.lease_commence_date = lease_commence_date;
     }
 
@@ -135,14 +132,14 @@ public class House {
     }
 
     public void setRemaining_lease(String remaining_lease) {
-        this.remaining_lease = remaining_lease;
+        this.remaining_lease = remaining_lease + " years";
     }
 
-    public String getResale_price() {
+    public int getResale_price() {
         return resale_price;
     }
 
-    public void setResale_price(String resale_price) {
+    public void setResale_price(int resale_price) {
         this.resale_price = resale_price;
     }
 
