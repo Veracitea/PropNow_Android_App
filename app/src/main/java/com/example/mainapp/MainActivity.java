@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
 
         readUserData(); //SELF CREATED FUNC database
         readAgentData(); //SELF CREATED FUNC database
-      //  readHouseData(); //^
+        readHouseData(); //^
 
         //addListenerOnButton();
         drawerLayout = findViewById(R.id.drawer_layout);
