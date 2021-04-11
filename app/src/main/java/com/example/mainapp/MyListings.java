@@ -5,12 +5,16 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.List;
+
 import static android.view.View.VISIBLE;
-import static java.lang.Boolean.FALSE;
 
 public class MyListings extends AppCompatActivity {
     DrawerLayout drawerLayout;
@@ -21,6 +25,8 @@ public class MyListings extends AppCompatActivity {
     LinearLayout mainmenu,viewgrants,viewagentinfo,homecalc,mylistings,inbox,settings;
     TextView username;
     ImageView picture,picture1,picture2;
+    Button btn_refresh;
+    ListView lv_listings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +46,10 @@ public class MyListings extends AppCompatActivity {
         picture1 = findViewById(R.id.picture1);
         picture1.setVisibility(View.GONE);
         picture2 = findViewById(R.id.picture2);
+        btn_refresh = findViewById(R.id.btn_refresh);
+        lv_listings = findViewById(R.id.lv_listings);
         picture2.setVisibility(View.GONE);
+
 
         //set visibility according to domain
         if (domain=="AGENT"){  //for agents
@@ -59,7 +68,21 @@ public class MyListings extends AppCompatActivity {
             mylistings.setVisibility(View.GONE);
             inbox.setVisibility(View.GONE);
         }
+
+        btn_refresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                HouseDatabaseHelper houseDatabaseHelper = new HouseDatabaseHelper(MyListings.this);
+                List<House> all = houseDatabaseHelper.getAll();
+
+                ArrayAdapter houseArrayAdapter = new ArrayAdapter<House>(MyListings.this, android.R.layout.simple_list_item_1,all);
+                lv_listings.setAdapter(houseArrayAdapter);
+            }
+        });
+
     }
+
+
 
 
     @Override
