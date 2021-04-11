@@ -99,7 +99,7 @@
     <string name="profile1">profile1</string>
     <string name="profile2">profile2</string>
     <string name="profile">profile</string>
-    <string name="todo">TODO</string>
+
     <string name="required">required</string>
     <string name="grants">Grants</string>
     <string name="hou">hou</string>
@@ -115,26 +115,21 @@
     <string name="addListing">Add</string>
     <string name="new_listing">New Listing</string>
     <string name="_5_0">5.0</string>
-    <string name="_5_0">5.0</string>
-    <string name="todo">TODO</string>
     <string name="monica_geller">Monica Geller</string>
-    <string name="ross_geller">Ross Geller</string>
+
     <string name="company_abc">Company ABC</string>
     <string name="_4_9">4.9</string>
-    <string name="chandler_bing">Chandler Bing</string>
-    <string name="todo">TODO</string>
+
+
     <string name="company_xyz">Company XYZ</string>
     <string name="star">star</string>
     <string name="todo">TODO</string>
     <string name="age">Age</string>
-    <string name="age">Age</string>
-    <string name="age">Age</string>
-    <string name="age">Age</string>
+
     <string name="property_price">Property price</string>
     <string name="price">Price</string>
     <string name="interest_rate">Interest rate</string>
-    <string name="interest_rate">Interest rate</string>
-    <string name="years">Years</string>
+
     <string name="years">Years</string>
 
 </resources>
