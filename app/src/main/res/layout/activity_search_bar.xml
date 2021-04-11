@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-    <TextView
+            <TextView
         android:id="@+id/textView2"
         android:layout_width="549dp"
         android:layout_height="167dp"
@@ -31,22 +31,35 @@
         app:layout_constraintVertical_bias="0.0"
         tools:layout_editor_absoluteX="-47dp" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="301dp"
-        android:layout_height="54dp"
-        android:layout_gravity="start"
-        android:layout_marginTop="44dp"
-        android:text="Search"
-        android:textAlignment="textStart"
-        android:textColor="@color/black"
-        app:backgroundTint="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.263"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <SearchView
+                android:id="@+id/searchView"
+                android:layout_width="297dp"
+                android:layout_height="53dp"
+                android:iconifiedByDefault="false"
+                android:queryHint="Search Here"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.289"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:animateLayoutChanges="true"
+                app:layout_constraintVertical_bias="0.064"
+                tools:layout_editor_absoluteX="30dp" />
 
-    <ImageButton
+
+            <ListView
+                android:id="@+id/MyList"
+                android:layout_width="327dp"
+                android:layout_height="465dp"
+                android:focusableInTouchMode="false"
+                android:isScrollContainer="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.838" />
+
+            <ImageButton
         android:id="@+id/imageButton11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -87,16 +100,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@android:drawable/arrow_down_float" />
 
-        <SearchView
-    android:layout_width="297dp"
-    android:layout_height="53dp"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.289"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    android:animateLayoutChanges="true"
-    app:layout_constraintVertical_bias="0.064" />
+
 
 
     <ImageButton

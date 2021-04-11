@@ -65,6 +65,7 @@
                 android:layout_marginLeft="60dp"
                 android:layout_marginTop="96dp"
                 android:text="Search"
+                android:onClick="ClickSearch"
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
                 app:backgroundTint="#FFFFFF"

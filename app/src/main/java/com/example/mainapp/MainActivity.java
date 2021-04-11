@@ -133,12 +133,7 @@ public class MainActivity extends AppCompatActivity {
         //buttons in main activity
         SearchBar = findViewById(R.id.button);
         houseInfo = findViewById(R.id.imageView2);
-        SearchBar.setOnClickListener(new View.OnClickListener() { //clicking on search bar
-            @Override
-            public void onClick(View v) {
-                setContentView(R.layout.activity_search_bar);
-            }
-        });
+
 
         houseInfo.setOnClickListener(new View.OnClickListener() { //clicking on house image
             @Override
@@ -228,6 +223,7 @@ public class MainActivity extends AppCompatActivity {
     public void ClickMenu(View view) {
         openDrawer(drawerLayout);
     }
+    public void ClickSearch(View view){redirectActivity(this,searchBar.class);}
 
     //MAIN MENU
     public void ClickHome(View view) {

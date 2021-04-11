@@ -3,19 +3,39 @@ package com.example.mainapp;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
+import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.List;
 
 import static android.view.View.VISIBLE;
 import static java.lang.Boolean.FALSE;
 
 public class searchBar extends AppCompatActivity {
     DrawerLayout drawerLayout;
+    SearchView mySearchView;
+    ListView myList;
+
+    List<String> list;
+    ArrayAdapter<String> adapter;
+    List<House> HouseList = new ArrayList<House>();
+
     //for login
     //getting domain and loggedIn status
     String domain = MainActivity.getDomain();
@@ -31,6 +51,40 @@ public class searchBar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_bar);
         drawerLayout = findViewById(R.id.drawer_layout);
+        mySearchView = findViewById(R.id.searchView);
+        myList = findViewById(R.id.MyList);
+        list = new ArrayList<String>();
+        System.out.println("reading housessss");
+        readHouse();
+        List<String> theList = new ArrayList<>();
+
+
+        for(House h:HouseList){
+            theList.add(h.getHouseId());
+        }
+        System.out.println("THE MAGICAL LIST\n");
+        System.out.println(theList.get(0));
+
+        adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,theList);
+        myList.setAdapter(adapter);
+
+
+        mySearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
+            @Override
+            public boolean onQueryTextSubmit(String s){
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s){
+                adapter.getFilter().filter(s);
+                return false;
+            }
+
+        });
+
+
+
         //for sidebar - show options by domain
         mainmenu = findViewById(R.id.mainmenu);
         viewgrants = findViewById(R.id.viewgrants);
@@ -45,6 +99,7 @@ public class searchBar extends AppCompatActivity {
         picture1.setVisibility(View.GONE);
         picture2 = findViewById(R.id.picture2);
         picture2.setVisibility(View.GONE);
+
 
         //set visibility according to domain
         if (domain=="AGENT"){  //for agents
@@ -63,6 +118,8 @@ public class searchBar extends AppCompatActivity {
             mylistings.setVisibility(View.GONE);
             inbox.setVisibility(View.GONE);
         }
+
+
     }
 
     public void ClickBackBtn2(View view){
@@ -126,6 +183,44 @@ public class searchBar extends AppCompatActivity {
     //SETTINGS
     public void ClickSettings(View view){
         MainActivity.redirectActivity(this,Settings.class);
+    }
+
+
+    private void readHouse(){
+        InputStream isss = getResources().openRawResource(R.raw.house); //imp class
+        BufferedReader reader = new BufferedReader(
+                new InputStreamReader(isss, Charset.forName("UTF-8")) //alt enter and import class charset
+        );
+
+        String line = "";
+        try {
+            reader.readLine();
+            while ((line = reader.readLine()) != null) {
+                Log.d("MyActivity", "Line: " + line);
+                String[] tokens = line.split(",");
+
+                House houses = new House();
+                houses.setId(Integer.parseInt(tokens[0]));
+             //   houses.setMonth(tokens[1]);
+                houses.setTown(tokens[2]);
+                houses.setFlat_type(tokens[3]);
+                houses.setBlock(tokens[4]);
+                houses.setStreet_name(tokens[5]);
+                houses.setStorey_range(tokens[6]);
+                houses.setFloor_area_sqm(Integer.parseInt(tokens[7]));
+                houses.setFlat_model(tokens[8]);
+                houses.setLease_commence_date(Integer.parseInt(tokens[9]));
+                houses.setRemaining_lease(tokens[10]);
+                houses.setResale_price(Integer.parseInt(tokens[11]));
+               // houses.setAgent_id(Integer.parseInt(tokens[12]));
+
+                HouseList.add(houses);
+                Log.d("MyActivity", "Just Created: " + houses);
+            }
+        } catch (IOException e) {
+            Log.wtf("MyActivity", "Error reading on Line: " + line, e);
+            e.printStackTrace();
+        }
     }
 
 
