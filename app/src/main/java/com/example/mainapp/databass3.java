@@ -2,16 +2,16 @@ package com.example.mainapp;
 
 public class databass3 {
     private int agent;
-    private string month;
-    private string town;
-    private string flat_type;
-    private string block;
-    private string street_name;
-    private string storey_range;
+    private String month;
+    private String town;
+    private String flat_type;
+    private String block;
+    private String street_name;
+    private String storey_range;
     private int floor_area_sqm;
-    private string flat_model;
+    private String flat_model;
     private int lease_commence_date;
-    private string remaining_lease;
+    private String remaining_lease;
     private int resale_price;
 
     public int getAgent() {
@@ -22,51 +22,51 @@ public class databass3 {
         this.agent = agent;
     }
 
-    public string getMonth() {
+    public String getMonth() {
         return month;
     }
 
-    public void setMonth(string month) {
+    public void setMonth(String month) {
         this.month = month;
     }
 
-    public string getTown() {
+    public String getTown() {
         return town;
     }
 
-    public void setTown(string town) {
+    public void setTown(String town) {
         this.town = town;
     }
 
-    public string getFlat_type() {
+    public String getFlat_type() {
         return flat_type;
     }
 
-    public void setFlat_type(string flat_type) {
+    public void setFlat_type(String flat_type) {
         this.flat_type = flat_type;
     }
 
-    public string getBlock() {
+    public String getBlock() {
         return block;
     }
 
-    public void setBlock(string block) {
+    public void setBlock(String block) {
         this.block = block;
     }
 
-    public string getStreet_name() {
+    public String getStreet_name() {
         return street_name;
     }
 
-    public void setStreet_name(string street_name) {
+    public void setStreet_name(String street_name) {
         this.street_name = street_name;
     }
 
-    public string getStorey_range() {
+    public String getStorey_range() {
         return storey_range;
     }
 
-    public void setStorey_range(string storey_range) {
+    public void setStorey_range(String storey_range) {
         this.storey_range = storey_range;
     }
 
@@ -78,11 +78,11 @@ public class databass3 {
         this.floor_area_sqm = floor_area_sqm;
     }
 
-    public string getFlat_model() {
+    public String getFlat_model() {
         return flat_model;
     }
 
-    public void setFlat_model(string flat_model) {
+    public void setFlat_model(String flat_model) {
         this.flat_model = flat_model;
     }
 
@@ -94,11 +94,11 @@ public class databass3 {
         this.lease_commence_date = lease_commence_date;
     }
 
-    public string getRemaining_lease() {
+    public String getRemaining_lease() {
         return remaining_lease;
     }
 
-    public void setRemaining_lease(string remaining_lease) {
+    public void setRemaining_lease(String remaining_lease) {
         this.remaining_lease = remaining_lease;
     }
 
