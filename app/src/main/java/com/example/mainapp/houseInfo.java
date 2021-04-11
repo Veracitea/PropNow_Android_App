@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 import static java.lang.Boolean.FALSE;
 
@@ -40,26 +41,26 @@ public class houseInfo extends AppCompatActivity {
         username = findViewById(R.id.username);
         picture = findViewById(R.id.picture);
         picture1 = findViewById(R.id.picture1);
-        picture1.setVisibility(View.GONE);
+        picture1.setVisibility(GONE);
         picture2 = findViewById(R.id.picture2);
-        picture2.setVisibility(View.GONE);
+        picture2.setVisibility(GONE);
 
         //set visibility according to domain
         if (domain=="AGENT"){  //for agents
-            viewgrants.setVisibility(View.GONE);
-            homecalc.setVisibility(View.GONE);
-            viewagentinfo.setVisibility(View.GONE);
+            viewgrants.setVisibility(GONE);
+            homecalc.setVisibility(GONE);
+            viewagentinfo.setVisibility(GONE);
             username.setText("Francisca Grand");
             picture1.setVisibility(VISIBLE);
-            picture.setVisibility(View.GONE);
+            picture.setVisibility(GONE);
         } else if (domain == "NON-AGENT") {  //for non-agents
-            mylistings.setVisibility(View.GONE);
+            mylistings.setVisibility(GONE);
             username.setText("Ealasaid MacCarrane");
             picture2.setVisibility(VISIBLE);
-            picture.setVisibility(View.GONE);
+            picture.setVisibility(GONE);
         } else{  //for general users
-            mylistings.setVisibility(View.GONE);
-            inbox.setVisibility(View.GONE);
+            mylistings.setVisibility(GONE);
+            inbox.setVisibility(GONE);
         }
     }
 
