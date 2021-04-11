@@ -135,5 +135,9 @@
     <string name="buyer">Buyer</string>
     <string name="total_interest">Total interest</string>
     <string name="emi">EMI</string>
+    <string name="delete_selected">Delete Selected</string>
+    <string name="delete_listings">Delete listings</string>
+    <string name="done">Done</string>
+    <string name="refresh">Refresh</string>
 
 </resources>

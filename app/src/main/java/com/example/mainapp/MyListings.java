@@ -3,10 +3,12 @@ package com.example.mainapp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -27,6 +29,8 @@ public class MyListings extends AppCompatActivity {
     ImageView picture,picture1,picture2;
     Button btn_refresh;
     ListView lv_listings;
+    ImageButton  del;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +81,19 @@ public class MyListings extends AppCompatActivity {
 
                 ArrayAdapter houseArrayAdapter = new ArrayAdapter<House>(MyListings.this, android.R.layout.simple_list_item_1,all);
                 lv_listings.setAdapter(houseArrayAdapter);
+            }
+        });
+
+        del = (ImageButton) findViewById(R.id.imageButton3);
+
+        del.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intentloadnewactivity1 = new Intent(MyListings.this, DeleteListings.class);
+                startActivity(intentloadnewactivity1);
+
+
             }
         });
 
