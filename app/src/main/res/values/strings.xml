@@ -132,4 +132,8 @@
 
     <string name="years">Years</string>
 
+    <string name="buyer">Buyer</string>
+    <string name="total_interest">Total interest</string>
+    <string name="emi">EMI</string>
+
 </resources>
