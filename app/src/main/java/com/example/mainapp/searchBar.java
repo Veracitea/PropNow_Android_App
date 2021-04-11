@@ -58,7 +58,6 @@ public class searchBar extends AppCompatActivity {
         readHouse();
         List<String> theList = new ArrayList<>();
 
-
         for(House h:HouseList){
             theList.add(h.getHouseId());
         }

@@ -165,6 +165,7 @@ public class MainActivity extends AppCompatActivity {
         activity.startActivity(intent);
     }
 
+
     //login permission popup
     public static void login(Activity activity) {
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);

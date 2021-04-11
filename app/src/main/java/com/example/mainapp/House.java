@@ -66,7 +66,6 @@ public class House {
                 ", agent_id=" + agent_id +
                 '}';
     }
-
     //getters and setters
     public int getBedroom(){
         if(flat_type == "2 ROOM"){return 2;}
