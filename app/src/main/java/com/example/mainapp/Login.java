@@ -262,6 +262,10 @@ public class Login extends AppCompatActivity {
     //VIEW GRANT INFO
     public void ClickViewGrantsInfo(View view){ MainActivity.redirectActivity(this,ViewGrantsInfo.class); }
     public void ClickEligibility(View view){
+        if (domain == "AGENT" || domain == "NON-AGENT") {
+            loggedIn = true;
+        }
+        else{ loggedIn=false;}
         if (loggedIn){MainActivity.redirectActivity(this,ViewEligibility.class);}
         else{MainActivity.login(this);}
     }
@@ -273,6 +277,10 @@ public class Login extends AppCompatActivity {
     //HOME CALC
     public void ClickHomeCalculator(View view){
         //this code below is correct
+        if (domain == "AGENT" || domain == "NON-AGENT") {
+            loggedIn = true;
+        }
+        else{ loggedIn=false;}
         if (loggedIn){MainActivity.redirectActivity(this,HomeCalculator.class);}
         else{MainActivity.login(this);}
     }

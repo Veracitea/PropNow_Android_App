@@ -94,7 +94,10 @@ public class Settings extends AppCompatActivity {
 
     //HOME CALC
     public void ClickHomeCalculator(View view){
-        //this code below is correct
+        if (domain == "AGENT" || domain == "NON-AGENT") {
+            loggedIn = true;
+        }
+        else{ loggedIn=false;}
         if (loggedIn){MainActivity.redirectActivity(this,HomeCalculator.class);}
         else{MainActivity.login(this);}
     }

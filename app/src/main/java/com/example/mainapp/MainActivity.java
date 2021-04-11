@@ -274,6 +274,10 @@ public class MainActivity extends AppCompatActivity {
     public void ClickHomeCalculator(View view) {
         //this code below is correct
        // redirectActivity(this, HomeCalculator.class);
+        if (domain == "AGENT" || domain == "NON-AGENT") {
+            loggedIn = true;
+        }
+        else{ loggedIn=false;}
         System.out.println("LOGGED IN:"+loggedIn);
         if (loggedIn) {
             redirectActivity(this, HomeCalculator.class);

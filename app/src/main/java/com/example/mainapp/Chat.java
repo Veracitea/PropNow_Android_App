@@ -168,6 +168,10 @@ public class Chat extends AppCompatActivity {
     //HOME CALC
     public void ClickHomeCalculator(View view){
         //this code below is correct
+        if (domain == "AGENT" || domain == "NON-AGENT") {
+            loggedIn = true;
+        }
+        else{ loggedIn=false;}
        MainActivity.redirectActivity(this,HomeCalculator.class);
        // else{MainActivity.login(this);}
     }
