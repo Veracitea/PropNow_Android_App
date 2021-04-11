@@ -154,27 +154,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.slider.RangeSlider
-
-        android:id="@+id/sliderStorey"
-        android:layout_width="237dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="132dp"
-        android:layout_marginLeft="132dp"
-        android:layout_marginTop="360dp"
-        android:stepSize="20"
-        android:valueFrom="40"
-        android:valueTo="140"
-        app:values="@array/storey_values"
-        app:labelBehavior = "gone"
-        app:trackColorActive = "#2196F3"
-        app:trackColorInactive = "#F5C3CACD"
-        app:haloColor = "#03A9F4"
-        app:thumbColor = "#3F51B5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
+            <TextView
         android:id="@+id/num9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -239,27 +219,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.slider.RangeSlider
+            <com.google.android.material.slider.RangeSlider
 
-        android:id="@+id/sliderPrice"
-        android:layout_width="237dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="132dp"
-        android:layout_marginLeft="132dp"
-        android:layout_marginTop="292dp"
-        android:stepSize="250"
-        android:valueFrom="0"
-        android:valueTo="1000"
-        app:values="@array/price_values"
-        app:labelBehavior = "gone"
-        app:trackColorActive = "#2196F3"
-        app:trackColorInactive = "#F5C3CACD"
-        app:haloColor = "#03A9F4"
-        app:thumbColor = "#3F51B5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+                android:id="@+id/sliderPrice"
+                android:layout_width="237dp"
+                android:layout_height="30dp"
+                android:stepSize="250"
+                android:valueFrom="0"
+                android:valueTo="1000"
+                app:haloColor="#03A9F4"
+                app:labelBehavior="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.758"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.497"
+                app:thumbColor="#3F51B5"
+                app:trackColorActive="#2196F3"
+                app:trackColorInactive="#F5C3CACD"
+                app:values="@array/price_values" />
 
-    <TextView
+            <TextView
         android:id="@+id/num7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -343,7 +324,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="360dp"
-        android:text="Storey"
+        android:text="Area"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -438,6 +419,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+            <com.google.android.material.slider.RangeSlider
+
+                android:id="@+id/sliderStorey"
+                android:layout_width="237dp"
+                android:layout_height="30dp"
+                android:layout_marginBottom="252dp"
+                android:stepSize="20"
+                android:valueFrom="40"
+                android:valueTo="140"
+                app:haloColor="#03A9F4"
+                app:labelBehavior="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.758"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.974"
+                app:thumbColor="#3F51B5"
+                app:trackColorActive="#2196F3"
+                app:trackColorInactive="#F5C3CACD"
+                app:values="@array/storey_values" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -452,6 +455,7 @@
 
         <include
             layout="@layout/main_nav_drawer"/>
+
     </RelativeLayout>
 
 </androidx.drawerlayout.widget.DrawerLayout>
