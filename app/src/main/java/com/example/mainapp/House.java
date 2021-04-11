@@ -33,7 +33,6 @@ public class House {
         this.resale_price = resale_price;
         this.agent_id = agent_id;
     }
-
     @Override
     public String toString() {
         return "House{" +

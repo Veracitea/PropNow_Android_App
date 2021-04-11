@@ -23,6 +23,7 @@ import static java.lang.Boolean.valueOf;
 public class HomeCalculator extends AppCompatActivity {
     DrawerLayout drawerLayout;
     Button mybutton;
+
     //getting domain and loggedIn status
     String domain = MainActivity.getDomain();
     boolean loggedIn = MainActivity.setLoggedIn();

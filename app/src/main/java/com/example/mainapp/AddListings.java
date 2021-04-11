@@ -114,6 +114,7 @@ public class AddListings extends AppCompatActivity {
                             et_remainingLease.getText().toString(),
                             Integer.parseInt(et_resalePrice.getText().toString()),
                             130
+
                     );
 
                  //   Toast.makeText(AddListings.this, house.toString(), Toast.LENGTH_SHORT).show();

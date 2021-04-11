@@ -54,7 +54,6 @@ public class HouseDatabaseHelper extends SQLiteOpenHelper {
 
     public boolean addOne(House house) {
 
-
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(COL_TOWN, house.getTown());

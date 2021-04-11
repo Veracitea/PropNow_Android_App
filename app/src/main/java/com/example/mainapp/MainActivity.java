@@ -84,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
 //        domain = getDomain();  //set domain
         //MainActivity.domain = Login.getDomain();
         loggedIn = setLoggedIn();
+
         System.out.println("MainActivity domain and logged In: "+domain+loggedIn);
 
         readUserData(); //SELF CREATED FUNC database

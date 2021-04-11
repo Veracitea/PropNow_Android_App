@@ -153,7 +153,6 @@ public class Login extends AppCompatActivity {
 
         if (correct == false){
             counter--;
-
             Username.setText("");
             Password.setText("");
             Info.setText("Number of attempt remaining: " + counter);
