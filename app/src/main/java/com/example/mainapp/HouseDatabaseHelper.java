@@ -88,7 +88,7 @@ public class HouseDatabaseHelper extends SQLiteOpenHelper {
             do{
                 int houseID = cursor.getInt(0);
                 String town = cursor.getString(1);
-                int flat_type = cursor.getInt(2);
+                String flat_type = cursor.getString(2);
                 String block = cursor.getString(3);
                 String street_name = cursor.getString(4);
                 String story_range = cursor.getString(5);
