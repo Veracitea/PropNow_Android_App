@@ -379,7 +379,7 @@ public class MainActivity extends AppCompatActivity {
     private List<databass3> housedb = new ArrayList<>();
 
     private void readHouseData() {
-        InputStream isss = getResources().openRawResource(R.raw.agent); //imp class
+        InputStream isss = getResources().openRawResource(R.raw.house); //imp class
         BufferedReader reader = new BufferedReader(
                 new InputStreamReader(isss, Charset.forName("UTF-8")) //alt enter and import class charset
         );
@@ -404,7 +404,7 @@ public class MainActivity extends AppCompatActivity {
                 houses.setLease_commence_date(Integer.parseInt(tokens[9]));
                 houses.setRemaining_lease(tokens[10]);
                 houses.setResale_price(Integer.parseInt(tokens[11]));
-                
+
                 housedb.add(houses);
                 Log.d("MyActivity", "Just Created: " + houses);
             }
