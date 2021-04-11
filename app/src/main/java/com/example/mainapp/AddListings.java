@@ -121,7 +121,7 @@ public class AddListings extends AppCompatActivity {
                 } catch (Exception e) {
                     house = new House(0,"",0,"","","","","",0,"",0,130);
                     Toast.makeText(AddListings.this, "error adding house", Toast.LENGTH_SHORT).show();
-                    house = new House(-1,"",0,"","","","","","","","",0);
+                    house = new House(-1,"",0,"","","","","",0,"",0,0);
 
                 }
 
