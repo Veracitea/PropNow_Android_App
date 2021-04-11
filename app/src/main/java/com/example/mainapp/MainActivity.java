@@ -59,15 +59,16 @@ public class MainActivity extends AppCompatActivity {
     ImageView picture, picture1, picture2;
 
     //for login
-    String domain = "GENERAL";//= getDomain();
-    boolean loggedIn = false;// = setLoggedIn();
+    static String domain = "GENERAL";//= getDomain();
+    boolean loggedIn = false;
 
     public static String getDomain() {
-        return Login.getDomain();
+        return domain;
     }
 
+
     public static boolean setLoggedIn() { //set loggedIn value based on domain
-        if (getDomain() == "AGENT" || getDomain() == "NON-AGENT") {
+        if (domain == "AGENT" || domain == "NON-AGENT") {
             return true;
         }
         return false;
@@ -80,17 +81,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //for login
-        domain = Login.getDomain();
-        if (domain == "AGENT" || domain == "NON-AGENT") {
-            loggedIn = true;
-        }
-        else {loggedIn=false;}
-        //loggedIn = setLoggedIn();
+//        domain = getDomain();  //set domain
+        //MainActivity.domain = Login.getDomain();
+        loggedIn = setLoggedIn();
         System.out.println("MainActivity domain and logged In: "+domain+loggedIn);
 
         readUserData(); //SELF CREATED FUNC database
         readAgentData(); //SELF CREATED FUNC database
-        readHouseData(); //^
+      //  readHouseData(); //^
 
         //addListenerOnButton();
         drawerLayout = findViewById(R.id.drawer_layout);
@@ -274,7 +272,7 @@ public class MainActivity extends AppCompatActivity {
     //HOME CALC
     public void ClickHomeCalculator(View view) {
         //this code below is correct
-        // System.out.println(loggedIn);
+        System.out.println("LOGGED IN: "+loggedIn);
         if (loggedIn) {
             redirectActivity(this, HomeCalculator.class);
         } else {
@@ -380,43 +378,43 @@ public class MainActivity extends AppCompatActivity {
     // SELF MADE FUNCTION
     private List<databass3> housedb = new ArrayList<>();
 
-    private void readHouseData() {
-        InputStream isss = getResources().openRawResource(R.raw.agent); //imp class
-        BufferedReader reader = new BufferedReader(
-                new InputStreamReader(isss, Charset.forName("UTF-8")) //alt enter and import class charset
-        );
-
-        String line = "";
-        try {
-            reader.readLine();
-            while ((line = reader.readLine()) != null) {
-                Log.d("MyActivity", "Line: " + line);
-                String[] tokens = line.split(",");
-
-                databass3 houses = new databass3();
-                houses.setAgent(Integer.parseInt(tokens[0]));
-                houses.setMonth(tokens[1]);
-                houses.setTown(tokens[2]);
-                houses.setFlat_type(tokens[3]);
-                houses.setBlock(tokens[4]);
-                houses.setStreet_name(tokens[5]);
-                houses.setStorey_range(tokens[6]);
-                houses.setFloor_area_sqm(Integer.parseInt(tokens[7]));
-                houses.setFlat_model(tokens[8]);
-                houses.setLease_commence_date(Integer.parseInt(tokens[9]));
-                houses.setRemaining_lease(tokens[10]);
-                houses.setResale_price(Integer.parseInt(tokens[11]));
-                
-                housedb.add(houses);
-                Log.d("MyActivity", "Just Created: " + houses);
-            }
-        } catch (IOException e) {
-            Log.wtf("MyActivity", "Error reading on Line: " + line, e);
-            e.printStackTrace();
-        }
-
-
-    }
+//    private void readHouseData() {
+//        InputStream isss = getResources().openRawResource(R.raw.agent); //imp class
+//        BufferedReader reader = new BufferedReader(
+//                new InputStreamReader(isss, Charset.forName("UTF-8")) //alt enter and import class charset
+//        );
+//
+//        String line = "";
+//        try {
+//            reader.readLine();
+//            while ((line = reader.readLine()) != null) {
+//                Log.d("MyActivity", "Line: " + line);
+//                String[] tokens = line.split(",");
+//
+//                databass3 houses = new databass3();
+//                houses.setAgent(Integer.parseInt(tokens[0]));
+//                houses.setMonth(tokens[1]);
+//                houses.setTown(tokens[2]);
+//                houses.setFlat_type(tokens[3]);
+//                houses.setBlock(tokens[4]);
+//                houses.setStreet_name(tokens[5]);
+//                houses.setStorey_range(tokens[6]);
+//                houses.setFloor_area_sqm(Integer.parseInt(tokens[7]));
+//                houses.setFlat_model(tokens[8]);
+//                houses.setLease_commence_date(Integer.parseInt(tokens[9]));
+//                houses.setRemaining_lease(tokens[10]);
+//                houses.setResale_price(Integer.parseInt(tokens[11]));
+//
+//                housedb.add(houses);
+//                Log.d("MyActivity", "Just Created: " + houses);
+//            }
+//        } catch (IOException e) {
+//            Log.wtf("MyActivity", "Error reading on Line: " + line, e);
+//            e.printStackTrace();
+//        }
+//
+//
+//    }
     
     
 }

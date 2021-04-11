@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -48,6 +49,8 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        drawerLayout = findViewById(R.id.drawer_layout);
+
         spinner = findViewById(R.id.spinner1);
         Username = (EditText)findViewById(R.id.etUsername);
         Password = (EditText)findViewById(R.id.etPassword);
@@ -108,7 +111,7 @@ public class Login extends AppCompatActivity {
     }
 
     public static String getDomain(){
-        return domain;
+        return com.example.mainapp.Login.domain;
     }
 
     boolean loggedIn = MainActivity.setLoggedIn();
@@ -123,16 +126,11 @@ public class Login extends AppCompatActivity {
                 username = a.getUsername();
                 password = a.getPassword();
                 if((userName.equals(username))&&(userPassword.equals(password))){
-                    System.out.println("the domain is:"+getDomain());
                     setDomain("AGENT");
-                    System.out.println("Setting domain to agent");
-                    System.out.println("the domain is:"+getDomain());
-                    System.out.println("the domain value is:"+domain);
-                    MainActivity.redirectActivity(this,MainActivity.class);
-//                    Intent intent = new Intent(Login.this, SecondActivity.class);
-//                    startActivity(intent);
+                    MainActivity.domain = "AGENT";
+                    Intent intent = new Intent(Login.this, MainActivity.class);
+                    startActivity(intent);
                     correct = true;
-                    System.out.println("the domain is:"+getDomain());
                     break;
                 }
             }
@@ -144,11 +142,10 @@ public class Login extends AppCompatActivity {
                     password = n.getPassword();
                     if ((userName.equals(username)) && (userPassword.equals(password))) {
                         setDomain("NON-AGENT");
-                        MainActivity.redirectActivity(this,MainActivity.class);
-//                        Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-//                        startActivity(intent);
+                        MainActivity.domain = "NON-AGENT";
+                        Intent intent = new Intent(Login.this, MainActivity.class);
+                        startActivity(intent);
                         correct = true;
-                        //domain = "NON-AGENT";
                         break;
                     }
                 }
@@ -161,11 +158,14 @@ public class Login extends AppCompatActivity {
             Username.setText("");
             Password.setText("");
             Info.setText("Number of attempt remaining: " + counter);
+            Toast.makeText(Login.this, "Invalid Credentials! Please try again", Toast.LENGTH_SHORT).show();
 
             if(counter == 0) {
                 Login.setEnabled(false);
-                domain = "GENERAL";
                 setDomain("GENERAL");
+                MainActivity.domain = "GENERAL";
+                //print out - ure not authorized to login?
+                Toast.makeText(Login.this, "You are not authorized to login!", Toast.LENGTH_SHORT).show();
             }
 
         }
