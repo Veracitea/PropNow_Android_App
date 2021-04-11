@@ -5,18 +5,25 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.ToggleButton;
+
+import java.util.ArrayList;
 
 import static android.view.View.VISIBLE;
 import static java.lang.Boolean.FALSE;
 
 public class ResultsPage extends AppCompatActivity {
 
+    SearchView mySearchView;
+    ListView myList;
     DrawerLayout drawerLayout;
     //getting domain and loggedIn status
     String domain = MainActivity.getDomain();
@@ -25,6 +32,8 @@ public class ResultsPage extends AppCompatActivity {
     LinearLayout mainmenu,viewgrants,viewagentinfo,homecalc,mylistings,inbox,settings;
     TextView username;
     ImageView picture,picture1,picture2;
+
+    ArrayAdapter<String> adapter;
 
     ImageButton ARcamera;
     Button SearchBar;
@@ -96,12 +105,25 @@ public class ResultsPage extends AppCompatActivity {
                 setContentView(R.layout.activity_advanced_filters);
             }
         });
-        houseInfo.setOnClickListener(new View.OnClickListener() { //clicking on house image
+        /*houseInfo.setOnClickListener(new View.OnClickListener() { //clicking on house image
             @Override
             public void onClick(View v) {
                 setContentView(R.layout.activity_house_info);
             }
-        });
+        });*/
+
+        myList = (ListView)findViewById(R.id.MyList);
+
+        ArrayList<String> newlist = (ArrayList<String>) getIntent().getSerializableExtra("thelist");
+
+        ArrayList<String> list;
+        list = new ArrayList<>();
+        list.add("1");
+        list.add("2");
+
+        adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,newlist);
+        myList.setAdapter(adapter);
+
     }
 
     @Override
