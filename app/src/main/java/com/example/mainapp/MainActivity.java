@@ -135,12 +135,6 @@ public class MainActivity extends AppCompatActivity {
         houseInfo = findViewById(R.id.imageView2);
 
 
-        houseInfo.setOnClickListener(new View.OnClickListener() { //clicking on house image
-            @Override
-            public void onClick(View v) {
-                setContentView(R.layout.activity_house_info);
-            }
-        });
 
     }
 
@@ -225,6 +219,7 @@ public class MainActivity extends AppCompatActivity {
         openDrawer(drawerLayout);
     }
     public void ClickSearch(View view){redirectActivity(this,searchBar.class);}
+    public void ClickHouseInfo(View view){redirectActivity(this,houseInfo.class);}
 
     //MAIN MENU
     public void ClickHome(View view) {
