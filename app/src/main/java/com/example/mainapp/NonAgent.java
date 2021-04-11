@@ -112,7 +112,7 @@ public class NonAgent {
 
     @Override
     public String toString() {
-        return "databass{" +
+        return "nonagent{" +
                 "UserId=" + UserId +
                 ", name='" + name + '\'' +
                 ", age=" + age +
