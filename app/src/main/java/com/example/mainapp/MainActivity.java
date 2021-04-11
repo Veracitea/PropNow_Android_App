@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
 
         readUserData(); //SELF CREATED FUNC database
         readAgentData(); //SELF CREATED FUNC database
-        readHouseData(); //^
+        //readHouseData(); //^
 
         //addListenerOnButton();
         drawerLayout = findViewById(R.id.drawer_layout);
@@ -378,7 +378,7 @@ public class MainActivity extends AppCompatActivity {
     }
     
     // SELF MADE FUNCTION
-    private List<databass3> housedb = new ArrayList<>();
+   /* private List<databass3> housedb = new ArrayList<>();
 
     private void readHouseData() {
         InputStream isss = getResources().openRawResource(R.raw.agent); //imp class
@@ -416,7 +416,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-    }
+    } */
     
     
 }
