@@ -3,6 +3,7 @@ package com.example.mainapp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.database.DatabaseUtils;
 import android.os.Bundle;
 import android.view.View;
@@ -22,6 +23,7 @@ public class AddListings extends AppCompatActivity {
     //references to buttons and other controls on layout
     DrawerLayout drawerLayout;
     ListView lv_houseList;
+    ImageButton myimagebutton;
 
     EditText et_blockNum, et_street, et_story, et_town, et_bedroomNum, et_floorArea, et_flatModel, et_leaseCommencement, et_remainingLease, et_resalePrice;
     ImageButton btn_addImage;
@@ -80,12 +82,12 @@ public class AddListings extends AppCompatActivity {
             viewgrants.setVisibility(View.GONE);
             homecalc.setVisibility(View.GONE);
             viewagentinfo.setVisibility(View.GONE);
-            username.setText("Monica Geller\nAgent ID: U273849K");
+            username.setText("Francisca Grand");
             picture1.setVisibility(VISIBLE);
             picture.setVisibility(View.GONE);
-        } else if (domain=="NON-AGENT"){  //for non-agents
+        } else if (domain == "NON-AGENT") {  //for non-agents
             mylistings.setVisibility(View.GONE);
-            username.setText("Rachel Green");
+            username.setText("Ealasaid MacCarrane");
             picture2.setVisibility(VISIBLE);
             picture.setVisibility(View.GONE);
         } else{  //for general users
@@ -138,6 +140,18 @@ public class AddListings extends AppCompatActivity {
 
             }
         });
+        myimagebutton = (ImageButton) findViewById(R.id.imageButton6);
+
+        myimagebutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intentloadnewactivity1 = new Intent(AddListings.this, MyListings.class);
+                startActivity(intentloadnewactivity1);
+
+
+            }
+        });
 
 
 
@@ -182,6 +196,10 @@ public class AddListings extends AppCompatActivity {
     //HOME CALC
     public void ClickHomeCalculator(View view){
         //this code below is correct
+        if (domain == "AGENT" || domain == "NON-AGENT") {
+            loggedIn = true;
+        }
+        else{ loggedIn=false;}
         if (loggedIn){MainActivity.redirectActivity(this,HomeCalculator.class);}
         else{MainActivity.login(this);}
     }

@@ -3,6 +3,7 @@ package com.example.mainapp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -47,12 +48,12 @@ public class ViewEligibility extends AppCompatActivity {
             viewgrants.setVisibility(GONE);
             homecalc.setVisibility(GONE);
             viewagentinfo.setVisibility(GONE);
-            username.setText("Monica Geller\nAgent ID: U273849K");
+            username.setText("Francisca Grand");
             picture1.setVisibility(VISIBLE);
-            picture.setVisibility(GONE);
-        } else if (domain=="NON-AGENT"){  //for non-agents
-            mylistings.setVisibility(GONE);
-            username.setText("Rachel Green");
+            picture.setVisibility(View.GONE);
+        } else if (domain == "NON-AGENT") {  //for non-agents
+            mylistings.setVisibility(View.GONE);
+            username.setText("Ealasaid MacCarrane");
             picture2.setVisibility(VISIBLE);
             picture.setVisibility(GONE);
         } else{  //for general users
@@ -61,6 +62,10 @@ public class ViewEligibility extends AppCompatActivity {
         }
     }
 
+    public void ClickBackEligibility(View v){
+        Intent intent = new Intent(ViewEligibility.this, ViewGrantsInfo.class);
+        startActivity(intent);
+    }
     @Override
     protected void onPause() {
         super.onPause();
@@ -91,6 +96,10 @@ public class ViewEligibility extends AppCompatActivity {
     //HOME CALC
     public void ClickHomeCalculator(View view){
         //this code below is correct
+        if (domain == "AGENT" || domain == "NON-AGENT") {
+            loggedIn = true;
+        }
+        else{ loggedIn=false;}
         if (loggedIn){MainActivity.redirectActivity(this,HomeCalculator.class);}
         else{MainActivity.login(this);}
     }

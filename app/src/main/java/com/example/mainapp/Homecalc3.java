@@ -52,12 +52,12 @@ public class Homecalc3 extends AppCompatActivity {
             viewgrants.setVisibility(View.GONE);
             homecalc.setVisibility(View.GONE);
             viewagentinfo.setVisibility(View.GONE);
-            username.setText("Monica Geller\nAgent ID: U273849K");
+            username.setText("Francisca Grand");
             picture1.setVisibility(VISIBLE);
             picture.setVisibility(View.GONE);
-        } else if (domain=="NON-AGENT"){  //for non-agents
+        } else if (domain == "NON-AGENT") {  //for non-agents
             mylistings.setVisibility(View.GONE);
-            username.setText("Rachel Green");
+            username.setText("Ealasaid MacCarrane");
             picture2.setVisibility(VISIBLE);
             picture.setVisibility(View.GONE);
         } else{  //for general users
@@ -112,6 +112,10 @@ public class Homecalc3 extends AppCompatActivity {
     //HOME CALC
     public void ClickHomeCalculator(View view){
         //this code below is correct
+        if (domain == "AGENT" || domain == "NON-AGENT") {
+            loggedIn = true;
+        }
+        else{ loggedIn=false;}
         if (loggedIn){MainActivity.redirectActivity(this,HomeCalculator.class);}
         else{MainActivity.login(this);}
     }
