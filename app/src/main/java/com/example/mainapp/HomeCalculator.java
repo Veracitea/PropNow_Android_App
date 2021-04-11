@@ -12,7 +12,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.text.TextUtils;
 
@@ -25,7 +24,6 @@ public class HomeCalculator extends AppCompatActivity {
     DrawerLayout drawerLayout;
     ImageButton myimagebutton;
     Button mybutton;
-    Spinner dropdown;
     //getting domain and loggedIn status
     String domain = MainActivity.getDomain();
     boolean loggedIn = MainActivity.setLoggedIn();
@@ -51,7 +49,6 @@ public class HomeCalculator extends AppCompatActivity {
 
 
         myimagebutton = (ImageButton) findViewById(R.id.imageButton2);
-        dropdown = findViewById(R.id.spinner1);
 
         //for sidebar - show options by domain
         mainmenu = findViewById(R.id.mainmenu);
@@ -86,9 +83,7 @@ public class HomeCalculator extends AppCompatActivity {
             inbox.setVisibility(View.GONE);
         }
 
-        String[] items = new String[]{"Employee", "Employee (Pensionable)", "Self-Employed Person", "CPF not applicable"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
-        dropdown.setAdapter(adapter);
+
 
 
         myimagebutton.setOnClickListener(new View.OnClickListener() {
