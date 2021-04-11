@@ -4,11 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -29,6 +31,8 @@ public class DeleteListings extends AppCompatActivity {
     LinearLayout mainmenu,viewgrants,viewagentinfo,homecalc,mylistings,inbox,settings;
     TextView username;
     ImageView picture,picture1,picture2;
+    Button b;
+
 
 
 
@@ -69,6 +73,19 @@ public class DeleteListings extends AppCompatActivity {
             mylistings.setVisibility(View.GONE);
             inbox.setVisibility(View.GONE);
         }
+
+        b = (Button) findViewById(R.id.button11);
+
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intentloadnewactivity1 = new Intent(DeleteListings.this, MyListings.class);
+                startActivity(intentloadnewactivity1);
+
+
+            }
+        });
 
     }
     @Override
