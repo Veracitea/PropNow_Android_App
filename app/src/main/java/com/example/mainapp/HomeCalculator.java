@@ -86,16 +86,6 @@ public class HomeCalculator extends AppCompatActivity {
 
 
 
-        myimagebutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intentloadnewactivity = new Intent(HomeCalculator.this, Homecalc2.class);
-                startActivity(intentloadnewactivity);
-
-
-            }
-        });
         mybutton = (Button) findViewById(R.id.buttoncalc2);
 
         mybutton.setOnClickListener(new View.OnClickListener() {
