@@ -92,10 +92,9 @@
                 android:id="@+id/high"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="340dp"
-                android:layout_marginLeft="340dp"
+                android:layout_marginStart="352dp"
                 android:layout_marginTop="348dp"
-                android:text="High"
+                android:text="140"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -103,8 +102,7 @@
                 android:id="@+id/num13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="224dp"
-                android:layout_marginLeft="224dp"
+                android:layout_marginStart="208dp"
                 android:layout_marginTop="468dp"
                 android:text="2"
                 app:layout_constraintStart_toStartOf="parent"
@@ -136,8 +134,7 @@
                 android:id="@+id/num14"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="268dp"
-                android:layout_marginLeft="268dp"
+                android:layout_marginStart="256dp"
                 android:layout_marginTop="468dp"
                 android:text="3"
                 app:layout_constraintStart_toStartOf="parent"
@@ -147,8 +144,7 @@
                 android:id="@+id/num6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="292dp"
-                android:layout_marginLeft="292dp"
+                android:layout_marginStart="300dp"
                 android:layout_marginTop="288dp"
                 android:text="75k"
                 app:layout_constraintStart_toStartOf="parent"
@@ -158,8 +154,7 @@
                 android:id="@+id/num9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="240dp"
-                android:layout_marginLeft="240dp"
+                android:layout_marginStart="236dp"
                 android:layout_marginTop="408dp"
                 android:text="50"
                 app:layout_constraintStart_toStartOf="parent"
@@ -172,7 +167,47 @@
                 android:layout_marginStart="144dp"
                 android:layout_marginLeft="144dp"
                 android:layout_marginTop="348dp"
-                android:text="Low"
+                android:text="40"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/low6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="272dp"
+                android:layout_marginTop="348dp"
+                android:text="100"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/low7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="312dp"
+                android:layout_marginTop="348dp"
+                android:text="120"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/low2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="188dp"
+                android:layout_marginTop="348dp"
+                android:text="60"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/low3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="232dp"
+                android:layout_marginTop="348dp"
+                android:text="80"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -187,17 +222,26 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+
             <TextView
                 android:id="@+id/num11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="340dp"
-                android:layout_marginLeft="340dp"
+                android:layout_marginStart="312dp"
                 android:layout_marginTop="408dp"
-                android:text="99+"
+                android:text="100"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <TextView
+                android:id="@+id/num20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="352dp"
+                android:layout_marginTop="408dp"
+                android:text="125"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.slider.RangeSlider
 
@@ -252,8 +296,7 @@
                 android:id="@+id/num12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="184dp"
-                android:layout_marginLeft="184dp"
+                android:layout_marginStart="152dp"
                 android:layout_marginTop="468dp"
                 android:text="1"
                 app:layout_constraintStart_toStartOf="parent"
@@ -274,8 +317,7 @@
                 android:id="@+id/num16"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="340dp"
-                android:layout_marginLeft="340dp"
+                android:layout_marginStart="352dp"
                 android:layout_marginTop="468dp"
                 android:text="5+"
                 app:layout_constraintStart_toStartOf="parent"
@@ -293,22 +335,10 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/num3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="144dp"
-                android:layout_marginLeft="144dp"
-                android:layout_marginTop="468dp"
-                android:text="0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
                 android:id="@+id/num5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="240dp"
-                android:layout_marginLeft="240dp"
+                android:layout_marginStart="252dp"
                 android:layout_marginTop="288dp"
                 android:text="50k"
                 app:layout_constraintStart_toStartOf="parent"
@@ -341,8 +371,7 @@
                 android:id="@+id/num4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="192dp"
-                android:layout_marginLeft="192dp"
+                android:layout_marginStart="200dp"
                 android:layout_marginTop="288dp"
                 android:text="25k"
                 app:layout_constraintStart_toStartOf="parent"
@@ -363,8 +392,7 @@
                 android:id="@+id/num10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="292dp"
-                android:layout_marginLeft="292dp"
+                android:layout_marginStart="276dp"
                 android:layout_marginTop="408dp"
                 android:text="75"
                 app:layout_constraintStart_toStartOf="parent"
