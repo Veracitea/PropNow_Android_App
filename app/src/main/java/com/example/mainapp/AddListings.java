@@ -98,7 +98,7 @@ public class AddListings extends AppCompatActivity {
 
                 //House house;
 
-                House house = null;
+                House house;
                 try {
                     house = new House(-1,
                             et_town.toString(),
@@ -118,6 +118,7 @@ public class AddListings extends AppCompatActivity {
 
                 } catch (Exception e) {
                     Toast.makeText(AddListings.this, "error adding house", Toast.LENGTH_SHORT).show();
+                    house = new House(-1,"",0,"","","","","","","","",0);
 
                 }
 

@@ -18,20 +18,20 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="275dp"
-        android:layout_marginEnd="285dp"
-        android:text="Password"
-        android:textColor="#020202"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="284dp"
+                android:layout_marginEnd="292dp"
+                android:text="Password"
+                android:textColor="#020202"
+                android:textSize="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/username"
+            <EditText
+        android:id="@+id/etUsername"
         android:layout_width="227dp"
         android:layout_height="46dp"
         android:ems="10"
@@ -45,7 +45,7 @@
         app:layout_constraintVertical_bias="0.274" />
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/etPassword"
         android:layout_width="227dp"
         android:layout_height="46dp"
         android:background="#EFEBEB"
@@ -110,32 +110,31 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.464" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="158dp"
-        android:layout_height="50dp"
-        android:text="Sign Up"
-        app:backgroundTint="#3F51B5"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.934"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="158dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="4dp"
-        android:text="Login"
-        app:backgroundTint="#3F51B5"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/button2"
-        app:layout_constraintHorizontal_bias="0.054"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
+            <TextView
+                android:id="@+id/tvInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No. of attempt(s) remaining:  5"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.845" />
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="158dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="124dp"
+                android:text="Login"
+                app:backgroundTint="#3F51B5"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/button2"
+                app:layout_constraintHorizontal_bias="0.054"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.771" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
