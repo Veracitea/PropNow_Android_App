@@ -29,6 +29,7 @@ public class Homecalc3 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homecalc3);
+
         myimagebutton = (ImageButton) findViewById(R.id.imageButton5);
 
         //for sidebar - show options by domain
