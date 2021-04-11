@@ -42,7 +42,7 @@ public class House {
         return "House{" +
                 "id=" + id +
                 ", town='" + town + '\'' +
-                ", flat_type='" + flat_type + '\'' +
+                ", flat_type=" + flat_type +
                 ", block='" + block + '\'' +
                 ", street_name='" + street_name + '\'' +
                 ", storey_range='" + storey_range + '\'' +
@@ -51,7 +51,7 @@ public class House {
                 ", lease_commence_date='" + lease_commence_date + '\'' +
                 ", remaining_lease='" + remaining_lease + '\'' +
                 ", resale_price='" + resale_price + '\'' +
-                ", agent_name='" + agent_id + '\'' +
+                ", agent_id=" + agent_id +
                 '}';
     }
 

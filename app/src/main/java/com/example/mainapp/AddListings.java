@@ -3,6 +3,7 @@ package com.example.mainapp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.database.DatabaseUtils;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -95,8 +96,11 @@ public class AddListings extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                try{
-                    House house = new House(-1,
+                //House house;
+
+                House house = null;
+                try {
+                    house = new House(-1,
                             et_town.toString(),
                             Integer.parseInt(et_bedroomNum.getText().toString()),
                             et_blockNum.toString(),
@@ -108,18 +112,20 @@ public class AddListings extends AppCompatActivity {
                             et_remainingLease.toString(),
                             et_resalePrice.toString(),
                             130
-                            );
+                    );
 
+                    Toast.makeText(AddListings.this, house.toString(), Toast.LENGTH_LONG).show();
 
-                    Toast.makeText(AddListings.this , house.toString(), Toast.LENGTH_SHORT).show();
-
-                }
-                catch (Exception e){
-                    Toast.makeText(AddListings.this , "error adding house", Toast.LENGTH_SHORT).show();
+                } catch (Exception e) {
+                    Toast.makeText(AddListings.this, "error adding house", Toast.LENGTH_SHORT).show();
 
                 }
-                
-                
+
+                HouseDatabaseHelper houseDatabaseHelper = new HouseDatabaseHelper(AddListings.this);
+                boolean success = houseDatabaseHelper.addOne(house);
+                Toast.makeText(AddListings.this, "Success" + success, Toast.LENGTH_LONG).show();
+
+
             }
         });
 
