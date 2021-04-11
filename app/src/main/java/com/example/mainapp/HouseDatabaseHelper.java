@@ -2,10 +2,14 @@ package com.example.mainapp;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class HouseDatabaseHelper extends SQLiteOpenHelper {
 
@@ -72,5 +76,43 @@ public class HouseDatabaseHelper extends SQLiteOpenHelper {
 
             return true;
         }
+    }
+
+    public List<House> getAll(){
+        List<House> returnList = new ArrayList<>();
+        //get data from the database
+        String queryString = "SELECT * FROM " + HOUSE_TABLE;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(queryString,null);
+        if(cursor.moveToFirst()){
+            //loop through cursor(result set) and get new house objects. Put them into result list.
+            do{
+                int houseID = cursor.getInt(0);
+                String town = cursor.getString(1);
+                int flat_type = cursor.getInt(2);
+                String block = cursor.getString(3);
+                String street_name = cursor.getString(4);
+                String story_range = cursor.getString(5);
+                String floor_area = cursor.getString(6);
+                String flat_model = cursor.getString(7);
+                int lease_commencementDate= cursor.getInt(8);
+                String remaining_lease = cursor.getString(9);
+                int resale_price = cursor.getInt(10);
+                int agent_id = cursor.getInt(11);
+
+                House house = new House(houseID, town, flat_type, block,street_name,story_range,floor_area,flat_model,lease_commencementDate,remaining_lease,resale_price,agent_id);
+
+            }
+            while(cursor.moveToNext());
+
+        }
+        else{
+            //failure. do not add anything to the list
+
+        }
+        //close both cursor and db when done
+        cursor.close();
+        db.close();
+        return returnList;
     }
 }

@@ -58,6 +58,8 @@ public class AddListings extends AppCompatActivity {
         btn_addListing = findViewById(R.id.btn_addListing);
 
 
+
+
         //for sidebar - show options by domain
         mainmenu = findViewById(R.id.mainmenu);
         viewgrants = findViewById(R.id.viewgrants);
@@ -108,15 +110,16 @@ public class AddListings extends AppCompatActivity {
                             et_story.toString(),
                             et_floorArea.toString(),
                             et_flatModel.toString(),
-                            et_leaseCommencement.toString(),
+                            Integer.parseInt(et_leaseCommencement.toString()),
                             et_remainingLease.toString(),
-                            et_resalePrice.toString(),
+                            Integer.parseInt(et_resalePrice.toString()),
                             130
                     );
 
-                    Toast.makeText(AddListings.this, house.toString(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(AddListings.this, house.toString(), Toast.LENGTH_SHORT).show();
 
                 } catch (Exception e) {
+                    house = new House(0,"",0,"","","","","",0,"",0,130);
                     Toast.makeText(AddListings.this, "error adding house", Toast.LENGTH_SHORT).show();
                     house = new House(-1,"",0,"","","","","","","","",0);
 
@@ -124,11 +127,13 @@ public class AddListings extends AppCompatActivity {
 
                 HouseDatabaseHelper houseDatabaseHelper = new HouseDatabaseHelper(AddListings.this);
                 boolean success = houseDatabaseHelper.addOne(house);
-                Toast.makeText(AddListings.this, "Success" + success, Toast.LENGTH_LONG).show();
+                Toast.makeText(AddListings.this, "Success" + success, Toast.LENGTH_SHORT).show();
 
 
             }
         });
+
+
 
 
 
