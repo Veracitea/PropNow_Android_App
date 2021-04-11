@@ -60,19 +60,6 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.025" />
 
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="179dp"
-                android:layout_height="155dp"
-                android:contentDescription="@string/pic2"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.038"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.588"
-                app:srcCompat="@drawable/house2" />
-
             <View
         android:id="@+id/divider2"
         android:layout_width="match_parent"
@@ -97,18 +84,6 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.44" />
 
-            <View
-                android:id="@+id/divider4"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="?android:attr/listDivider"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.7" />
-
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
@@ -125,21 +100,6 @@
                 app:layout_constraintVertical_bias="0.219" />
 
             <TextView
-                android:id="@+id/textView8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/blk_55_05_56"
-                android:textColor="#020202"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.726"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.472" />
-
-            <TextView
                 android:id="@+id/textView5"
                 android:layout_width="151dp"
                 android:layout_height="26dp"
@@ -152,34 +112,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.271" />
-
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/lorong_6_toa_payoh"
-                android:textColor="#090909"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.811"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.525" />
-
-            <TextView
-                android:id="@+id/textView10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/bedrooms_3"
-                android:textColor="#090909"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.658"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.577" />
 
             <TextView
                 android:id="@+id/textView6"
@@ -210,21 +142,6 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.395" />
 
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="74dp"
-                android:layout_height="36dp"
-                android:background="#D6D3D3"
-                android:text="@string/edit"
-                android:textColor="#0C0C0C"
-                app:backgroundTint="#DAD5D5"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.952"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.665" />
-
             <ImageButton
                 android:id="@+id/imageButton2"
                 android:layout_width="wrap_content"
@@ -253,14 +170,11 @@
             <ListView
                 android:id="@+id/lv_listings"
                 android:layout_width="408dp"
-                android:layout_height="199dp"
-                android:layout_marginTop="23dp"
+                android:layout_height="378dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/divider4"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <Button
                 android:id="@+id/btn_refresh"
@@ -286,8 +200,7 @@
         android:layout_gravity = "start"
         android:background="@color/white">
 
-        <include
-            layout="@layout/main_nav_drawer"/>
+        <include layout="@layout/main_nav_drawer" />
     </RelativeLayout>
 
 </androidx.drawerlayout.widget.DrawerLayout>

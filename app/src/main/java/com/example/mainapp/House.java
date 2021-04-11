@@ -4,8 +4,7 @@ public class House {
 
     private int id;
     private String town;
-    private String flat_type2;
-    private int flat_type;
+    private String flat_type;
     private String block;
     private String street_name;
     private String storey_range;
@@ -18,7 +17,7 @@ public class House {
 
     //constructors
 
-    public House(int id, String town, int flat_type, String block, String street_name,
+    public House(int id, String town, String flat_type, String block, String street_name,
                  String storey_range, int floor_area_sqm, String flat_model, int lease_commence_date,
                  String remaining_lease, int resale_price, int agent_id) {
         this.id = id;
@@ -37,15 +36,15 @@ public class House {
 
     public House() {
         id = -1;
-        town = null;
-        flat_type2 = null;
-        block  = null;
-        street_name = null;
-        storey_range = null;
+        town = " ";
+        flat_type = " ";
+        block  = " ";
+        street_name = " ";
+        storey_range = " ";
         floor_area_sqm = -1;
-        flat_model = null;
+        flat_model = " ";
         lease_commence_date = -1;
-        remaining_lease = null;
+        remaining_lease = " ";
         resale_price = -1;
         agent_id = -1;
     }
@@ -60,16 +59,32 @@ public class House {
                 ", street_name='" + street_name + '\'' +
                 ", storey_range='" + storey_range + '\'' +
                 ", floor_area_sqm='" + floor_area_sqm + '\'' +
-                ", flat_model2='" + flat_model + '\'' +
+                ", flat_model='" + flat_model + '\'' +
                 ", lease_commence_date=" + lease_commence_date +
                 ", remaining_lease='" + remaining_lease + '\'' +
                 ", resale_price=" + resale_price +
                 ", agent_id=" + agent_id +
                 '}';
     }
-
     //getters and setters
-
+    public int getBedroom(){
+        if(flat_type == "2 ROOM"){return 2;}
+        else{
+            if(flat_type == "3 ROOM"){return 3;}
+            else{
+                if(flat_type == "4 ROOM"){return 4;}
+                else{
+                    if(flat_type == "5 ROOM"){return 5;}
+                    else{
+                        return 6;
+                    }
+                }
+            }
+        }
+    }
+    public String getHouseId(){
+        return street_name + " Block " + block + " Storey " + storey_range;
+    }
 
     public int getId() {
         return id;
@@ -87,11 +102,11 @@ public class House {
         this.town = town;
     }
 
-    public int getFlat_type() {
+    public String getFlat_type() {
         return flat_type;
     }
 
-    public void setFlat_type(int flat_type) {
+    public void setFlat_type(String flat_type) {
         this.flat_type = flat_type;
     }
 
@@ -166,30 +181,4 @@ public class House {
     public void setAgent_id(int agent_id) {
         this.agent_id = agent_id;
     }
-    public String getHouseId(){
-        return street_name + " Block " + block + " Storey " + storey_range;
-    }
-
-    public int getBedroom(){
-        if(flat_type2 == "2 ROOM"){return 2;}
-        else{
-            if(flat_type2 == "3 ROOM"){return 3;}
-            else{
-                if(flat_type2 == "4 ROOM"){return 4;}
-                else{
-                    if(flat_type2 == "5 ROOM"){return 5;}
-                    else{
-                        return 6;
-                    }
-                }
-            }
-        }
-    }
-
-    public void setFlat_type(String flat_type2) {
-        this.flat_type2 = flat_type2;
-    }
-
-
-
 }

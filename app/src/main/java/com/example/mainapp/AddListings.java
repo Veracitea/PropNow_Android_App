@@ -108,7 +108,7 @@ public class AddListings extends AppCompatActivity {
                 try {
                      house = new House(-1,
                             et_town.getText().toString(),
-                            Integer.parseInt(et_bedroomNum.getText().toString()),
+                            et_bedroomNum.getText().toString(),
                             et_blockNum.getText().toString(),
                             et_street.getText().toString(),
                             et_story.getText().toString(),
@@ -130,7 +130,7 @@ public class AddListings extends AppCompatActivity {
 
                 }
 
-                house = new House(-1,"",0,"","","",0,"",0,"",0,130);
+                house = new House(-1,""," ","","","",0,"",0,"",0,130);
 
                 HouseDatabaseHelper houseDatabaseHelper = new HouseDatabaseHelper(AddListings.this);
                 boolean success = houseDatabaseHelper.addOne(house);
