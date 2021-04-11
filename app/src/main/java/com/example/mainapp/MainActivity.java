@@ -59,11 +59,11 @@ public class MainActivity extends AppCompatActivity {
     ImageView picture, picture1, picture2;
 
     //for login
-    static String domain = "AGENT";
-    boolean loggedIn = setLoggedIn();
+    String domain = "GENERAL";//= getDomain();
+    boolean loggedIn = false;// = setLoggedIn();
 
     public static String getDomain() {
-        return domain;
+        return Login.getDomain();
     }
 
     public static boolean setLoggedIn() { //set loggedIn value based on domain
@@ -79,6 +79,14 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //for login
+        domain = Login.getDomain();
+        if (domain == "AGENT" || domain == "NON-AGENT") {
+            loggedIn = true;
+        }
+        else {loggedIn=false;}
+        //loggedIn = setLoggedIn();
+        System.out.println("MainActivity domain and logged In: "+domain+loggedIn);
 
         readUserData(); //SELF CREATED FUNC database
         readAgentData(); //SELF CREATED FUNC database
@@ -295,7 +303,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     // SELF MADE FUNCTION
-    private List<com.example.myapplication.databass> nonagent = new ArrayList<>();
+    private List<NonAgent> nonagent = new ArrayList<>();
 
     private void readUserData() {
         InputStream is = getResources().openRawResource(R.raw.nonagent); //imp class
@@ -310,7 +318,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("MyActivity", "Line: " + line);
                 String[] tokens = line.split(",");
 
-                com.example.myapplication.databass nonagents = new com.example.myapplication.databass();
+               NonAgent nonagents = new NonAgent();
                 nonagents.setUserId(Integer.parseInt(tokens[0]));
                 nonagents.setName(tokens[1]);
                 nonagents.setAge(Integer.parseInt(tokens[2]));
@@ -335,7 +343,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     // SELF MADE FUNCTION
-    private List<com.example.myapplication.databass2> agent = new ArrayList<>();
+    private List<Agent> agent = new ArrayList<>();
 
     private void readAgentData() {
         InputStream iss = getResources().openRawResource(R.raw.agent); //imp class
@@ -350,7 +358,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("MyActivity", "Line: " + line);
                 String[] tokens = line.split(",");
 
-                com.example.myapplication.databass2 agents = new com.example.myapplication.databass2();
+                Agent agents = new Agent();
                 agents.setUserId(Integer.parseInt(tokens[0]));
                 agents.setCompName(tokens[1]);
                 agents.setName(tokens[2]);
@@ -370,7 +378,7 @@ public class MainActivity extends AppCompatActivity {
     }
     
     // SELF MADE FUNCTION
-    private List<com.example.myapplication.databass3> housedb = new ArrayList<>();
+    private List<databass3> housedb = new ArrayList<>();
 
     private void readHouseData() {
         InputStream isss = getResources().openRawResource(R.raw.agent); //imp class
@@ -385,7 +393,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("MyActivity", "Line: " + line);
                 String[] tokens = line.split(",");
 
-                com.example.myapplication.databass3 houses = new com.example.myapplication.databass3();
+                databass3 houses = new databass3();
                 houses.setAgent(Integer.parseInt(tokens[0]));
                 houses.setMonth(tokens[1]);
                 houses.setTown(tokens[2]);
