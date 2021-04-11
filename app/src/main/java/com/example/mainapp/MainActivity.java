@@ -82,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
 
         readUserData(); //SELF CREATED FUNC database
         readAgentData(); //SELF CREATED FUNC database
+        readHouseData(); //^
 
         //addListenerOnButton();
         drawerLayout = findViewById(R.id.drawer_layout);
@@ -367,5 +368,48 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    
+    // SELF MADE FUNCTION
+    private List<com.example.myapplication.databass3> housedb = new ArrayList<>();
+
+    private void readHouseData() {
+        InputStream isss = getResources().openRawResource(R.raw.agent); //imp class
+        BufferedReader reader = new BufferedReader(
+                new InputStreamReader(isss, Charset.forName("UTF-8")) //alt enter and import class charset
+        );
+
+        String line = "";
+        try {
+            reader.readLine();
+            while ((line = reader.readLine()) != null) {
+                Log.d("MyActivity", "Line: " + line);
+                String[] tokens = line.split(",");
+
+                com.example.myapplication.databass3 houses = new com.example.myapplication.databass3();
+                houses.setAgent(Integer.parseInt(tokens[0]));
+                houses.setMonth(tokens[1]);
+                houses.setTown(tokens[2]);
+                houses.setFlat_type(tokens[3]);
+                houses.setBlock(tokens[4]);
+                houses.setStreet_name(tokens[5]);
+                houses.setStorey_range(tokens[6]);
+                houses.setFloor_area_sqm(Integer.parseInt(tokens[7]));
+                houses.setFlat_model(tokens[8]);
+                houses.setLease_commence_date(Integer.parseInt(tokens[9]));
+                houses.setRemaining_lease(tokens[10]);
+                houses.setResale_price(Integer.parseInt(tokens[11]));
+                
+                housedb.add(houses);
+                Log.d("MyActivity", "Just Created: " + houses);
+            }
+        } catch (IOException e) {
+            Log.wtf("MyActivity", "Error reading on Line: " + line, e);
+            e.printStackTrace();
+        }
+
+
+    }
+    
+    
 }
 
