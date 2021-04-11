@@ -48,12 +48,12 @@ public class ViewEligibility extends AppCompatActivity {
             viewgrants.setVisibility(GONE);
             homecalc.setVisibility(GONE);
             viewagentinfo.setVisibility(GONE);
-            username.setText("Monica Geller\nAgent ID: U273849K");
+            username.setText("Francisca Grand");
             picture1.setVisibility(VISIBLE);
-            picture.setVisibility(GONE);
-        } else if (domain=="NON-AGENT"){  //for non-agents
-            mylistings.setVisibility(GONE);
-            username.setText("Rachel Green");
+            picture.setVisibility(View.GONE);
+        } else if (domain == "NON-AGENT") {  //for non-agents
+            mylistings.setVisibility(View.GONE);
+            username.setText("Ealasaid MacCarrane");
             picture2.setVisibility(VISIBLE);
             picture.setVisibility(GONE);
         } else{  //for general users
