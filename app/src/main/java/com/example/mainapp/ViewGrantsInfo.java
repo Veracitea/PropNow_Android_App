@@ -88,6 +88,13 @@ public class ViewGrantsInfo extends AppCompatActivity {
     //VIEW GRANT INFO
     public void ClickViewGrantsInfo(View view){ recreate(); }
     public void ClickEligibility(View view){
+        System.out.println("ELIGIBILITY LOGGED IN:"+loggedIn);
+
+        if (domain == "AGENT" || domain == "NON-AGENT") {
+            loggedIn = true;
+        }
+        else{ loggedIn=false;}
+        System.out.println("ELIGIBILITY LOGGED IN:"+loggedIn);
         if (loggedIn){MainActivity.redirectActivity(this,ViewEligibility.class);}
         else{MainActivity.login(this);}
     }

@@ -59,15 +59,16 @@ public class MainActivity extends AppCompatActivity {
     ImageView picture, picture1, picture2;
 
     //for login
-    static String domain = "AGENT";
-    boolean loggedIn = setLoggedIn();
+    static String domain = "GENERAL";//= getDomain();
+    boolean loggedIn = false;
 
     public static String getDomain() {
         return domain;
     }
 
+
     public static boolean setLoggedIn() { //set loggedIn value based on domain
-        if (getDomain() == "AGENT" || getDomain() == "NON-AGENT") {
+        if (domain == "AGENT" || domain == "NON-AGENT") {
             return true;
         }
         return false;
@@ -79,6 +80,12 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //for login
+//        domain = getDomain();  //set domain
+        //MainActivity.domain = Login.getDomain();
+        loggedIn = setLoggedIn();
+
+        System.out.println("MainActivity domain and logged In: "+domain+loggedIn);
 
         readUserData(); //SELF CREATED FUNC database
         readAgentData(); //SELF CREATED FUNC database
@@ -109,12 +116,12 @@ public class MainActivity extends AppCompatActivity {
             viewgrants.setVisibility(View.GONE);
             homecalc.setVisibility(View.GONE);
             viewagentinfo.setVisibility(View.GONE);
-            username.setText("Monica Geller\nAgent ID: U273849K");
+            username.setText("Francisca Grand");
             picture1.setVisibility(VISIBLE);
             picture.setVisibility(View.GONE);
         } else if (domain == "NON-AGENT") {  //for non-agents
             mylistings.setVisibility(View.GONE);
-            username.setText("Rachel Green");
+            username.setText("Ealasaid MacCarrane");
             picture2.setVisibility(VISIBLE);
             picture.setVisibility(View.GONE);
         } else {  //for general users
@@ -266,7 +273,8 @@ public class MainActivity extends AppCompatActivity {
     //HOME CALC
     public void ClickHomeCalculator(View view) {
         //this code below is correct
-        // System.out.println(loggedIn);
+       // redirectActivity(this, HomeCalculator.class);
+        System.out.println("LOGGED IN:"+loggedIn);
         if (loggedIn) {
             redirectActivity(this, HomeCalculator.class);
         } else {
@@ -295,7 +303,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     // SELF MADE FUNCTION
-    private List<com.example.myapplication.databass> nonagent = new ArrayList<>();
+    private List<NonAgent> nonagent = new ArrayList<>();
 
     private void readUserData() {
         InputStream is = getResources().openRawResource(R.raw.nonagent); //imp class
@@ -310,7 +318,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("MyActivity", "Line: " + line);
                 String[] tokens = line.split(",");
 
-                com.example.myapplication.databass nonagents = new com.example.myapplication.databass();
+               NonAgent nonagents = new NonAgent();
                 nonagents.setUserId(Integer.parseInt(tokens[0]));
                 nonagents.setName(tokens[1]);
                 nonagents.setAge(Integer.parseInt(tokens[2]));
@@ -335,7 +343,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     // SELF MADE FUNCTION
-    private List<com.example.myapplication.databass2> agent = new ArrayList<>();
+    private List<Agent> agent = new ArrayList<>();
 
     private void readAgentData() {
         InputStream iss = getResources().openRawResource(R.raw.agent); //imp class
@@ -350,7 +358,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("MyActivity", "Line: " + line);
                 String[] tokens = line.split(",");
 
-                com.example.myapplication.databass2 agents = new com.example.myapplication.databass2();
+                Agent agents = new Agent();
                 agents.setUserId(Integer.parseInt(tokens[0]));
                 agents.setCompName(tokens[1]);
                 agents.setName(tokens[2]);
@@ -373,7 +381,7 @@ public class MainActivity extends AppCompatActivity {
     private List<databass3> housedb = new ArrayList<>();
 
     private void readHouseData() {
-        InputStream isss = getResources().openRawResource(R.raw.agent); //imp class
+        InputStream isss = getResources().openRawResource(R.raw.house); //imp class
         BufferedReader reader = new BufferedReader(
                 new InputStreamReader(isss, Charset.forName("UTF-8")) //alt enter and import class charset
         );
@@ -398,7 +406,7 @@ public class MainActivity extends AppCompatActivity {
                 houses.setLease_commence_date(Integer.parseInt(tokens[9]));
                 houses.setRemaining_lease(tokens[10]);
                 houses.setResale_price(Integer.parseInt(tokens[11]));
-                
+
                 housedb.add(houses);
                 Log.d("MyActivity", "Just Created: " + houses);
             }
@@ -409,7 +417,5 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-    
-    
 }
 
