@@ -15,6 +15,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.List;
+
 import static android.view.View.VISIBLE;
 
 public class AddListings extends AppCompatActivity {
@@ -121,13 +123,16 @@ public class AddListings extends AppCompatActivity {
                 } catch (Exception e) {
                     house = new House(0,"",0,"","","","","",0,"",0,130);
                     Toast.makeText(AddListings.this, "error adding house", Toast.LENGTH_SHORT).show();
-                    house = new House(-1,"",0,"","","","","","","","",0);
+                    house = new House(-1,"",0,"","","","","",0,"",0,0);
 
                 }
 
                 HouseDatabaseHelper houseDatabaseHelper = new HouseDatabaseHelper(AddListings.this);
                 boolean success = houseDatabaseHelper.addOne(house);
                 Toast.makeText(AddListings.this, "Success" + success, Toast.LENGTH_SHORT).show();
+
+                List<House> All = HouseDatabaseHelper.getAll();
+
 
 
             }

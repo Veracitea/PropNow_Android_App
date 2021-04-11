@@ -370,7 +370,7 @@ public class MainActivity extends AppCompatActivity {
     }
     
     // SELF MADE FUNCTION
-    private List<com.example.myapplication.databass3> housedb = new ArrayList<>();
+    private List<databass3> housedb = new ArrayList<>();
 
     private void readHouseData() {
         InputStream isss = getResources().openRawResource(R.raw.agent); //imp class
@@ -385,7 +385,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("MyActivity", "Line: " + line);
                 String[] tokens = line.split(",");
 
-                com.example.myapplication.databass3 houses = new com.example.myapplication.databass3();
+                databass3 houses = new databass3();
                 houses.setAgent(Integer.parseInt(tokens[0]));
                 houses.setMonth(tokens[1]);
                 houses.setTown(tokens[2]);
