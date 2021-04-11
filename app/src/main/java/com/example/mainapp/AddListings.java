@@ -98,36 +98,36 @@ public class AddListings extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                //House house;
+                //House house;//= new House(0,"",0,"","","","","",0,"",0,130);
 
-                House house;
+
                 try {
-                    house = new House(-1,
-                            et_town.toString(),
+                    House house = new House(-1,
+                            et_town.getText().toString(),
                             Integer.parseInt(et_bedroomNum.getText().toString()),
-                            et_blockNum.toString(),
-                            et_street.toString(),
-                            et_story.toString(),
-                            et_floorArea.toString(),
-                            et_flatModel.toString(),
-                            Integer.parseInt(et_leaseCommencement.toString()),
-                            et_remainingLease.toString(),
-                            Integer.parseInt(et_resalePrice.toString()),
+                            et_blockNum.getText().toString(),
+                            et_street.getText().toString(),
+                            et_story.getText().toString(),
+                            Integer.parseInt(et_floorArea.getText().toString()),
+                            et_flatModel.getText().toString(),
+                            Integer.parseInt(et_leaseCommencement.getText().toString()),
+                            et_remainingLease.getText().toString(),
+                            Integer.parseInt(et_resalePrice.getText().toString()),
                             130
                     );
 
-                    Toast.makeText(AddListings.this, house.toString(), Toast.LENGTH_SHORT).show();
+                 //   Toast.makeText(AddListings.this, house.toString(), Toast.LENGTH_SHORT).show();
+                    HouseDatabaseHelper houseDatabaseHelper = new HouseDatabaseHelper(AddListings.this);
+                    boolean success = houseDatabaseHelper.addOne(house);
+                    System.out.println(house.toString());
+                    Toast.makeText(AddListings.this, "Success" + success, Toast.LENGTH_SHORT).show();
 
                 } catch (Exception e) {
-                    house = new House(0,"",0,"","","","","",0,"",0,130);
+                    System.out.println(e);
                     Toast.makeText(AddListings.this, "error adding house", Toast.LENGTH_SHORT).show();
-                    house = new House(-1,"",0,"","","","","",0,"",0,0);
 
                 }
 
-                HouseDatabaseHelper houseDatabaseHelper = new HouseDatabaseHelper(AddListings.this);
-                boolean success = houseDatabaseHelper.addOne(house);
-                Toast.makeText(AddListings.this, "Success" + success, Toast.LENGTH_SHORT).show();
 
 
             }

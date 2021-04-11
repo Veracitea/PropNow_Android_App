@@ -22,7 +22,6 @@ import static java.lang.Boolean.valueOf;
 
 public class HomeCalculator extends AppCompatActivity {
     DrawerLayout drawerLayout;
-    ImageButton myimagebutton;
     Button mybutton;
     //getting domain and loggedIn status
     String domain = MainActivity.getDomain();
@@ -42,13 +41,6 @@ public class HomeCalculator extends AppCompatActivity {
         final EditText TI = (EditText) findViewById(R.id.textInputLayout3);
         final EditText res = (EditText) findViewById(R.id.textInputLayout2);
 
-
-
-
-
-
-
-        myimagebutton = (ImageButton) findViewById(R.id.imageButton2);
 
         //for sidebar - show options by domain
         mainmenu = findViewById(R.id.mainmenu);
@@ -86,16 +78,7 @@ public class HomeCalculator extends AppCompatActivity {
 
 
 
-        myimagebutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                Intent intentloadnewactivity = new Intent(HomeCalculator.this, Homecalc2.class);
-                startActivity(intentloadnewactivity);
-
-
-            }
-        });
         mybutton = (Button) findViewById(R.id.buttoncalc2);
 
         mybutton.setOnClickListener(new View.OnClickListener() {

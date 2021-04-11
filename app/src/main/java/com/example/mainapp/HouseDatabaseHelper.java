@@ -35,10 +35,10 @@ public class HouseDatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String createTableStatement = "CREATE TABLE " + HOUSE_TABLE + "(" + COL_ID + " INT  NOT NULL PRIMARY KEY AUTOINCREMENT, " +
-                COL_TOWN + " VARCHAR(15) NOT NULL , " + COL_FLAT_TYPE + " VARCHAR(16) NOT NULL, " + COL_BLOCK + " VARCHAR(4) NOT NULL, " + COL_STREET_NAME + " VARCHAR(20) NOT NULL," +
+        String createTableStatement = "CREATE TABLE " + HOUSE_TABLE + "(" + COL_ID + " INTEGER  NOT NULL PRIMARY KEY AUTOINCREMENT, " +
+                COL_TOWN + " VARCHAR(15) NOT NULL , " + COL_FLAT_TYPE + " INTEGER(1) NOT NULL, " + COL_BLOCK + " VARCHAR(4) NOT NULL, " + COL_STREET_NAME + " VARCHAR(20) NOT NULL," +
                 COL_STOREY_RANGE + " VARCHAR(8) NOT NULL, " + COL_FLOOR_AREA_SQM + " NUMERIC(4,1) NOT NULL, " + COL_FLAT_MODEL + " VARCHAR(22) NOT NULL, " +
-                COL_LEASE_COMMENCE_DATE + " INTEGER  NOT NULL, " + COL_REMAINING_LEASE + " VARCHAR(18) NOT NULL, " + COL_RESALE_PRICE + " NUMERIC(9,2) NOT NULL," +
+                COL_LEASE_COMMENCE_DATE + " INTEGER, " + COL_REMAINING_LEASE + " VARCHAR(18) NOT NULL, " + COL_RESALE_PRICE + " NUMERIC(9,2) NOT NULL," +
                 COL_AGENT_ID + " INTEGER NOT NULL)";
 
         db.execSQL(createTableStatement);
@@ -78,41 +78,41 @@ public class HouseDatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public List<House> getAll(){
-        List<House> returnList = new ArrayList<>();
-        //get data from the database
-        String queryString = "SELECT * FROM " + HOUSE_TABLE;
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery(queryString,null);
-        if(cursor.moveToFirst()){
-            //loop through cursor(result set) and get new house objects. Put them into result list.
-            do{
-                int houseID = cursor.getInt(0);
-                String town = cursor.getString(1);
-                int flat_type = cursor.getInt(2);
-                String block = cursor.getString(3);
-                String street_name = cursor.getString(4);
-                String story_range = cursor.getString(5);
-                String floor_area = cursor.getString(6);
-                String flat_model = cursor.getString(7);
-                int lease_commencementDate= cursor.getInt(8);
-                String remaining_lease = cursor.getString(9);
-                int resale_price = cursor.getInt(10);
-                int agent_id = cursor.getInt(11);
-
-                House house = new House(houseID, town, flat_type, block,street_name,story_range,floor_area,flat_model,lease_commencementDate,remaining_lease,resale_price,agent_id);
-
-            }
-            while(cursor.moveToNext());
-
-        }
-        else{
-            //failure. do not add anything to the list
-
-        }
-        //close both cursor and db when done
-        cursor.close();
-        db.close();
-        return returnList;
-    }
+//    public List<House> getAll(){
+//        List<House> returnList = new ArrayList<>();
+//        //get data from the database
+//        String queryString = "SELECT * FROM " + HOUSE_TABLE;
+//        SQLiteDatabase db = this.getReadableDatabase();
+//        Cursor cursor = db.rawQuery(queryString,null);
+//        if(cursor.moveToFirst()){
+//            //loop through cursor(result set) and get new house objects. Put them into result list.
+//            do{
+//                int houseID = cursor.getInt(0);
+//                String town = cursor.getString(1);
+//                int flat_type = cursor.getInt(2);
+//                String block = cursor.getString(3);
+//                String street_name = cursor.getString(4);
+//                String story_range = cursor.getString(5);
+//                String floor_area = cursor.getString(6);
+//                String flat_model = cursor.getString(7);
+//                int lease_commencementDate= cursor.getInt(8);
+//                String remaining_lease = cursor.getString(9);
+//                int resale_price = cursor.getInt(10);
+//                int agent_id = cursor.getInt(11);
+//
+//                House house = new House(houseID, town, flat_type, block,street_name,story_range,floor_area,flat_model,lease_commencementDate,remaining_lease,resale_price,agent_id);
+//
+//            }
+//            while(cursor.moveToNext());
+//
+//        }
+//        else{
+//            //failure. do not add anything to the list
+//
+//        }
+//        //close both cursor and db when done
+//        cursor.close();
+//        db.close();
+//        return returnList;
+//    }
 }

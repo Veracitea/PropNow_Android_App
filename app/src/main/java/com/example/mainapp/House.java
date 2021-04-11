@@ -8,7 +8,7 @@ public class House {
     private String block;
     private String street_name;
     private String storey_range;
-    private String floor_area_sqm;
+    private int floor_area_sqm;
     private String flat_model;
     private int lease_commence_date;
     private String remaining_lease;
@@ -18,7 +18,7 @@ public class House {
     //constructors
 
     public House(int id, String town, int flat_type, String block, String street_name,
-                 String storey_range, String floor_area_sqm, String flat_model, int lease_commence_date,
+                 String storey_range, int floor_area_sqm, String flat_model, int lease_commence_date,
                  String remaining_lease, int resale_price, int agent_id) {
         this.id = id;
         this.town = town;
@@ -103,11 +103,11 @@ public class House {
         this.storey_range = storey_range;
     }
 
-    public String getFloor_area_sqm() {
+    public int getFloor_area_sqm() {
         return floor_area_sqm;
     }
 
-    public void setFloor_area_sqm(String floor_area_sqm) {
+    public void setFloor_area_sqm(int floor_area_sqm) {
         this.floor_area_sqm = floor_area_sqm;
     }
 
