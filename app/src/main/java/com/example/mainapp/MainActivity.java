@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
 //        domain = getDomain();  //set domain
         //MainActivity.domain = Login.getDomain();
         loggedIn = setLoggedIn();
-        System.out.println("MainActivity domain and logged In: "+domain+loggedIn);
+        System.out.println("MainActivity domain and logged In: " + domain + loggedIn);
 
         readUserData(); //SELF CREATED FUNC database
         readAgentData(); //SELF CREATED FUNC database
@@ -272,7 +272,7 @@ public class MainActivity extends AppCompatActivity {
     //HOME CALC
     public void ClickHomeCalculator(View view) {
         //this code below is correct
-        System.out.println("LOGGED IN:"+loggedIn);
+        System.out.println("LOGGED IN:" + loggedIn);
         if (loggedIn) {
             redirectActivity(this, HomeCalculator.class);
         } else {
@@ -316,7 +316,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("MyActivity", "Line: " + line);
                 String[] tokens = line.split(",");
 
-               NonAgent nonagents = new NonAgent();
+                NonAgent nonagents = new NonAgent();
                 nonagents.setUserId(Integer.parseInt(tokens[0]));
                 nonagents.setName(tokens[1]);
                 nonagents.setAge(Integer.parseInt(tokens[2]));
@@ -374,7 +374,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-    
+
     // SELF MADE FUNCTION
     private List<databass3> housedb = new ArrayList<>();
 
@@ -416,4 +416,5 @@ public class MainActivity extends AppCompatActivity {
 
     }
 }
+
 

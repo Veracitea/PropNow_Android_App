@@ -38,9 +38,9 @@ public class HomeCalculator extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_calculator);
-        final EditText p = (EditText) findViewById(R.id.editTextNumber);
-        final EditText i = (EditText) findViewById(R.id.textInputLayout1);
-        final EditText y = (EditText) findViewById(R.id.editTextDate4);
+        final EditText P = (EditText) findViewById(R.id.editTextNumber);
+        final EditText I = (EditText) findViewById(R.id.textInputLayout1);
+        final EditText Y = (EditText) findViewById(R.id.editTextDate4);
         final EditText TI = (EditText) findViewById(R.id.textInputLayout3);
         final EditText res = (EditText) findViewById(R.id.textInputLayout2);
 
@@ -106,22 +106,22 @@ public class HomeCalculator extends AppCompatActivity {
         mybutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String st1 = p.getText().toString();
-                String st2 = i.getText().toString();
-                String st3 = y.getText().toString();
+                String st1 = P.getText().toString();
+                String st2 = I.getText().toString();
+                String st3 = Y.getText().toString();
                 if (TextUtils.isEmpty(st1)) {
-                    p.setError("Enter Principal Amount");
-                    p.requestFocus();
+                    P.setError("Enter Principal Amount");
+                    P.requestFocus();
                     return;
                 }
                 if (TextUtils.isEmpty(st2)) {
-                    i.setError("Enter Interest Rate");
-                    i.requestFocus();
+                    I.setError("Enter Interest Rate");
+                    I.requestFocus();
                     return;
                 }
                 if (TextUtils.isEmpty(st3)) {
-                    y.setError("Enter Years");
-                    y.requestFocus();
+                    Y.setError("Enter Years");
+                    Y.requestFocus();
                     return;
                 }
                 float p = Float.parseFloat(st1);
