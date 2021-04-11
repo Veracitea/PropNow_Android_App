@@ -116,12 +116,12 @@ public class MainActivity extends AppCompatActivity {
             viewgrants.setVisibility(View.GONE);
             homecalc.setVisibility(View.GONE);
             viewagentinfo.setVisibility(View.GONE);
-            username.setText("Monica Geller\nAgent ID: U273849K");
+            username.setText("Francisca Grand");
             picture1.setVisibility(VISIBLE);
             picture.setVisibility(View.GONE);
         } else if (domain == "NON-AGENT") {  //for non-agents
             mylistings.setVisibility(View.GONE);
-            username.setText("Rachel Green");
+            username.setText("Ealasaid MacCarrane");
             picture2.setVisibility(VISIBLE);
             picture.setVisibility(View.GONE);
         } else {  //for general users
