@@ -284,57 +284,18 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.81" />
 
-            <TextView
-                android:id="@+id/textView45"
-                android:layout_width="364dp"
-                android:layout_height="60dp"
-                android:text="JLN MEMBINA Block 26C Storey 10 TO 12"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            <ListView
+                android:id="@+id/MyList"
+                android:layout_width="404dp"
+                android:layout_height="306dp"
+                android:focusableInTouchMode="false"
+                android:isScrollContainer="false"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.34"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.575" />
-
-            <TextView
-                android:id="@+id/textView46"
-                android:layout_width="364dp"
-                android:layout_height="60dp"
-                android:text="KIM CHENG ST Block 42 Storey 01 TO 03"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.382"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.678" />
-
-            <TextView
-                android:id="@+id/textView47"
-                android:layout_width="364dp"
-                android:layout_height="60dp"
-                android:text="KIM TIAN RD Block 127C Storey 13 TO 15"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.34"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.79" />
-
-            <TextView
-                android:id="@+id/textView48"
-                android:layout_width="364dp"
-                android:layout_height="60dp"
-                android:text="LIM LIAK ST Block 19 Storey 01 TO 03"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.34"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.887" />
+                app:layout_constraintVertical_bias="0.959" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

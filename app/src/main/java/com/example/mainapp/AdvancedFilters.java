@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -16,8 +18,14 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.slider.RangeSlider;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 import static android.view.View.VISIBLE;
 import static java.lang.Boolean.FALSE;
@@ -25,6 +33,7 @@ import static java.lang.Boolean.FALSE;
 public class AdvancedFilters extends AppCompatActivity {
 
     DrawerLayout drawerLayout;
+    List<House> HouseList = new ArrayList<>();
 
     //getting domain and loggedIn status
     String domain = MainActivity.getDomain();
@@ -34,6 +43,7 @@ public class AdvancedFilters extends AppCompatActivity {
     TextView username;
     ImageView picture,picture1,picture2;
 
+    Button Button;
     CheckBox cbPrice, cbRooms, cbLease, cbStorey;
     TextView primary,secondary;
     RangeSlider rsPrice, rsRooms, rsLease, rsStorey;
@@ -41,7 +51,6 @@ public class AdvancedFilters extends AppCompatActivity {
     ArrayList<Integer> options = new ArrayList<>();
     ArrayList<Integer> options1 = new ArrayList<>();
     String[] optionsArray = {"Price","Rooms","Remaining Lease","Storey Range"};
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +60,7 @@ public class AdvancedFilters extends AppCompatActivity {
 
 //        System.out.println(domain);
 //        System.out.println(loggedIn);
-    //for sidebar - show options by domain
+        //for sidebar - show options by domain
         mainmenu = findViewById(R.id.mainmenu);
         viewgrants = findViewById(R.id.viewgrants);
         viewagentinfo = findViewById(R.id.viewagentinfo);
@@ -67,7 +76,7 @@ public class AdvancedFilters extends AppCompatActivity {
         picture2.setVisibility(View.GONE);
 
         //set visibility according to domain
-        if (domain=="AGENT"){  //for agents
+        if (domain == "AGENT") {  //for agents
             viewgrants.setVisibility(View.GONE);
             homecalc.setVisibility(View.GONE);
             viewagentinfo.setVisibility(View.GONE);
@@ -79,7 +88,7 @@ public class AdvancedFilters extends AppCompatActivity {
             username.setText("Ealasaid MacCarrane");
             picture2.setVisibility(VISIBLE);
             picture.setVisibility(View.GONE);
-        } else{  //for general users
+        } else {  //for general users
             mylistings.setVisibility(View.GONE);
             inbox.setVisibility(View.GONE);
         }
@@ -102,8 +111,72 @@ public class AdvancedFilters extends AppCompatActivity {
 
         selectedCat = new boolean[optionsArray.length];
 
+        readHouse();
 
-        //primary select box
+        ArrayList<String> list = new ArrayList<>();
+        
+        Button = findViewById(R.id.button);
+        
+        Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                float minPrice, maxPrice, minFloor, maxFloor, minLease, maxLease, minBed, maxBed;
+                if (cbPrice.isChecked()) {
+                    List<Float> xPrice = rsPrice.getValues();
+                    minPrice = xPrice.get(0);
+                    maxPrice = xPrice.get(1);
+                } else {
+                    minPrice = 0;
+                    maxPrice = 1153;
+                }
+
+                if (cbStorey.isChecked()) {
+                    List<Float> xFloor = rsStorey.getValues();
+                    minFloor = xFloor.get(0);
+                    maxFloor = xFloor.get(1);
+                } else {
+                    minFloor = 40;
+                    maxFloor = 162;
+                }
+
+                if (cbLease.isChecked()) {
+                    List<Float> xLease = rsLease.getValues();
+                    minLease = xLease.get(0);
+                    maxLease = xLease.get(1);
+                } else {
+                    minLease = 1967;
+                    maxLease = 2021;
+                }
+
+                if (cbRooms.isChecked()) {
+                    List<Float> xBed = rsRooms.getValues();
+                    minBed = xBed.get(0);
+                    maxBed = xBed.get(1);
+                } else {
+                    minBed = 1;
+                    maxBed = 7;
+                }
+
+                for (House h : HouseList) {
+                    int housePrice = h.getResale_price();
+                    int houseFloor = h.getFloor_area_sqm();
+                    int houseLease = h.getLease_commence_date();
+                    int houseBed = h.getBedroom();
+                    String id = h.getHouseId();
+                    if ((housePrice >= minPrice * 1000) && (housePrice <= maxPrice * 1000) && (houseFloor >= minFloor)
+                            && (houseFloor <= maxFloor) && (houseLease >= minLease) && (houseLease <= maxLease) &&
+                            (houseBed >= minBed) && (houseBed <= maxBed)) {
+                        list.add(id);
+                    }
+                }
+                search(list);
+                Intent intent = new Intent(AdvancedFilters.this, ResultsPage.class);
+                startActivity(intent);
+                System.out.println("Hello");
+            }
+
+        });
+
         primary.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(
@@ -207,11 +280,11 @@ public class AdvancedFilters extends AppCompatActivity {
 
                 builder1.show();
             }
-
         });
 
 
-        //CHECKBOXES
+
+            //CHECKBOXES
 
         rsRooms.setEnabled(false);
         rsLease.setEnabled(false);
@@ -219,41 +292,51 @@ public class AdvancedFilters extends AppCompatActivity {
         rsStorey.setEnabled(false);
 
 
-        //Once checkbox ticked - activate respective seekBar
+            //Once checkbox ticked - activate respective seekBar
         cbPrice.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if ( ((CheckBox)v).isChecked() ) {rsPrice.setEnabled(true);}
-                else{rsPrice.setEnabled(false);}
-            }
-        });
+                @Override
+                public void onClick(View v) {
+                    if ( ((CheckBox)v).isChecked() ) {rsPrice.setEnabled(true);}
+                    else{rsPrice.setEnabled(false);}
+                }
+            });
 
         cbRooms.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if ( ((CheckBox)v).isChecked() ) {rsRooms.setEnabled(true);}
-                else{rsRooms.setEnabled(false);}
-            }
-        });
+                @Override
+                public void onClick(View v) {
+                    if ( ((CheckBox)v).isChecked() ) {rsRooms.setEnabled(true);}
+                    else{rsRooms.setEnabled(false);}
+                }
+            });
 
         cbStorey.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if ( ((CheckBox)v).isChecked() ) {rsStorey.setEnabled(true);}
-                else{rsStorey.setEnabled(false);}
-            }
-        });
+                @Override
+                public void onClick(View v) {
+                    if ( ((CheckBox)v).isChecked() ) {rsStorey.setEnabled(true);}
+                    else{rsStorey.setEnabled(false);}
+                }
+            });
 
         cbLease.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if ( ((CheckBox)v).isChecked() ) {rsLease.setEnabled(true);}
-                else {rsLease.setEnabled(false);}
-            }
-        });
+                @Override
+                public void onClick(View v) {
+                    if ( ((CheckBox)v).isChecked() ) {rsLease.setEnabled(true);}
+                    else {rsLease.setEnabled(false);}
+                }
+            });
 
 
+        }
+
+
+    public void search(ArrayList<String> list){
+        Intent intent = new Intent(AdvancedFilters.this, ResultsPage.class);
+        intent.putExtra("thelist", list);
+        startActivity(intent);
     }
+
+        //primary select box
+
 
     public void ClickBackBtn(View view){
         MainActivity.redirectActivity(AdvancedFilters.this, MainActivity.class);
@@ -316,5 +399,41 @@ public class AdvancedFilters extends AppCompatActivity {
     //SETTINGS
     public void ClickSettings(View view){
         MainActivity.redirectActivity(this,Settings.class);
+    }
+
+    private void readHouse(){
+        InputStream isss = getResources().openRawResource(R.raw.housess); //imp class
+        BufferedReader reader = new BufferedReader(
+                new InputStreamReader(isss, Charset.forName("UTF-8")) //alt enter and import class charset
+        );
+
+        String line = "";
+        try {
+            reader.readLine();
+            while ((line = reader.readLine()) != null) {
+                Log.d("MyActivity", "Line: " + line);
+                String[] tokens = line.split(",");
+
+                House houses = new House();
+                houses.setAgent_id(Integer.parseInt(tokens[0]));
+                //houses.setMonth(tokens[1]);
+                houses.setTown(tokens[2]);
+                houses.setFlat_type(tokens[3]);
+                houses.setBlock(tokens[4]);
+                houses.setStreet_name(tokens[5]);
+                houses.setStorey_range(tokens[6]);
+                houses.setFloor_area_sqm(Integer.parseInt(tokens[7]));
+                houses.setFlat_model(tokens[8]);
+                houses.setLease_commence_date(Integer.parseInt(tokens[9]));
+                houses.setRemaining_lease(tokens[10]);
+                houses.setResale_price(Integer.parseInt(tokens[11]));
+
+                HouseList.add(houses);
+                Log.d("MyActivity", "Just Created: " + houses);
+            }
+        } catch (IOException e) {
+            Log.wtf("MyActivity", "Error reading on Line: " + line, e);
+            e.printStackTrace();
+        }
     }
 }

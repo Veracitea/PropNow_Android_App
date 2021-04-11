@@ -4,6 +4,7 @@ public class House {
 
     private int id;
     private String town;
+    private String flat_type2;
     private int flat_type;
     private String block;
     private String street_name;
@@ -33,6 +34,22 @@ public class House {
         this.resale_price = resale_price;
         this.agent_id = agent_id;
     }
+
+    public House() {
+        id = -1;
+        town = null;
+        flat_type2 = null;
+        block  = null;
+        street_name = null;
+        storey_range = null;
+        floor_area_sqm = -1;
+        flat_model = null;
+        lease_commence_date = -1;
+        remaining_lease = null;
+        resale_price = -1;
+        agent_id = -1;
+    }
+
     @Override
     public String toString() {
         return "House{" +
@@ -43,7 +60,7 @@ public class House {
                 ", street_name='" + street_name + '\'' +
                 ", storey_range='" + storey_range + '\'' +
                 ", floor_area_sqm='" + floor_area_sqm + '\'' +
-                ", flat_model='" + flat_model + '\'' +
+                ", flat_model2='" + flat_model + '\'' +
                 ", lease_commence_date=" + lease_commence_date +
                 ", remaining_lease='" + remaining_lease + '\'' +
                 ", resale_price=" + resale_price +
@@ -149,4 +166,30 @@ public class House {
     public void setAgent_id(int agent_id) {
         this.agent_id = agent_id;
     }
+    public String getHouseId(){
+        return street_name + " Block " + block + " Storey " + storey_range;
+    }
+
+    public int getBedroom(){
+        if(flat_type2 == "2 ROOM"){return 2;}
+        else{
+            if(flat_type2 == "3 ROOM"){return 3;}
+            else{
+                if(flat_type2 == "4 ROOM"){return 4;}
+                else{
+                    if(flat_type2 == "5 ROOM"){return 5;}
+                    else{
+                        return 6;
+                    }
+                }
+            }
+        }
+    }
+
+    public void setFlat_type(String flat_type2) {
+        this.flat_type2 = flat_type2;
+    }
+
+
+
 }
