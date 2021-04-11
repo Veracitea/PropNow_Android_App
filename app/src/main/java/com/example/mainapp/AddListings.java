@@ -3,6 +3,7 @@ package com.example.mainapp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.database.DatabaseUtils;
 import android.os.Bundle;
 import android.view.View;
@@ -22,6 +23,7 @@ public class AddListings extends AppCompatActivity {
     //references to buttons and other controls on layout
     DrawerLayout drawerLayout;
     ListView lv_houseList;
+    ImageButton myimagebutton;
 
     EditText et_blockNum, et_street, et_story, et_town, et_bedroomNum, et_floorArea, et_flatModel, et_leaseCommencement, et_remainingLease, et_resalePrice;
     ImageButton btn_addImage;
@@ -134,6 +136,18 @@ public class AddListings extends AppCompatActivity {
                 boolean success = houseDatabaseHelper.addOne(house);
                 Toast.makeText(AddListings.this, "Success = " + success, Toast.LENGTH_SHORT).show();
 
+
+
+            }
+        });
+        myimagebutton = (ImageButton) findViewById(R.id.imageButton6);
+
+        myimagebutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intentloadnewactivity1 = new Intent(AddListings.this, MyListings.class);
+                startActivity(intentloadnewactivity1);
 
 
             }
