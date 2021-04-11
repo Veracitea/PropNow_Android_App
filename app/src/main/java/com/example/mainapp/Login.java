@@ -50,7 +50,6 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         drawerLayout = findViewById(R.id.drawer_layout);
-
         spinner = findViewById(R.id.spinner1);
         Username = (EditText)findViewById(R.id.etUsername);
         Password = (EditText)findViewById(R.id.etPassword);

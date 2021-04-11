@@ -272,7 +272,7 @@ public class MainActivity extends AppCompatActivity {
     //HOME CALC
     public void ClickHomeCalculator(View view) {
         //this code below is correct
-        System.out.println("LOGGED IN: "+loggedIn);
+        System.out.println("LOGGED IN:"+loggedIn);
         if (loggedIn) {
             redirectActivity(this, HomeCalculator.class);
         } else {
