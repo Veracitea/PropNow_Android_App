@@ -47,7 +47,7 @@ public class ResultsPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results_page);
 
-        ARcamera = findViewById(R.id.imageButton11);
+        //ARcamera = findViewById(R.id.imageButton11);
         SearchBar = findViewById(R.id.button);
         filters = findViewById(R.id.textView3);
         filters2 = findViewById(R.id.imageButton3);
