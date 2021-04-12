@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -67,6 +68,18 @@ public class searchBar extends AppCompatActivity {
         adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,theList);
         myList.setAdapter(adapter);
 
+        myList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent;
+                switch(position){
+                    case 0:
+                        intent = new Intent(searchBar.this,houseInfo.class);
+                        startActivity(intent);
+                        break;
+                }
+            }
+        });
 
         mySearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
             @Override
