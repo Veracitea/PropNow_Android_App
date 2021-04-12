@@ -123,6 +123,11 @@ public class AddListings extends AppCompatActivity {
 
                     //System.out.println(house.toString());
                     //Toast.makeText(AddListings.this, house.toString(), Toast.LENGTH_SHORT).show();
+                    house = new House(-1,""," ","","","",0,"",0,"",0,130);
+
+                    HouseDatabaseHelper houseDatabaseHelper = new HouseDatabaseHelper(AddListings.this);
+                    boolean success = houseDatabaseHelper.addOne(house);
+                    Toast.makeText(AddListings.this, "Success = " + success, Toast.LENGTH_SHORT).show();
 
                 } catch (Exception e) {
                     System.out.println(e);
@@ -130,11 +135,6 @@ public class AddListings extends AppCompatActivity {
 
                 }
 
-                house = new House(-1,""," ","","","",0,"",0,"",0,130);
-
-                HouseDatabaseHelper houseDatabaseHelper = new HouseDatabaseHelper(AddListings.this);
-                boolean success = houseDatabaseHelper.addOne(house);
-                Toast.makeText(AddListings.this, "Success = " + success, Toast.LENGTH_SHORT).show();
 
 
 
