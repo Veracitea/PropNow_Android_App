@@ -127,11 +127,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/picture1" />
 
+    ]]>
 
-
-
-
-            ]]>
+    <ImageButton
+        android:id="@+id/imageButton11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="96dp"
+        android:backgroundTint="#13274c"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.985"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_camera" />
 
             <ImageButton
                 android:id="@+id/imageButton2"
