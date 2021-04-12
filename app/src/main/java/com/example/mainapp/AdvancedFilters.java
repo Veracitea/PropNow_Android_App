@@ -170,8 +170,8 @@ public class AdvancedFilters extends AppCompatActivity {
                     }
                 }
                 search(list);
-                Intent intent = new Intent(AdvancedFilters.this, ResultsPage.class);
-                startActivity(intent);
+                //Intent intent = new Intent(AdvancedFilters.this, ResultsPage.class);
+                //startActivity(intent);
                 System.out.println("Hello");
             }
 
