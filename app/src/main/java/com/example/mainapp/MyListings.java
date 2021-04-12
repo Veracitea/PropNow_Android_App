@@ -75,13 +75,14 @@ public class MyListings extends AppCompatActivity {
             mylistings.setVisibility(View.GONE);
             inbox.setVisibility(View.GONE);
         }
+        //HouseDatabaseHelper houseDatabaseHelper = new HouseDatabaseHelper(MyListings.this);
+
 
         btn_refresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 HouseDatabaseHelper houseDatabaseHelper = new HouseDatabaseHelper(MyListings.this);
                 List<House> all = houseDatabaseHelper.getAll();
-
 
                 ArrayAdapter houseArrayAdapter = new ArrayAdapter<House>(MyListings.this, android.R.layout.simple_list_item_1,all);
                 lv_listings.setAdapter(houseArrayAdapter);
