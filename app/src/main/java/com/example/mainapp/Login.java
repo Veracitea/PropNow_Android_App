@@ -155,8 +155,8 @@ public class Login extends AppCompatActivity {
             counter--;
             Username.setText("");
             Password.setText("");
-            Info.setText("Number of attempt remaining: " + counter);
             Toast.makeText(Login.this, "Invalid Credentials! Please try again", Toast.LENGTH_SHORT).show();
+            Info.setText("Number of attempt remaining: " + counter);
 
             if(counter == 0) {
                 Login.setEnabled(false);

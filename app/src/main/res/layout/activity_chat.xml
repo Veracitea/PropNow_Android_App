@@ -52,7 +52,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="144dp"
                 android:layout_marginBottom="32dp"
-                android:text="@string/ross_geller"
+                android:text="@string/amy_green"
                 android:textAllCaps="false"
                 android:textColor="#09186E"
                 android:textSize="18sp"
