@@ -77,6 +77,24 @@ public class HouseDatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    public boolean DeleteOne(House house){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String queryString = "DELETE FROM " + HOUSE_TABLE + " WHERE " + COL_ID + " = " + house.getId();
+
+        Cursor cursor = db.rawQuery(queryString, null);
+
+        if (cursor.moveToFirst()){
+            return true;
+        }
+        else{
+            return false;
+        }
+
+
+    }
+
+
+
     public List<House> getAll(){
         List<House> returnList = new ArrayList<>();
         //get data from the database

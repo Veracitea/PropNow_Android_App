@@ -5,7 +5,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.SparseBooleanArray;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -13,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -79,10 +82,28 @@ public class MyListings extends AppCompatActivity {
                 HouseDatabaseHelper houseDatabaseHelper = new HouseDatabaseHelper(MyListings.this);
                 List<House> all = houseDatabaseHelper.getAll();
 
+
                 ArrayAdapter houseArrayAdapter = new ArrayAdapter<House>(MyListings.this, android.R.layout.simple_list_item_1,all);
                 lv_listings.setAdapter(houseArrayAdapter);
             }
         });
+
+        lv_listings.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                House clickedhouse = (House) parent.getItemAtPosition(position);
+                HouseDatabaseHelper houseDatabaseHelper = new HouseDatabaseHelper(MyListings.this);
+                houseDatabaseHelper.DeleteOne(clickedhouse);
+
+                ArrayAdapter houseArrayAdapter = new ArrayAdapter<House>(MyListings.this, android.R.layout.simple_list_item_1, (List<House>) houseDatabaseHelper);
+                lv_listings.setAdapter(houseArrayAdapter);
+                Toast.makeText(MyListings.this, "deleted house ID" + clickedhouse.getId(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+//        House clickedhouse = (House) parent.getItemAtPosition(position);
+//        HouseDatabaseHelper.DeleteOne(clickedhouse);
+//        Toast.makeText(MyListings.this, "Deleted " + clickedhouse.toString(), Toast.LENGTH_SHORT).show()
 
         del = (ImageButton) findViewById(R.id.imageButton3);
 

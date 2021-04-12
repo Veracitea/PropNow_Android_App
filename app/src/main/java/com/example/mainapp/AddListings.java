@@ -121,8 +121,8 @@ public class AddListings extends AppCompatActivity {
 
                     );
 
-                    System.out.println(house.toString());
-                    Toast.makeText(AddListings.this, house.toString(), Toast.LENGTH_SHORT).show();
+                    //System.out.println(house.toString());
+                    //Toast.makeText(AddListings.this, house.toString(), Toast.LENGTH_SHORT).show();
 
                 } catch (Exception e) {
                     System.out.println(e);
