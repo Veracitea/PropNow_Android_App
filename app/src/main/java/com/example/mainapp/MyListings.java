@@ -102,6 +102,8 @@ public class MyListings extends AppCompatActivity {
             }
         });
 
+
+
 //        House clickedhouse = (House) parent.getItemAtPosition(position);
 //        HouseDatabaseHelper.DeleteOne(clickedhouse);
 //        Toast.makeText(MyListings.this, "Deleted " + clickedhouse.toString(), Toast.LENGTH_SHORT).show()

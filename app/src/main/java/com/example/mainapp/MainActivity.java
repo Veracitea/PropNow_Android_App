@@ -87,6 +87,8 @@ public class MainActivity extends AppCompatActivity {
 
         System.out.println("MainActivity domain and logged In: "+domain+loggedIn);
 
+
+
         readUserData(); //SELF CREATED FUNC database
         readAgentData(); //SELF CREATED FUNC database
         readHouseData(); //^
@@ -299,47 +301,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     // SELF MADE FUNCTION
-    private List<NonAgent> nonagent = new ArrayList<>();
-
-    private void readUserData() {
-        InputStream is = getResources().openRawResource(R.raw.nonagent); //imp class
-        BufferedReader reader = new BufferedReader(
-                new InputStreamReader(is, Charset.forName("UTF-8")) //alt enter and import class charset
-        );
-
-        String line = "";
-        try {
-            reader.readLine();
-            while ((line = reader.readLine()) != null) {
-                Log.d("MyActivity", "Line: " + line);
-                String[] tokens = line.split(",");
-
-               NonAgent nonagents = new NonAgent();
-                nonagents.setUserId(Integer.parseInt(tokens[0]));
-                nonagents.setName(tokens[1]);
-                nonagents.setAge(Integer.parseInt(tokens[2]));
-                nonagents.setSalary(Integer.parseInt(tokens[3]));
-                nonagents.setPassword(tokens[4]);
-                nonagents.setDomain(tokens[5]);
-                nonagents.setEmail(tokens[6]);
-                nonagents.setNumber(tokens[7]);
-                nonagents.setSecondbuyer_name(tokens[8]);
-                nonagents.setSecondbuyer_age(tokens[9]);
-                nonagents.setSecondbuyer_salary(Integer.parseInt(tokens[10]));
-                nonagents.setRelationship(tokens[11]);
-                nonagent.add(nonagents);
-                Log.d("MyActivity", "Just Created: " + nonagents);
-            }
-        } catch (IOException e) {
-            Log.wtf("MyActivity", "Error reading on Line: " + line, e);
-            e.printStackTrace();
-        }
-
-    }
-
-
-    // SELF MADE FUNCTION
-    private List<Agent> agent = new ArrayList<>();
+    private  List<Agent> agent = new ArrayList<>();
 
     private void readAgentData() {
         InputStream iss = getResources().openRawResource(R.raw.agent); //imp class
@@ -372,6 +334,46 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
+    // SELF MADE FUNCTION
+    private List<NonAgent> nonagent = new ArrayList<>();
+
+    private void readUserData() {
+        InputStream is = getResources().openRawResource(R.raw.nonagent); //imp class
+        BufferedReader reader = new BufferedReader(
+                new InputStreamReader(is, Charset.forName("UTF-8")) //alt enter and import class charset
+        );
+
+        String line = "";
+        try {
+            reader.readLine();
+            while ((line = reader.readLine()) != null) {
+                Log.d("MyActivity", "Line: " + line);
+                String[] tokens = line.split(",");
+
+                NonAgent nonagents = new NonAgent();
+                nonagents.setUserId(Integer.parseInt(tokens[0]));
+                nonagents.setName(tokens[1]);
+                nonagents.setAge(Integer.parseInt(tokens[2]));
+                nonagents.setSalary(Integer.parseInt(tokens[3]));
+                nonagents.setPassword(tokens[4]);
+                nonagents.setDomain(tokens[5]);
+                nonagents.setEmail(tokens[6]);
+                nonagents.setNumber(tokens[7]);
+                nonagents.setSecondbuyer_name(tokens[8]);
+                nonagents.setSecondbuyer_age(tokens[9]);
+                nonagents.setSecondbuyer_salary(Integer.parseInt(tokens[10]));
+                nonagents.setRelationship(tokens[11]);
+                nonagent.add(nonagents);
+                Log.d("MyActivity", "Just Created: " + nonagents);
+            }
+        } catch (IOException e) {
+            Log.wtf("MyActivity", "Error reading on Line: " + line, e);
+            e.printStackTrace();
+        }
+
+    }
     
     // SELF MADE FUNCTION
     private List<databass3> housedb = new ArrayList<>();
@@ -391,17 +393,18 @@ public class MainActivity extends AppCompatActivity {
 
                 databass3 houses = new databass3();
                 houses.setAgent(Integer.parseInt(tokens[0]));
-                houses.setMonth(tokens[1]);
+                houses.setMonth(tokens[1]);  //
                 houses.setTown(tokens[2]);
                 houses.setFlat_type(tokens[3]);
                 houses.setBlock(tokens[4]);
                 houses.setStreet_name(tokens[5]);
-                houses.setStorey_range(tokens[6]);
+                houses.setStorey_range(tokens[6]); //
                 houses.setFloor_area_sqm(Integer.parseInt(tokens[7]));
                 houses.setFlat_model(tokens[8]);
                 houses.setLease_commence_date(Integer.parseInt(tokens[9]));
                 houses.setRemaining_lease(tokens[10]);
                 houses.setResale_price(Integer.parseInt(tokens[11]));
+                //also have agent id
 
                 housedb.add(houses);
                 Log.d("MyActivity", "Just Created: " + houses);
