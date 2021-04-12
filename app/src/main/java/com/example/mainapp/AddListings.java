@@ -140,18 +140,18 @@ public class AddListings extends AppCompatActivity {
 
             }
         });
-        myimagebutton = (ImageButton) findViewById(R.id.imageButton6);
-
-        myimagebutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intentloadnewactivity1 = new Intent(AddListings.this, MyListings.class);
-                startActivity(intentloadnewactivity1);
-
-
-            }
-        });
+//        myimagebutton = (ImageButton) findViewById(R.id.imageButton6);
+//
+//        myimagebutton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                Intent intentloadnewactivity1 = new Intent(AddListings.this, MyListings.class);
+//                startActivity(intentloadnewactivity1);
+//
+//
+//            }
+//        });
 
 
 
@@ -161,6 +161,12 @@ public class AddListings extends AppCompatActivity {
 
 
     }
+
+    public void ClickBack(View view){
+        Intent intentloadnewactivity1 = new Intent(AddListings.this, MyListings.class);
+        startActivity(intentloadnewactivity1);
+    }
+
 
 
     @Override
