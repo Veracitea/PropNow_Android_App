@@ -74,19 +74,24 @@ public class DeleteListings extends AppCompatActivity {
             inbox.setVisibility(View.GONE);
         }
 
-        b = (Button) findViewById(R.id.button11);
+//        b = (Button) findViewById(R.id.button11);
+//
+//        b.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                Intent intentloadnewactivity1 = new Intent(DeleteListings.this, MyListings.class);
+//                startActivity(intentloadnewactivity1);
+//
+//
+//            }
+//        });
 
-        b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+    }
 
-                Intent intentloadnewactivity1 = new Intent(DeleteListings.this, MyListings.class);
-                startActivity(intentloadnewactivity1);
-
-
-            }
-        });
-
+    public void ClickDone(View view){
+        Intent intentloadnewactivity1 = new Intent(DeleteListings.this, MyListings.class);
+        startActivity(intentloadnewactivity1);
     }
     @Override
     protected void onPause() {
