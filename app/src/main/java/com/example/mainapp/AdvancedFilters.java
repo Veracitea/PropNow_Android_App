@@ -402,7 +402,7 @@ public class AdvancedFilters extends AppCompatActivity {
     }
 
     private void readHouse(){
-        InputStream isss = getResources().openRawResource(R.raw.housess); //imp class
+        InputStream isss = getResources().openRawResource(R.raw.house); //imp class
         BufferedReader reader = new BufferedReader(
                 new InputStreamReader(isss, Charset.forName("UTF-8")) //alt enter and import class charset
         );
