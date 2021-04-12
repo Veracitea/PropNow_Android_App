@@ -108,7 +108,7 @@ public class AddListings extends AppCompatActivity {
                 try {
                      house = new House(-1,
                             et_town.getText().toString(),
-                            et_bedroomNum.getText().toString(),
+                             et_bedroomNum.getText().toString(),
                             et_blockNum.getText().toString(),
                             et_street.getText().toString(),
                             et_story.getText().toString(),
@@ -119,7 +119,10 @@ public class AddListings extends AppCompatActivity {
                             Integer.parseInt(et_resalePrice.getText().toString()),
                             130
 
+
                     );
+
+                    //MainActivity.setHouseData();
 
                     //System.out.println(house.toString());
                     //Toast.makeText(AddListings.this, house.toString(), Toast.LENGTH_SHORT).show();
