@@ -51,7 +51,6 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     Button SearchBar;
-    ImageView houseInfo;
 
     //for sidebar - show options by domain
     LinearLayout mainmenu, viewgrants, viewagentinfo, homecalc, mylistings, inbox, settings;
@@ -134,7 +133,6 @@ public class MainActivity extends AppCompatActivity {
 
         //buttons in main activity
         SearchBar = findViewById(R.id.button);
-        houseInfo = findViewById(R.id.imageView2);
 
 
 
@@ -221,7 +219,15 @@ public class MainActivity extends AppCompatActivity {
         openDrawer(drawerLayout);
     }
     public void ClickSearch(View view){redirectActivity(this,searchBar.class);}
-    public void ClickHouseInfo(View view){redirectActivity(this,houseInfo.class);}
+    public void ClickHouseInfo(View view){
+        houseInfo.setStreet("West Coast Road");
+        houseInfo.setBedroom(4);
+        houseInfo.setMRT("Clementi");  //CHECK
+        houseInfo.setAgent("Rebecca G");
+        houseInfo.setPrice(346700);
+        houseInfo.setImage(R.drawable.pic);
+        redirectActivity(this,houseInfo.class);
+    }
 
     //MAIN MENU
     public void ClickHome(View view) {
