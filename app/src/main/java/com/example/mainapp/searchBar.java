@@ -3,6 +3,7 @@ package com.example.mainapp;
 import android.app.Activity;
 import android.content.ClipData;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
@@ -25,6 +26,7 @@ import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 import static android.view.View.VISIBLE;
 import static java.lang.Boolean.FALSE;
@@ -73,7 +75,7 @@ public class searchBar extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent;
                 String address = parent.getAdapter().getItem(position).toString();
-
+                int[] drawables = {R.mipmap.ic_house,R.mipmap.ic_house2,R.mipmap.ic_house3,R.drawable.pic};
                 for(House b:HouseList) {
                     if (address.equals(b.getHouseId())) {
                         houseInfo.setStreet(b.getStreet_name());
@@ -81,6 +83,7 @@ public class searchBar extends AppCompatActivity {
                         houseInfo.setMRT(b.getTown());  //CHECK
                         houseInfo.setAgent(getAgentName(b.getAgent_id()));
                         houseInfo.setPrice(b.getResale_price());
+                        houseInfo.setImage(getRandomElement(drawables)); //setting a random image
                         break;
                     }
                 }
@@ -284,5 +287,7 @@ public class searchBar extends AppCompatActivity {
 
 
     }
-
+    public static int getRandomElement(int[] arr){
+        return arr[ThreadLocalRandom.current().nextInt(arr.length)];
+    }
 }
