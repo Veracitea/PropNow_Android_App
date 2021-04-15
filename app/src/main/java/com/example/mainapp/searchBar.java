@@ -78,6 +78,7 @@ public class searchBar extends AppCompatActivity {
                         houseInfo.setBedroom(b.getBedroom());
                         houseInfo.setMRT(b.getTown());  //CHECK
                         houseInfo.setAgent(b.getAgent_id());
+                        houseInfo.setPrice(b.getResale_price());
                         break;
                     }
                 }

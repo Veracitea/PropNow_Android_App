@@ -33,21 +33,35 @@
         app:layout_constraintVertical_bias="0.0" />
 
 
-    <TextView
-        android:id="@+id/agent"
-        android:layout_width="299dp"
-        android:layout_height="40dp"
-        android:text="@string/agent_rachel_green"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.169"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.848" />
+            <TextView
+                android:id="@+id/agent"
+                android:layout_width="299dp"
+                android:layout_height="40dp"
+                android:text="@string/agent_rachel_green"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.169"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.834" />
 
-    <TextView
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="299dp"
+                android:layout_height="40dp"
+                android:text="price"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.169"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.892" />
+
+            <TextView
         android:id="@+id/mrt"
         android:layout_width="299dp"
         android:layout_height="40dp"
@@ -72,8 +86,8 @@
 
             <TextView
                 android:id="@+id/bedroom"
-                android:layout_width="301dp"
-                android:layout_height="49dp"
+                android:layout_width="299dp"
+                android:layout_height="40dp"
                 android:text="@string/bedrooms_4"
                 android:textColor="@color/black"
                 android:textSize="20sp"
@@ -163,8 +177,8 @@
 
             <TextView
                 android:id="@+id/street"
-                android:layout_width="339dp"
-                android:layout_height="104dp"
+                android:layout_width="358dp"
+                android:layout_height="55dp"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text="West Coast Road"
@@ -172,10 +186,10 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.263"
+                app:layout_constraintHorizontal_bias="0.358"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.616" />
+                app:layout_constraintVertical_bias="0.633" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
