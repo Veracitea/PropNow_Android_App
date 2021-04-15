@@ -1,7 +1,6 @@
 package com.example.mainapp;
 
-import android.app.Activity;
-import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -13,7 +12,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
-import static java.lang.Boolean.FALSE;
 
 public class houseInfo extends AppCompatActivity {
     DrawerLayout drawerLayout;
@@ -22,14 +20,48 @@ public class houseInfo extends AppCompatActivity {
     boolean loggedIn = MainActivity.setLoggedIn();
     //for sidebar - show options by domain
     LinearLayout mainmenu,viewgrants,viewagentinfo,homecalc,mylistings,inbox,settings;
-    TextView username;
-    ImageView picture,picture1,picture2;
+    TextView username, agent, mrt, bedroom, street,price;
+    ImageView picture,picture1,picture2, house;
+    static String Agent,MRT,Bedroom,Price,Street = " ";
+    static int Photo;
+
+
+    public static void setAgent(String a){
+        Agent = "Agent: "+a;
+    }
+    public static void setMRT(String a){
+        MRT = "Nearest MRT: "+a;
+    }
+    public static void setBedroom(int a){
+        Bedroom = "No. of bedrooms: "+a;
+    }
+    public static void setStreet(String a){
+        Street = a;
+    }
+    public static void setPrice(int a){
+        Price = "Resale Price($): "+a;
+    }
+    public static void setImage(int picture){Photo = picture;};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_house_info);
         drawerLayout = findViewById(R.id.drawer_layout);
+        agent = findViewById(R.id.agent);
+        mrt = findViewById(R.id.mrt);
+        bedroom = findViewById(R.id.bedroom);
+        street = findViewById(R.id.street);
+        price = findViewById(R.id.price);
+        house = findViewById(R.id.house);
+
+        agent.setText(Agent);
+        mrt.setText(MRT);
+        bedroom.setText(Bedroom);
+        street.setText(Street);
+        price.setText(Price);
+        house.setImageResource(Photo);
+
         //for sidebar - show options by domain
         mainmenu = findViewById(R.id.mainmenu);
         viewgrants = findViewById(R.id.viewgrants);
