@@ -22,14 +22,39 @@ public class houseInfo extends AppCompatActivity {
     boolean loggedIn = MainActivity.setLoggedIn();
     //for sidebar - show options by domain
     LinearLayout mainmenu,viewgrants,viewagentinfo,homecalc,mylistings,inbox,settings;
-    TextView username;
+    TextView username, agent, mrt, bedroom, street;
     ImageView picture,picture1,picture2;
+    static String Agent,MRT,Bedroom,Street = " ";
+
+    public static void setAgent(int a){
+        Agent = "Agent: "+a;
+    }
+    public static void setMRT(String a){
+        MRT = "Nearest MRT: "+a;
+    }
+    public static void setBedroom(int a){
+        Bedroom = "No. of bedrooms: "+a;
+    }
+    public static void setStreet(String a){
+        Street = a;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_house_info);
         drawerLayout = findViewById(R.id.drawer_layout);
+        agent = findViewById(R.id.agent);
+        mrt = findViewById(R.id.mrt);
+        bedroom = findViewById(R.id.bedroom);
+        street = findViewById(R.id.street);
+
+
+        agent.setText(Agent);
+        mrt.setText(MRT);
+        bedroom.setText(Bedroom);
+        street.setText(Street);
+
         //for sidebar - show options by domain
         mainmenu = findViewById(R.id.mainmenu);
         viewgrants = findViewById(R.id.viewgrants);

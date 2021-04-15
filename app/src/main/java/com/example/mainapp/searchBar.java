@@ -58,12 +58,20 @@ public class searchBar extends AppCompatActivity {
         System.out.println("reading housessss");
         readHouse();
         List<String> theList = new ArrayList<>();
-
+        int count = 0;
         for(House h:HouseList){
             theList.add(h.getHouseId());
+            if (count<1){
+                System.out.println(h.getId());
+               // System.out.println(h.getHouseId());
+
+            }
+            count++;
+
         }
         System.out.println("THE MAGICAL LIST\n");
         System.out.println(theList.get(0));
+        System.out.println(theList.get(3));
 
         adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,theList);
         myList.setAdapter(adapter);
@@ -72,12 +80,41 @@ public class searchBar extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent;
-                switch(position){
-                    case 0:
-                        intent = new Intent(searchBar.this,houseInfo.class);
-                        startActivity(intent);
-                        break;
+              //  houseInfo.setStreet(theList.get(position));
+                int count = 0; //no of iterations
+                for (House h:HouseList){
+                    if (count == position){ //if house matches list position
+                        System.out.println(h);
+                        houseInfo.setStreet(h.getStreet_name());
+                        houseInfo.setBedroom(h.getBedroom());
+                        houseInfo.setMRT(h.getTown());  //CHECK
+                        houseInfo.setAgent(h.getAgent_id());
+
+                    }
+                    count++;
                 }
+
+                intent = new Intent(searchBar.this,houseInfo.class);
+                startActivity(intent);
+
+//                switch(position){
+//                    case 0:
+//                        for(House h:HouseList){
+//                            if (h.getId() == 194){
+//                                houseInfo.setAgent("AGENT???");
+//                                houseInfo.setMRT("TEST MRT");
+//                                houseInfo.setStreet(theList.get(0));
+//                                houseInfo.setBedroom("TEST ROOMS");
+//                            }
+//                        }
+//                        houseInfo.setAgent("AGENT???");
+//                        houseInfo.setMRT("TEST MRT");
+//                        houseInfo.setStreet(theList.get(0));
+//                        houseInfo.setBedroom("TEST ROOMS");
+
+
+                     //   break;
+            //    }
             }
         });
 
@@ -224,7 +261,7 @@ public class searchBar extends AppCompatActivity {
                 houses.setLease_commence_date(Integer.parseInt(tokens[9]));
                 houses.setRemaining_lease(tokens[10]);
                 houses.setResale_price(Integer.parseInt(tokens[11]));
-               // houses.setAgent_id(Integer.parseInt(tokens[12]));
+                houses.setAgent_id(Integer.parseInt(tokens[0]));  //changed
 
                 HouseList.add(houses);
                 Log.d("MyActivity", "Just Created: " + houses);
