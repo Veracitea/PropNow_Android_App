@@ -75,7 +75,7 @@ public class searchBar extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent;
                 String address = parent.getAdapter().getItem(position).toString();
-                int[] drawables = {R.mipmap.ic_house,R.mipmap.ic_house2,R.mipmap.ic_house3,R.drawable.pic};
+                int[] drawables = {R.drawable.pic,R.mipmap.ic_house,R.mipmap.ic_house2,R.mipmap.ic_house3};
                 for(House b:HouseList) {
                     if (address.equals(b.getHouseId())) {
                         houseInfo.setStreet(b.getStreet_name());
