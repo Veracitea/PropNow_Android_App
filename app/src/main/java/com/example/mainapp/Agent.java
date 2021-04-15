@@ -20,7 +20,6 @@ public class Agent {
         this.Email = email;
         this.Number = number;
     }
-    public Agent(){};
 
     public int getUserId() {
         return UserId;

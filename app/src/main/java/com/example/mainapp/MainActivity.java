@@ -315,7 +315,6 @@ public class MainActivity extends AppCompatActivity {
             while ((line = reader.readLine()) != null) {
                 Log.d("MyActivity", "Line: " + line);
                 String[] tokens = line.split(",");
-
                 Agent agents = new Agent(-1,"","","","Agent","","");
                 agents.setUserId(Integer.parseInt(tokens[0]));
                 agents.setCompName(tokens[1]);

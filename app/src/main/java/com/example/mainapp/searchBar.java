@@ -73,6 +73,7 @@ public class searchBar extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent;
                 String address = parent.getAdapter().getItem(position).toString();
+
                 for(House b:HouseList) {
                     if (address.equals(b.getHouseId())) {
                         houseInfo.setStreet(b.getStreet_name());
@@ -83,6 +84,7 @@ public class searchBar extends AppCompatActivity {
                         break;
                     }
                 }
+
                 intent = new Intent(searchBar.this,houseInfo.class);
                 startActivity(intent);
                 }
