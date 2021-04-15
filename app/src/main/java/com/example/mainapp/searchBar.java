@@ -1,6 +1,7 @@
 package com.example.mainapp;
 
 import android.app.Activity;
+import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -55,79 +56,46 @@ public class searchBar extends AppCompatActivity {
         mySearchView = findViewById(R.id.searchView);
         myList = findViewById(R.id.MyList);
         list = new ArrayList<String>();
-        System.out.println("reading housessss");
         readHouse();
         List<String> theList = new ArrayList<>();
-        int count = 0;
+
         for(House h:HouseList){
             theList.add(h.getHouseId());
-            if (count<1){
-                System.out.println(h.getId());
-               // System.out.println(h.getHouseId());
-
-            }
-            count++;
-
         }
-        System.out.println("THE MAGICAL LIST\n");
-        System.out.println(theList.get(0));
-        System.out.println(theList.get(3));
 
         adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,theList);
         myList.setAdapter(adapter);
+
 
         myList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent;
-              //  houseInfo.setStreet(theList.get(position));
-                int count = 0; //no of iterations
-                for (House h:HouseList){
-                    if (count == position){ //if house matches list position
-                        System.out.println(h);
-                        houseInfo.setStreet(h.getStreet_name());
-                        houseInfo.setBedroom(h.getBedroom());
-                        houseInfo.setMRT(h.getTown());  //CHECK
-                        houseInfo.setAgent(h.getAgent_id());
-
+                String address = parent.getAdapter().getItem(position).toString();
+                for(House b:HouseList) {
+                    if (address.equals(b.getHouseId())) {
+                        houseInfo.setStreet(b.getStreet_name());
+                        houseInfo.setBedroom(b.getBedroom());
+                        houseInfo.setMRT(b.getTown());  //CHECK
+                        houseInfo.setAgent(b.getAgent_id());
+                        break;
                     }
-                    count++;
                 }
-
                 intent = new Intent(searchBar.this,houseInfo.class);
                 startActivity(intent);
-
-//                switch(position){
-//                    case 0:
-//                        for(House h:HouseList){
-//                            if (h.getId() == 194){
-//                                houseInfo.setAgent("AGENT???");
-//                                houseInfo.setMRT("TEST MRT");
-//                                houseInfo.setStreet(theList.get(0));
-//                                houseInfo.setBedroom("TEST ROOMS");
-//                            }
-//                        }
-//                        houseInfo.setAgent("AGENT???");
-//                        houseInfo.setMRT("TEST MRT");
-//                        houseInfo.setStreet(theList.get(0));
-//                        houseInfo.setBedroom("TEST ROOMS");
-
-
-                     //   break;
-            //    }
-            }
+                }
         });
 
         mySearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
             @Override
             public boolean onQueryTextSubmit(String s){
-                return false;
+                return true;
             }
 
             @Override
             public boolean onQueryTextChange(String s){
                 adapter.getFilter().filter(s);
-                return false;
+                return true;
             }
 
         });
