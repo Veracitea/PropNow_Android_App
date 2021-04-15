@@ -316,10 +316,10 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("MyActivity", "Line: " + line);
                 String[] tokens = line.split(",");
 
-                Agent agents = new Agent();
+                Agent agents = new Agent(-1,"","","","Agent","","");
                 agents.setUserId(Integer.parseInt(tokens[0]));
                 agents.setCompName(tokens[1]);
-                agents.setName(tokens[2]);
+                agents.setUsername(tokens[2]);
                 agents.setPassword(tokens[3]);
                 agents.setDomain(tokens[4]);
                 agents.setEmail(tokens[5]);

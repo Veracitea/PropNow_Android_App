@@ -37,6 +37,7 @@ public class searchBar extends AppCompatActivity {
     List<String> list;
     ArrayAdapter<String> adapter;
     List<House> HouseList = new ArrayList<House>();
+    List<Agent> AgentList = new ArrayList<>();
 
     //for login
     //getting domain and loggedIn status
@@ -57,12 +58,12 @@ public class searchBar extends AppCompatActivity {
         myList = findViewById(R.id.MyList);
         list = new ArrayList<String>();
         readHouse();
+        readAgentData();
         List<String> theList = new ArrayList<>();
 
         for(House h:HouseList){
             theList.add(h.getHouseId());
         }
-
         adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,theList);
         myList.setAdapter(adapter);
 
@@ -77,7 +78,7 @@ public class searchBar extends AppCompatActivity {
                         houseInfo.setStreet(b.getStreet_name());
                         houseInfo.setBedroom(b.getBedroom());
                         houseInfo.setMRT(b.getTown());  //CHECK
-                        houseInfo.setAgent(b.getAgent_id());
+                        houseInfo.setAgent(getAgentName(b.getAgent_id()));
                         houseInfo.setPrice(b.getResale_price());
                         break;
                     }
@@ -204,6 +205,15 @@ public class searchBar extends AppCompatActivity {
     }
 
 
+    public String getAgentName(int agentID) {
+        for (Agent a : AgentList) {
+            if (a.getUserId() ==agentID){
+                return a.getUsername();
+            }
+        }
+        return "";
+    }
+
     private void readHouse(){
         InputStream isss = getResources().openRawResource(R.raw.house); //imp class
         BufferedReader reader = new BufferedReader(
@@ -241,5 +251,36 @@ public class searchBar extends AppCompatActivity {
         }
     }
 
+    private void readAgentData() {
+        InputStream iss = getResources().openRawResource(R.raw.agent); //imp class
+        BufferedReader reader = new BufferedReader(
+                new InputStreamReader(iss, Charset.forName("UTF-8")) //alt enter and import class charset
+        );
+
+        String line = "";
+        try {
+            reader.readLine();
+            while ((line = reader.readLine()) != null) {
+                Log.d("MyActivity", "Line: " + line);
+                String[] tokens = line.split(",");
+
+                Agent agents = new Agent(-1,"","","","Agent","","");
+                agents.setUserId(Integer.parseInt(tokens[0]));
+                agents.setCompName(tokens[1]);
+                agents.setUsername(tokens[2]);
+                agents.setPassword(tokens[3]);
+                agents.setDomain(tokens[4]);
+                agents.setEmail(tokens[5]);
+                agents.setNumber(tokens[6]);
+                AgentList.add(agents);
+                Log.d("MyActivity", "Just Created: " + agents);
+            }
+        } catch (IOException e) {
+            Log.wtf("MyActivity", "Error reading on Line: " + line, e);
+            e.printStackTrace();
+        }
+
+
+    }
 
 }

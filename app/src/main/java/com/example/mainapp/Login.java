@@ -219,7 +219,7 @@ public class Login extends AppCompatActivity {
                 Log.d("MyActivity","Line: " + line);
                 String[] tokens= line.split(",");
 
-                Agent agents= new Agent();
+                Agent agents= new Agent(-1,"","","","Agent","","");
                 agents.setUserId(Integer.parseInt(tokens[0]));
                 agents.setCompany(tokens[1]);
                 agents.setUsername(tokens[2]);

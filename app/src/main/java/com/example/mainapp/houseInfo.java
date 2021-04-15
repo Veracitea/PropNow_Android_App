@@ -26,7 +26,7 @@ public class houseInfo extends AppCompatActivity {
     ImageView picture,picture1,picture2;
     static String Agent,MRT,Bedroom,Price,Street = " ";
 
-    public static void setAgent(int a){
+    public static void setAgent(String a){
         Agent = "Agent: "+a;
     }
     public static void setMRT(String a){
