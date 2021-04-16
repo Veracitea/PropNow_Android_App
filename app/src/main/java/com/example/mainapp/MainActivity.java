@@ -443,9 +443,9 @@ public class MainActivity extends AppCompatActivity {
 
                 Messages mes = new Messages();
                 mes.setAgent(Integer.parseInt(tokens[0]));
-                mes.setNonagent(Integer.parseInt(tokens[0]));  //
+                mes.setNonagent(Integer.parseInt(tokens[1]));  //
                 mes.setMessage(tokens[2]);
-                mes.setSender(Integer.parseInt(tokens[0]));
+                mes.setSender(Integer.parseInt(tokens[3]));
                 //also have agent id
 
                 sms.add(mes);
