@@ -26,6 +26,7 @@ public class favorites extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorites);
+        drawerLayout = findViewById(R.id.drawer_layout);
 
         //for sidebar - show options by domain
         mainmenu = findViewById(R.id.mainmenu);

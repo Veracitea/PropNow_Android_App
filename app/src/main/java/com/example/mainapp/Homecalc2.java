@@ -33,6 +33,8 @@ public class Homecalc2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homecalc2);
+        drawerLayout = findViewById(R.id.drawer_layout);
+
         myimagebutton = (ImageButton) findViewById(R.id.imageButton7);
         dropdown1 = findViewById(R.id.spinner1);
         //for sidebar - show options by domain
