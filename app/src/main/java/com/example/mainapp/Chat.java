@@ -31,6 +31,8 @@ public class Chat extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        
+        readMessageData();// reading message data (control)
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
         drawerLayout = findViewById(R.id.drawer_layout);
@@ -199,4 +201,43 @@ public class Chat extends AppCompatActivity {
     public void ClickSettings(View view){
         MainActivity.redirectActivity(this,Settings.class);
     }
+
+
+
+    // SELF MADE FUNCTION
+    private List<Messages> sms = new ArrayList<>();
+
+    private void readMessageData() {
+        InputStream issss = getResources().openRawResource(R.raw.message); //imp class
+        BufferedReader reader = new BufferedReader(
+                new InputStreamReader(issss, Charset.forName("UTF-8")) //alt enter and import class charset
+        );
+
+        String line = "";
+        try {
+            reader.readLine();
+            while ((line = reader.readLine()) != null) {
+                Log.d("MyActivity", "Line: " + line);
+                String[] tokens = line.split(",");
+
+                Messages mes = new Messages();
+                mes.setAgent(Integer.parseInt(tokens[0]));
+                mes.setNonagent(Integer.parseInt(tokens[1]));  //
+                mes.setMessage(tokens[2]);
+                mes.setSender(Integer.parseInt(tokens[3]));
+                //also have agent id
+
+                sms.add(mes);
+                Log.d("MyActivity", "Just Created: " + mes);
+            }
+        } catch (IOException e) {
+            Log.wtf("MyActivity", "Error reading on Line: " + line, e);
+            e.printStackTrace();
+        }
+
+
+    }
+
+
+
 }
