@@ -46,6 +46,7 @@ public class ResultsPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results_page);
+        drawerLayout = findViewById(R.id.drawer_layout);
 
         ARcamera = findViewById(R.id.imageButton11);
         SearchBar = findViewById(R.id.button);

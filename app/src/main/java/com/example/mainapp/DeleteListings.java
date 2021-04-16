@@ -6,17 +6,26 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckedTextView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static android.view.View.VISIBLE;
 
 
@@ -33,6 +42,9 @@ public class DeleteListings extends AppCompatActivity {
     ImageView picture,picture1,picture2;
     Button b;
 
+    ListView lv_listings;
+
+
 
 
 
@@ -40,6 +52,12 @@ public class DeleteListings extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delete_listings);
+        drawerLayout = findViewById(R.id.drawer_layout);
+        lv_listings = findViewById(R.id.lv_listings);
+        HouseDatabaseHelper houseDatabaseHelper = new HouseDatabaseHelper(DeleteListings.this);
+        List<House> all = houseDatabaseHelper.getAll();
+        ArrayAdapter houseArrayAdapter = new ArrayAdapter<House>(DeleteListings.this, android.R.layout.simple_list_item_1,all);
+        lv_listings.setAdapter(houseArrayAdapter);
 
         //for sidebar - show options by domain
         mainmenu = findViewById(R.id.mainmenu);
@@ -74,24 +92,26 @@ public class DeleteListings extends AppCompatActivity {
             inbox.setVisibility(View.GONE);
         }
 
-//        b = (Button) findViewById(R.id.button11);
-//
-//        b.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                Intent intentloadnewactivity1 = new Intent(DeleteListings.this, MyListings.class);
-//                startActivity(intentloadnewactivity1);
-//
-//
-//            }
-//        });
+
+        lv_listings.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                House clickedHouse = (House) parent.getAdapter().getItem(position);
+                HouseDatabaseHelper houseDatabaseHelper = new HouseDatabaseHelper(DeleteListings.this);
+                houseDatabaseHelper.DeleteOne(clickedHouse);
+                ArrayAdapter houseArrayAdapter = new ArrayAdapter<House>(DeleteListings.this, android.R.layout.simple_list_item_1, houseDatabaseHelper.getAll());
+                lv_listings.setAdapter(houseArrayAdapter);
+                Toast.makeText(DeleteListings.this, "deleted house ID" + clickedHouse.getId(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
 
     }
 
     public void ClickDone(View view){
-        Intent intentloadnewactivity1 = new Intent(DeleteListings.this, MyListings.class);
-        startActivity(intentloadnewactivity1);
+        Intent intent = new Intent(DeleteListings.this, MyListings.class);
+        startActivity(intent);
     }
     @Override
     protected void onPause() {

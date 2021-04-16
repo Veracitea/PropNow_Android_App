@@ -33,6 +33,8 @@ public class Chat extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
+        drawerLayout = findViewById(R.id.drawer_layout);
+
         button = findViewById(R.id.imageButton4);
         //for sidebar - show options by domain
         mainmenu = findViewById(R.id.mainmenu);

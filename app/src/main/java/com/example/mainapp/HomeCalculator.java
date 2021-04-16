@@ -36,6 +36,8 @@ public class HomeCalculator extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_calculator);
+        drawerLayout = findViewById(R.id.drawer_layout);
+
         final EditText P = (EditText) findViewById(R.id.editTextNumber);
         final EditText I = (EditText) findViewById(R.id.textInputLayout1);
         final EditText Y = (EditText) findViewById(R.id.editTextDate4);
