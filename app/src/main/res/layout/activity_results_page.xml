@@ -30,7 +30,21 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0"
                 tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="-39dp" />
+                tools:layout_editor_absoluteX="-38dp" />
+
+            <SearchView
+                android:id="@+id/mySearch"
+                android:layout_width="297dp"
+                android:layout_height="53dp"
+                android:animateLayoutChanges="true"
+                android:iconifiedByDefault="false"
+                android:queryHint="Search Here"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.324"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.131" />
 
             <ToggleButton
                 android:id="@+id/toggleButton2"
@@ -56,21 +70,6 @@
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.085"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <Button
-                android:id="@+id/button"
-                android:layout_width="289dp"
-                android:layout_height="48dp"
-                android:layout_gravity="start"
-                android:layout_marginStart="60dp"
-                android:layout_marginLeft="60dp"
-                android:layout_marginTop="96dp"
-                android:text="Search"
-                android:textAlignment="textStart"
-                android:textColor="@color/black"
-                app:backgroundTint="#FFFFFF"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
