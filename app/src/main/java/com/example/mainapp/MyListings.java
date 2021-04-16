@@ -2,6 +2,8 @@ package com.example.mainapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -30,9 +32,14 @@ public class MyListings extends AppCompatActivity {
     LinearLayout mainmenu,viewgrants,viewagentinfo,homecalc,mylistings,inbox,settings;
     TextView username;
     ImageView picture,picture1,picture2;
-    Button btn_refresh;
-    ListView lv_listings;
+    Button btn_refresh, button;
+    RecyclerView lv_listings;
     ImageButton  del;
+
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager layoutManager;
+    private List<House> returnList;
 
 
     @Override
@@ -77,6 +84,22 @@ public class MyListings extends AppCompatActivity {
         }
         //HouseDatabaseHelper houseDatabaseHelper = new HouseDatabaseHelper(MyListings.this);
 
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MyListings.this, EditListings.class);
+                startActivity(intent);
+            }
+        });
+
+        recyclerView = findViewById(R.id.lv_listings);
+        recyclerView.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+
+        mAdapter = new RecycleViewAdapter(returnList,MyListings.this);
+        recyclerView.setAdapter(mAdapter);
+
 
         btn_refresh.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,22 +108,27 @@ public class MyListings extends AppCompatActivity {
                 List<House> all = houseDatabaseHelper.getAll();
 
                 ArrayAdapter houseArrayAdapter = new ArrayAdapter<House>(MyListings.this, android.R.layout.simple_list_item_1,all);
-                lv_listings.setAdapter(houseArrayAdapter);
+                //lv_listings.setAdapter(houseArrayAdapter);
             }
         });
 
-        lv_listings.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                House clickedhouse = (House) parent.getItemAtPosition(position);
-                HouseDatabaseHelper houseDatabaseHelper = new HouseDatabaseHelper(MyListings.this);
-                houseDatabaseHelper.DeleteOne(clickedhouse);
+//        lv_listings.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                House clickedhouse = (House) parent.getItemAtPosition(position);
+//                HouseDatabaseHelper houseDatabaseHelper = new HouseDatabaseHelper(MyListings.this);
+//                houseDatabaseHelper.DeleteOne(clickedhouse);
+//
+//                ArrayAdapter houseArrayAdapter = new ArrayAdapter<House>(MyListings.this, android.R.layout.simple_list_item_1, (List<House>) houseDatabaseHelper);
+//                lv_listings.setAdapter(houseArrayAdapter);
+//                Toast.makeText(MyListings.this, "deleted house ID" + clickedhouse.getId(), Toast.LENGTH_SHORT).show();
+//            }
+//        });
 
-                ArrayAdapter houseArrayAdapter = new ArrayAdapter<House>(MyListings.this, android.R.layout.simple_list_item_1, (List<House>) houseDatabaseHelper);
-                lv_listings.setAdapter(houseArrayAdapter);
-                Toast.makeText(MyListings.this, "deleted house ID" + clickedhouse.getId(), Toast.LENGTH_SHORT).show();
-            }
-        });
+
+
+
+
 
 
 
