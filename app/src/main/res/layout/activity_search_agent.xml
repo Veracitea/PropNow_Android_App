@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/drawer_layout"
+    tools:context=".searchBar">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <include
+            layout="@layout/main_toolbar"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="549dp"
+                android:layout_height="167dp"
+                android:background="@drawable/box2"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                tools:layout_editor_absoluteX="-47dp" />
+
+            <SearchView
+                android:id="@+id/searchView"
+                android:layout_width="297dp"
+                android:layout_height="53dp"
+                android:iconifiedByDefault="false"
+                android:queryHint="Search Here"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.289"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:animateLayoutChanges="true"
+                app:layout_constraintVertical_bias="0.064"
+                tools:layout_editor_absoluteX="30dp" >
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="549dp"
+                    android:layout_height="167dp"
+                    android:background="@drawable/box2"
+                    android:textSize="18sp" />
+            </SearchView>
+
+
+            <ListView
+                android:id="@+id/MyList"
+                android:layout_width="327dp"
+                android:layout_height="465dp"
+                android:focusableInTouchMode="false"
+                android:isScrollContainer="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.838" />
+
+
+            <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="22dp"
+                android:backgroundTint="#cad5e3"
+                android:onClick="ClickBackBtn2"
+                android:tint="#000000"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.004"
+                app:srcCompat="@drawable/abc_vector_test" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_gravity = "start"
+        android:background="@color/white">
+
+        <include
+            layout="@layout/main_nav_drawer"/>
+    </RelativeLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>

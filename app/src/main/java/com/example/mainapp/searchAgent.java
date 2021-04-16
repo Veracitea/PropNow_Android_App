@@ -9,14 +9,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
-import android.widget.ToggleButton;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -28,13 +25,18 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 import static android.view.View.VISIBLE;
-import static java.lang.Boolean.FALSE;
 
-public class ResultsPage extends AppCompatActivity {
-
+public class searchAgent extends AppCompatActivity {
+    DrawerLayout drawerLayout;
     SearchView mySearchView;
     ListView myList;
-    DrawerLayout drawerLayout;
+
+    List<String> list;
+    ArrayAdapter<String> adapter;
+    List<House> HouseList = new ArrayList<House>();
+    List<Agent> AgentList = new ArrayList<>();
+
+    //for login
     //getting domain and loggedIn status
     String domain = MainActivity.getDomain();
     boolean loggedIn = MainActivity.setLoggedIn();
@@ -42,28 +44,43 @@ public class ResultsPage extends AppCompatActivity {
     LinearLayout mainmenu,viewgrants,viewagentinfo,homecalc,mylistings,inbox,settings;
     TextView username;
     ImageView picture,picture1,picture2;
-    List<House> HouseList = new ArrayList<House>();
-    List<Agent> AgentList = new ArrayList<>();
-    ArrayAdapter<String> adapter;
 
-    ImageButton ARcamera;
-    //Button SearchBar;
-    TextView filters;
-    ImageButton filters2;
-    //ImageView houseInfo;
-//    ToggleButton favorites;
-
+    //changes
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_results_page);
+        setContentView(R.layout.activity_search_agent);
         drawerLayout = findViewById(R.id.drawer_layout);
+        mySearchView = findViewById(R.id.searchView);
+        myList = findViewById(R.id.MyList);
+        list = new ArrayList<String>();
+        readHouse();
+        readAgentData();
+        List<String> theList = new ArrayList<>();
 
-        //ARcamera = findViewById(R.id.imageButton11);
-        //SearchBar = findViewById(R.id.button);
-        filters = findViewById(R.id.textView3);
-        filters2 = findViewById(R.id.imageButton3);
-//        favorites = findViewById(R.id.toggleButton2);
+        for(Agent a: AgentList){
+            theList.add(a.getUsername());
+        }
+
+        adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,theList);
+        myList.setAdapter(adapter);
+
+        mySearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
+            @Override
+            public boolean onQueryTextSubmit(String s){
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s){
+                adapter.getFilter().filter(s);
+                return true;
+            }
+
+        });
+
+
+
         //for sidebar - show options by domain
         mainmenu = findViewById(R.id.mainmenu);
         viewgrants = findViewById(R.id.viewgrants);
@@ -78,7 +95,7 @@ public class ResultsPage extends AppCompatActivity {
         picture1.setVisibility(View.GONE);
         picture2 = findViewById(R.id.picture2);
         picture2.setVisibility(View.GONE);
-        mySearchView = findViewById(R.id.mySearch);
+
 
         //set visibility according to domain
         if (domain=="AGENT"){  //for agents
@@ -98,81 +115,13 @@ public class ResultsPage extends AppCompatActivity {
             inbox.setVisibility(View.GONE);
         }
 
-        /*
-        SearchBar.setOnClickListener(new View.OnClickListener() { //clicking on search bar
-            @Override
-            public void onClick(View v) {
-                setContentView(R.layout.activity_search_bar);
-            }
-        });
-         */
-        filters.setOnClickListener(new View.OnClickListener() { //clicking on advanced filters (text)
-            @Override
-            public void onClick(View v) {
-                setContentView(R.layout.activity_advanced_filters);
-            }
-        });
-        filters2.setOnClickListener(new View.OnClickListener() { //clicking on advanced filters(button)
-            @Override
-            public void onClick(View v) {
-                setContentView(R.layout.activity_advanced_filters);
-            }
-        });
-        /*houseInfo.setOnClickListener(new View.OnClickListener() { //clicking on house image
-            @Override
-            public void onClick(View v) {
-                setContentView(R.layout.activity_house_info);
-            }
-        });*/
-
-        readHouse();
-        readAgentData();
-
-        myList = (ListView)findViewById(R.id.MyList);
-
-        ArrayList<String> newlist = (ArrayList<String>) getIntent().getSerializableExtra("thelist");
-
-        adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,newlist);
-        myList.setAdapter(adapter);
-
-        myList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent;
-                String address = parent.getAdapter().getItem(position).toString();
-                int[] drawables = {R.drawable.pic,R.mipmap.ic_house,R.mipmap.ic_house2,R.mipmap.ic_house3};
-                for(House b: HouseList) {
-                    if (address.equals(b.getHouseId())) {
-                        houseInfo.setStreet(b.getStreet_name());
-                        houseInfo.setBedroom(b.getBedroom());
-                        houseInfo.setMRT(b.getTown());  //CHECK
-                        houseInfo.setAgent(getAgentName(b.getAgent_id()));
-                        houseInfo.setPrice(b.getResale_price());
-                        houseInfo.setImage(getRandomElement(drawables)); //setting a random image
-                        break;
-                    }
-                }
-
-                intent = new Intent(ResultsPage.this,houseInfo.class);
-                startActivity(intent);
-            }
-        });
-
-        mySearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
-            @Override
-            public boolean onQueryTextSubmit(String s){
-                return true;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String s){
-                adapter.getFilter().filter(s);
-                return true;
-            }
-
-        });
 
     }
+
+    public void ClickBackBtn2(View view){
+        MainActivity.redirectActivity(this, ViewAgentInfo.class);
+    }
+
 
     @Override
     protected void onPause() {
@@ -186,17 +135,12 @@ public class ResultsPage extends AppCompatActivity {
         MainActivity.openDrawer(drawerLayout);
     }
 
+
     //MAIN MENU
     public void ClickHome(View view){ MainActivity.redirectActivity(this,MainActivity.class); }
-    public void ClickAdvFilters(View view){
-        //Intent intent = new Intent(ResultsPage.this, AdvancedFilters.class);
-        //this.startActivity(intent);
-        MainActivity.redirectActivity(this,AdvancedFilters.class);
-        //this.finish();
-    }
-    public void ClickCamera(View view){ MainActivity.camera(this); }
+    public void ClickAdvFilters(View view){ recreate(); }
+    public void ClickCamera(View view){ MainActivity.camera(this);}
 
-    //VIEW GRANT INFO
     public void ClickViewGrantsInfo(View view){ MainActivity.redirectActivity(this,ViewGrantsInfo.class); }
     public void ClickEligibility(View view){
         if (loggedIn){MainActivity.redirectActivity(this,ViewEligibility.class);}
@@ -209,7 +153,6 @@ public class ResultsPage extends AppCompatActivity {
 
     //HOME CALC
     public void ClickHomeCalculator(View view){
-        //this code below is correct
         if (domain == "AGENT" || domain == "NON-AGENT") {
             loggedIn = true;
         }
@@ -236,9 +179,10 @@ public class ResultsPage extends AppCompatActivity {
         MainActivity.redirectActivity(this,Settings.class);
     }
 
+
     public String getAgentName(int agentID) {
         for (Agent a : AgentList) {
-            if (a.getUserId() == agentID){
+            if (a.getUserId() ==agentID){
                 return a.getUsername();
             }
         }

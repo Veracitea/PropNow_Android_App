@@ -170,9 +170,9 @@ public class AdvancedFilters extends AppCompatActivity {
                     }
                 }
                 search(list);
-                Intent intent = new Intent(AdvancedFilters.this, ResultsPage.class);
-                startActivity(intent);
-                System.out.println("Hello");
+                //Intent intent = new Intent(AdvancedFilters.this, ResultsPage.class);
+                //startActivity(intent);
+
             }
 
         });
@@ -201,6 +201,7 @@ public class AdvancedFilters extends AppCompatActivity {
                         }
                     }
                 });
+
                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int i) {
@@ -332,7 +333,7 @@ public class AdvancedFilters extends AppCompatActivity {
     public void search(ArrayList<String> list){
         Intent intent = new Intent(AdvancedFilters.this, ResultsPage.class);
         intent.putExtra("thelist", list);
-        startActivity(intent);
+        this.startActivity(intent);
     }
 
         //primary select box
