@@ -91,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
         readUserData(); //SELF CREATED FUNC database
         readAgentData(); //SELF CREATED FUNC database
         readHouseData(); //^
+        readMessageData();//^
 
         //addListenerOnButton();
         drawerLayout = findViewById(R.id.drawer_layout);
@@ -421,5 +422,44 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    
+    
+    
+    // SELF MADE FUNCTION
+    private List<Messages> sms = new ArrayList<>();
+
+    private void readMessageData() {
+        InputStream issss = getResources().openRawResource(R.raw.message); //imp class
+        BufferedReader reader = new BufferedReader(
+                new InputStreamReader(issss, Charset.forName("UTF-8")) //alt enter and import class charset
+        );
+
+        String line = "";
+        try {
+            reader.readLine();
+            while ((line = reader.readLine()) != null) {
+                Log.d("MyActivity", "Line: " + line);
+                String[] tokens = line.split(",");
+
+                Messages mes = new Messages();
+                mes.setAgent(Integer.parseInt(tokens[0]));
+                mes.setNonagent(Integer.parseInt(tokens[0]));  //
+                mes.setMessage(tokens[2]);
+                mes.setSender(Integer.parseInt(tokens[0]));
+                //also have agent id
+
+                sms.add(mes);
+                Log.d("MyActivity", "Just Created: " + mes);
+            }
+        } catch (IOException e) {
+            Log.wtf("MyActivity", "Error reading on Line: " + line, e);
+            e.printStackTrace();
+        }
+
+
+    }
+    
+    
+    
 }
 
