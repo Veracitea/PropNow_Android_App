@@ -28,6 +28,7 @@ public class HouseDatabaseHelper extends SQLiteOpenHelper {
     public static final String COL_AGENT_ID = "agent_id";
     public static final String COL_IMAGE_URL = "imageURL";
 
+
     public HouseDatabaseHelper(@Nullable Context context) {
         super(context, "House.db", null, 1);
     }

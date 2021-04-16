@@ -16,6 +16,7 @@ public class House {
     private int agent_id;
     private String imageURL;
 
+
     //constructors
 
     public House(int id, String town, String flat_type, String block, String street_name,
