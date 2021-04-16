@@ -52,8 +52,6 @@ public class AdvancedFilters extends AppCompatActivity {
     ArrayList<Integer> options1 = new ArrayList<>();
     String[] optionsArray = {"Price","Rooms","Remaining Lease","Storey Range"};
 
-    TextView Check;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -122,7 +120,6 @@ public class AdvancedFilters extends AppCompatActivity {
         Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Check.setText("hello");
                 float minPrice, maxPrice, minFloor, maxFloor, minLease, maxLease, minBed, maxBed;
                 if (cbPrice.isChecked()) {
                     List<Float> xPrice = rsPrice.getValues();
