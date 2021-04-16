@@ -47,7 +47,7 @@ public class ResultsPage extends AppCompatActivity {
     ArrayAdapter<String> adapter;
 
     ImageButton ARcamera;
-    Button SearchBar;
+    //Button SearchBar;
     TextView filters;
     ImageButton filters2;
     //ImageView houseInfo;
@@ -60,7 +60,7 @@ public class ResultsPage extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawer_layout);
 
         //ARcamera = findViewById(R.id.imageButton11);
-        SearchBar = findViewById(R.id.button);
+        //SearchBar = findViewById(R.id.button);
         filters = findViewById(R.id.textView3);
         filters2 = findViewById(R.id.imageButton3);
 //        favorites = findViewById(R.id.toggleButton2);
@@ -78,6 +78,7 @@ public class ResultsPage extends AppCompatActivity {
         picture1.setVisibility(View.GONE);
         picture2 = findViewById(R.id.picture2);
         picture2.setVisibility(View.GONE);
+        mySearchView = findViewById(R.id.mySearch);
 
         //set visibility according to domain
         if (domain=="AGENT"){  //for agents
@@ -97,13 +98,14 @@ public class ResultsPage extends AppCompatActivity {
             inbox.setVisibility(View.GONE);
         }
 
-
+        /*
         SearchBar.setOnClickListener(new View.OnClickListener() { //clicking on search bar
             @Override
             public void onClick(View v) {
                 setContentView(R.layout.activity_search_bar);
             }
         });
+         */
         filters.setOnClickListener(new View.OnClickListener() { //clicking on advanced filters (text)
             @Override
             public void onClick(View v) {
@@ -154,6 +156,20 @@ public class ResultsPage extends AppCompatActivity {
                 intent = new Intent(ResultsPage.this,houseInfo.class);
                 startActivity(intent);
             }
+        });
+
+        mySearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
+            @Override
+            public boolean onQueryTextSubmit(String s){
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s){
+                adapter.getFilter().filter(s);
+                return true;
+            }
+
         });
 
     }
