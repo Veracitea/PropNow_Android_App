@@ -26,6 +26,7 @@ public class HouseDatabaseHelper extends SQLiteOpenHelper {
     public static final String COL_REMAINING_LEASE = "remaining_lease";
     public static final String COL_RESALE_PRICE = "resale_price";
     public static final String COL_AGENT_ID = "agent_id";
+    public static final String COL_IMAGE_URL = "imageURL";
 
     public HouseDatabaseHelper(@Nullable Context context) {
         super(context, "House.db", null, 1);
@@ -39,7 +40,7 @@ public class HouseDatabaseHelper extends SQLiteOpenHelper {
                 COL_TOWN + " VARCHAR(15) NOT NULL , " + COL_FLAT_TYPE + " INTEGER(1) NOT NULL, " + COL_BLOCK + " VARCHAR(4) NOT NULL, " + COL_STREET_NAME + " VARCHAR(20) NOT NULL," +
                 COL_STOREY_RANGE + " VARCHAR(8) NOT NULL, " + COL_FLOOR_AREA_SQM + " NUMERIC(4,1) NOT NULL, " + COL_FLAT_MODEL + " VARCHAR(22) NOT NULL, " +
                 COL_LEASE_COMMENCE_DATE + " INTEGER, " + COL_REMAINING_LEASE + " VARCHAR(18) NOT NULL, " + COL_RESALE_PRICE + " NUMERIC(9,2) NOT NULL," +
-                COL_AGENT_ID + " INTEGER NOT NULL)";
+                COL_AGENT_ID + " INTEGER NOT NULL, " + COL_IMAGE_URL + " VARCHAR)";
 
         db.execSQL(createTableStatement);
 
@@ -116,8 +117,9 @@ public class HouseDatabaseHelper extends SQLiteOpenHelper {
                 String remaining_lease = cursor.getString(9);
                 int resale_price = cursor.getInt(10);
                 int agent_id = cursor.getInt(11);
+                String imageURL = cursor.getString(12);
 
-                House newListing = new House(houseID, town, flat_type, block,street_name,story_range,floor_area,flat_model,lease_commencementDate,remaining_lease,resale_price,agent_id);
+                House newListing = new House(houseID, town, flat_type, block,street_name,story_range,floor_area,flat_model,lease_commencementDate,remaining_lease,resale_price,agent_id,imageURL);
                 returnList.add(newListing);
             }
             while(cursor.moveToNext());

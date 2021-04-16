@@ -91,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
         readUserData(); //SELF CREATED FUNC database
         readAgentData(); //SELF CREATED FUNC database
         readHouseData(); //^
+        readMessageData();//^
 
         //addListenerOnButton();
         drawerLayout = findViewById(R.id.drawer_layout);
@@ -421,25 +422,42 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    
+    // SELF MADE FUNCTION
+    private List<Messages> sms = new ArrayList<>();
 
-    public void setHouseData(int agentID,String mon, String town,String flt,String blk, String street, String ran, int area,String model,int lease,String remL,int pri){
-        databass3 houses = new databass3();
-        houses.setAgent(agentID);
-        houses.setMonth(mon);  //
-        houses.setTown(town);
-        houses.setFlat_type(flt);
-        houses.setBlock(blk);
-        houses.setStreet_name(street);
-        houses.setStorey_range(ran); //
-        houses.setFloor_area_sqm(area);
-        houses.setFlat_model(model);
-        houses.setLease_commence_date(lease);
-        houses.setRemaining_lease(remL);
-        houses.setResale_price(pri);
-        //also have agent id
+    private void readMessageData() {
+        InputStream issss = getResources().openRawResource(R.raw.message); //imp class
+        BufferedReader reader = new BufferedReader(
+                new InputStreamReader(issss, Charset.forName("UTF-8")) //alt enter and import class charset
+        );
 
-        housedb.add(houses);
-        Log.d("MyActivity", "Just Created: " + houses);
+        String line = "";
+        try {
+            reader.readLine();
+            while ((line = reader.readLine()) != null) {
+                Log.d("MyActivity", "Line: " + line);
+                String[] tokens = line.split(",");
+
+                Messages mes = new Messages();
+                mes.setAgent(Integer.parseInt(tokens[0]));
+                mes.setNonagent(Integer.parseInt(tokens[1]));  //
+                mes.setMessage(tokens[2]);
+                mes.setSender(Integer.parseInt(tokens[3]));
+                //also have agent id
+
+                sms.add(mes);
+                Log.d("MyActivity", "Just Created: " + mes);
+            }
+        } catch (IOException e) {
+            Log.wtf("MyActivity", "Error reading on Line: " + line, e);
+            e.printStackTrace();
+        }
+
+
     }
+    
+    
+    
 }
 

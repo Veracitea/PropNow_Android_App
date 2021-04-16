@@ -14,12 +14,13 @@ public class House {
     private String remaining_lease;
     private int resale_price;
     private int agent_id;
+    private String imageURL;
 
     //constructors
 
     public House(int id, String town, String flat_type, String block, String street_name,
                  String storey_range, int floor_area_sqm, String flat_model, int lease_commence_date,
-                 String remaining_lease, int resale_price, int agent_id) {
+                 String remaining_lease, int resale_price, int agent_id, String imageURL) {
         this.id = id;
         this.town = town;
         this.flat_type = flat_type;
@@ -32,6 +33,7 @@ public class House {
         this.remaining_lease = remaining_lease;
         this.resale_price = resale_price;
         this.agent_id = agent_id;
+        this.imageURL = imageURL;
     }
 
     public House() {
@@ -47,6 +49,7 @@ public class House {
         remaining_lease = " ";
         resale_price = -1;
         agent_id = -1;
+        imageURL= " ";
     }
 
     @Override
@@ -54,18 +57,20 @@ public class House {
         return "House{" +
                 "id=" + id +
                 ", town='" + town + '\'' +
-                ", flat_type=" + flat_type +
+                ", flat_type='" + flat_type + '\'' +
                 ", block='" + block + '\'' +
                 ", street_name='" + street_name + '\'' +
                 ", storey_range='" + storey_range + '\'' +
-                ", floor_area_sqm='" + floor_area_sqm + '\'' +
+                ", floor_area_sqm=" + floor_area_sqm +
                 ", flat_model='" + flat_model + '\'' +
                 ", lease_commence_date=" + lease_commence_date +
                 ", remaining_lease='" + remaining_lease + '\'' +
                 ", resale_price=" + resale_price +
                 ", agent_id=" + agent_id +
+                ", imageURL='" + imageURL + '\'' +
                 '}';
     }
+
     //getters and setters
     public int getBedroom(){
         if(flat_type == "2 ROOM"){return 2;}
@@ -84,6 +89,14 @@ public class House {
     }
     public String getHouseId(){
         return street_name + " Block " + block + " Storey " + storey_range;
+    }
+
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
     }
 
     public int getId() {

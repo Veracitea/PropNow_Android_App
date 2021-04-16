@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditListings">
+
+    <EditText
+        android:id="@+id/et_editStreet"
+        android:layout_width="289dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="8dp"
+        android:ems="10"
+        android:hint="@string/street"
+        android:inputType="textPersonName"
+        android:textSize="10sp"
+        app:layout_constraintStart_toEndOf="@+id/tv_street"
+        app:layout_constraintTop_toTopOf="@+id/tv_street" />
+
+    <TextView
+        android:id="@+id/tv_resalePrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp"
+        android:text="@string/ResalePrice"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.116"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_remainingLease"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Remaining Lease:"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@id/tv_resalePrice"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.143"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_floorArea"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/FloorArea"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_flatModel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.108"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_leaseCommencement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/LeaseCommencementDate"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@id/tv_remainingLease"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.182"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/tv_id"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_blockNum"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.083"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/tv_blockNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/Block"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_street"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.092"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_street"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/Street"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_storeyRange"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.096"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_storeyRange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/StoreyRange"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_town"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.12"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_town"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/Town"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_bedroom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.092"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_bedroom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/Rooms"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_floorArea"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.124"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_flatModel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/FlatModel"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@id/tv_leaseCommencement"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.112"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/Confirm"
+        app:iconTint="#CDDC39"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_cancel"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/Cancel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btn_confirm" />
+
+    <EditText
+        android:id="@+id/et_editBlock"
+        android:layout_width="116dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="8dp"
+        android:ems="10"
+        android:hint="@string/blocknum"
+        android:inputType="textPersonName"
+        android:textSize="10sp"
+        app:layout_constraintStart_toEndOf="@+id/tv_blockNum"
+        app:layout_constraintTop_toTopOf="@+id/tv_blockNum" />
+
+    <EditText
+        android:id="@+id/et_editStoreyRange"
+        android:layout_width="115dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="8dp"
+        android:ems="10"
+        android:hint="@string/edit_storeyRange"
+        android:inputType="textPersonName"
+        android:textSize="10sp"
+        app:layout_constraintStart_toEndOf="@+id/tv_storeyRange"
+        app:layout_constraintTop_toTopOf="@+id/tv_storeyRange" />
+
+    <EditText
+        android:id="@+id/et_editTown"
+        android:layout_width="289dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="8dp"
+        android:ems="10"
+        android:hint="@string/edit_town"
+        android:inputType="textPersonName"
+        android:textSize="10sp"
+        app:layout_constraintStart_toEndOf="@+id/tv_town"
+        app:layout_constraintTop_toTopOf="@+id/tv_town" />
+
+    <EditText
+        android:id="@+id/et_editBedroomNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:ems="10"
+        android:hint="@string/bedroomNum"
+        android:inputType="textPersonName"
+        android:textSize="10sp"
+        app:layout_constraintStart_toEndOf="@+id/tv_bedroom"
+        app:layout_constraintTop_toTopOf="@+id/tv_bedroom" />
+
+    <EditText
+        android:id="@+id/et_editFloorArea"
+        android:layout_width="114dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="8dp"
+        android:ems="10"
+        android:hint="@string/edit_floorArea"
+        android:inputType="textPersonName"
+        android:textSize="10sp"
+        app:layout_constraintStart_toEndOf="@+id/tv_floorArea"
+        app:layout_constraintTop_toTopOf="@+id/tv_floorArea" />
+
+    <EditText
+        android:id="@+id/et_editFlatModel"
+        android:layout_width="163dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="8dp"
+        android:ems="10"
+        android:hint="@string/edit_flatModel"
+        android:inputType="textPersonName"
+        android:textSize="10sp"
+        app:layout_constraintStart_toEndOf="@+id/tv_flatModel"
+        app:layout_constraintTop_toTopOf="@+id/tv_flatModel" />
+
+    <EditText
+        android:id="@+id/et_editLeaseCommencementDate"
+        android:layout_width="115dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+        android:ems="10"
+        android:hint="@string/edit_leaseCommencementDate"
+        android:inputType="textPersonName"
+        android:textSize="10sp"
+        app:layout_constraintStart_toEndOf="@+id/tv_leaseCommencement"
+        app:layout_constraintTop_toTopOf="@+id/tv_leaseCommencement" />
+
+    <EditText
+        android:id="@+id/et_editRemainingLease"
+        android:layout_width="115dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="8dp"
+        android:ems="10"
+        android:hint="@string/edit_remainingLease"
+        android:inputType="textPersonName"
+        android:textSize="10sp"
+        app:layout_constraintStart_toEndOf="@+id/tv_remainingLease"
+        app:layout_constraintTop_toTopOf="@+id/tv_remainingLease" />
+
+    <EditText
+        android:id="@+id/et_editResalePrice"
+        android:layout_width="117dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="8dp"
+        android:ems="10"
+        android:hint="@string/edit_resalePrice"
+        android:inputType="textPersonName"
+        android:textSize="10sp"
+        app:layout_constraintStart_toEndOf="@+id/tv_resalePrice"
+        app:layout_constraintTop_toTopOf="@+id/tv_resalePrice" />
+
+    <TextView
+        android:id="@+id/tv_agentId"
+        android:layout_width="49dp"
+        android:layout_height="31dp"
+        android:text="130"
+        android:textAlignment="center"
+        app:layout_constraintTop_toTopOf="@+id/tv_id"
+        tools:layout_editor_absoluteX="75dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
