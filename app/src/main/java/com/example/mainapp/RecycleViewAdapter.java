@@ -44,6 +44,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
         Glide.with(this.context).load(returnList.get(position).getImageURL()).into(holder.iv_housePicture);
 
 
+
     }
 
     @Override

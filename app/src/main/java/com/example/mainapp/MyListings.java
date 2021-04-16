@@ -81,6 +81,7 @@ public class MyListings extends AppCompatActivity {
         } else{  //for general users
             mylistings.setVisibility(View.GONE);
             inbox.setVisibility(View.GONE);
+
         }
         //HouseDatabaseHelper houseDatabaseHelper = new HouseDatabaseHelper(MyListings.this);
 
