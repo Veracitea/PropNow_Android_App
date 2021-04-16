@@ -11,8 +11,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <include
             layout="@layout/main_toolbar"/>
+
         <androidx.constraintlayout.widget.ConstraintLayout
 
             android:layout_width="match_parent"
@@ -36,11 +38,11 @@
                 android:layout_height="57dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="444dp"
+                android:contentDescription="@string/todo"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_action_name"
-                tools:ignore="VectorDrawableCompat"
-                android:contentDescription="@string/todo" />
+                tools:ignore="VectorDrawableCompat" />
 
             <ImageView
                 android:id="@+id/imageView15"
@@ -48,10 +50,10 @@
                 android:layout_height="49dp"
                 android:layout_marginStart="316dp"
                 android:layout_marginTop="452dp"
+                android:contentDescription="TODO"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@android:drawable/btn_star_big_on"
-                android:contentDescription="TODO" />
+                app:srcCompat="@android:drawable/btn_star_big_on" />
 
             <Button
                 android:id="@+id/chandler_bing_button"
@@ -76,41 +78,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <SearchView
-                android:id="@+id/searchbar"
-                android:layout_width="302dp"
-                android:layout_height="52dp"
-                android:layout_marginStart="52dp"
-                android:layout_marginTop="40dp"
-                android:animateLayoutChanges="true"
-                android:backgroundTint="#A53D3D"
-                android:foregroundTint="#8F3535"
-                android:outlineSpotShadowColor="#2196F3"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <ImageView
-                    android:id="@+id/imageView4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/ic_action_name"
-                    android:contentDescription="TODO" />
-            </SearchView>
-
-            <TextView
-                android:id="@+id/companyXYZ"
-                android:layout_width="357dp"
-                android:layout_height="190dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="400dp"
-                android:background="@drawable/box"
-                android:gravity="center_horizontal"
-                android:text="Company XYZ"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
             <TextView
                 android:id="@+id/companyABC"
                 android:layout_width="357dp"
@@ -131,9 +98,9 @@
                 android:layout_height="63dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginLeft="24dp"
-                android:onClick="ClickAgent"
                 android:layout_marginTop="212dp"
                 android:background="@android:color/transparent"
+                android:onClick="ClickAgent"
                 android:textColor="@android:color/transparent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -216,10 +183,10 @@
                 android:layout_height="57dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="212dp"
+                android:contentDescription="TODO"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_action_name"
-                android:contentDescription="TODO" />
+                app:srcCompat="@drawable/ic_action_name" />
 
             <ImageView
                 android:id="@+id/imageView"
@@ -242,7 +209,34 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_action_name" />
 
+            <Button
+                android:id="@+id/btSearch"
+                android:layout_width="346dp"
+                android:layout_height="44dp"
+                android:backgroundTint="#FFFFFF"
+                android:text="SEARCH"
+                android:textAlignment="viewStart"
+                android:textColor="#0C0C0C"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.415"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.088" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/companyXYZ"
+            android:layout_width="357dp"
+            android:layout_height="190dp"
+            android:layout_marginStart="104dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/box"
+            android:gravity="center_horizontal"
+            android:text="Company XYZ"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
 
     </LinearLayout>

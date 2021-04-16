@@ -52,6 +52,8 @@ public class AdvancedFilters extends AppCompatActivity {
     ArrayList<Integer> options1 = new ArrayList<>();
     String[] optionsArray = {"Price","Rooms","Remaining Lease","Storey Range"};
 
+    TextView Check;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -120,6 +122,7 @@ public class AdvancedFilters extends AppCompatActivity {
         Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Check.setText("hello");
                 float minPrice, maxPrice, minFloor, maxFloor, minLease, maxLease, minBed, maxBed;
                 if (cbPrice.isChecked()) {
                     List<Float> xPrice = rsPrice.getValues();
@@ -172,7 +175,7 @@ public class AdvancedFilters extends AppCompatActivity {
                 search(list);
                 //Intent intent = new Intent(AdvancedFilters.this, ResultsPage.class);
                 //startActivity(intent);
-                System.out.println("Hello");
+
             }
 
         });
@@ -332,7 +335,7 @@ public class AdvancedFilters extends AppCompatActivity {
     public void search(ArrayList<String> list){
         Intent intent = new Intent(AdvancedFilters.this, ResultsPage.class);
         intent.putExtra("thelist", list);
-        startActivity(intent);
+        this.startActivity(intent);
     }
 
         //primary select box

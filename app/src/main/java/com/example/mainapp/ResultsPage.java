@@ -3,6 +3,7 @@ package com.example.mainapp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static android.view.View.VISIBLE;
 import static java.lang.Boolean.FALSE;
@@ -116,11 +118,6 @@ public class ResultsPage extends AppCompatActivity {
 
         ArrayList<String> newlist = (ArrayList<String>) getIntent().getSerializableExtra("thelist");
 
-        ArrayList<String> list;
-        list = new ArrayList<>();
-        list.add("1");
-        list.add("2");
-
         adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,newlist);
         myList.setAdapter(adapter);
 
@@ -141,7 +138,10 @@ public class ResultsPage extends AppCompatActivity {
     //MAIN MENU
     public void ClickHome(View view){ MainActivity.redirectActivity(this,MainActivity.class); }
     public void ClickAdvFilters(View view){
+        //Intent intent = new Intent(ResultsPage.this, AdvancedFilters.class);
+        //this.startActivity(intent);
         MainActivity.redirectActivity(this,AdvancedFilters.class);
+        //this.finish();
     }
     public void ClickCamera(View view){ MainActivity.camera(this); }
 

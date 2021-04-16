@@ -23,6 +23,7 @@ public class ViewAgentInfo extends AppCompatActivity {
     LinearLayout mainmenu,viewgrants,viewagentinfo,homecalc,mylistings,inbox,settings;
     TextView username;
     ImageView picture,picture1,picture2;
+    Button search;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,7 @@ public class ViewAgentInfo extends AppCompatActivity {
         picture1.setVisibility(View.GONE);
         picture2 = findViewById(R.id.picture2);
         picture2.setVisibility(View.GONE);
+        search =findViewById(R.id.btSearch);
 
         //set visibility according to domain
         if (domain=="AGENT"){  //for agents
@@ -62,6 +64,14 @@ public class ViewAgentInfo extends AppCompatActivity {
             mylistings.setVisibility(View.GONE);
             inbox.setVisibility(View.GONE);
         }
+
+        search.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(ViewAgentInfo.this, searchAgent.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
