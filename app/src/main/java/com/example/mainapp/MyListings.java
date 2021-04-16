@@ -86,8 +86,15 @@ public class MyListings extends AppCompatActivity {
         HouseDatabaseHelper houseDatabaseHelper = new HouseDatabaseHelper(MyListings.this);
         List<House> all = houseDatabaseHelper.getAll();
         ArrayAdapter houseArrayAdapter = new ArrayAdapter<House>(MyListings.this, android.R.layout.simple_list_item_1,all);
-        lv_listings.setAdapter(houseArrayAdapter);
-
+//        List houses = new ArrayList<>();
+//        for (House h: (houseDatabaseHelper.getAll())){
+//            String info = "Address: "+ h.getHouseId() + "\nBlock: "+h.getBlock();
+//            houses.add(info);
+//        }
+//        System.out.println(houses);
+//        ArrayAdapter tempAdapter = new ArrayAdapter<House>(MyListings.this, android.R.layout.simple_list_item_1,houses);
+//        lv_listings.setAdapter(tempAdapter);
+         lv_listings.setAdapter(houseArrayAdapter);
 
         del = (ImageButton) findViewById(R.id.imageButton3);
 

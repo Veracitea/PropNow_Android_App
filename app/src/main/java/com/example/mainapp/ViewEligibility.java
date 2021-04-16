@@ -28,6 +28,7 @@ public class ViewEligibility extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_eligibility);
+        drawerLayout = findViewById(R.id.drawer_layout);
         //for sidebar - show options by domain
         mainmenu = findViewById(R.id.mainmenu);
         viewgrants = findViewById(R.id.viewgrants);
