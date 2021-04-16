@@ -90,6 +90,7 @@ public class MyListings extends AppCompatActivity {
                 Intent intent = new Intent(MyListings.this, EditListings.class);
                 startActivity(intent);
             }
+
         });
 
         recyclerView = findViewById(R.id.lv_listings);
