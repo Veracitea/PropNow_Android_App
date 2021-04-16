@@ -26,7 +26,7 @@ public class AddListings extends AppCompatActivity {
     ListView lv_houseList;
 
 
-    EditText et_blockNum, et_street, et_story, et_town, et_bedroomNum, et_floorArea, et_flatModel, et_leaseCommencement, et_remainingLease, et_resalePrice;
+    EditText et_blockNum, et_street, et_story, et_town, et_bedroomNum, et_floorArea, et_flatModel, et_leaseCommencement, et_remainingLease, et_resalePrice,et_imageURl;
     ImageButton btn_addImage;
     Button btn_addListing;
 
@@ -59,7 +59,7 @@ public class AddListings extends AppCompatActivity {
         et_remainingLease = findViewById(R.id.et_remainingLease);
         et_resalePrice = findViewById(R.id.et_resalePrice);
 
-        btn_addImage = findViewById(R.id.btn_addImage);
+        et_imageURl = findViewById(R.id.et_imageURL);
         btn_addListing = findViewById(R.id.btn_addListing);
 
 
@@ -120,7 +120,8 @@ public class AddListings extends AppCompatActivity {
                             Integer.parseInt(et_leaseCommencement.getText().toString()),
                             et_remainingLease.getText().toString(),
                             Integer.parseInt(et_resalePrice.getText().toString()),
-                            130
+                            130,
+                             et_imageURl.getText().toString()
 
                     );
 
