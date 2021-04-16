@@ -114,7 +114,6 @@ public class AdvancedFilters extends AppCompatActivity {
         readHouse();
 
         ArrayList<String> list = new ArrayList<>();
-        ArrayList<House> houseSearch = new ArrayList<>();
         
         Button = findViewById(R.id.button);
         
@@ -168,10 +167,9 @@ public class AdvancedFilters extends AppCompatActivity {
                             && (houseFloor <= maxFloor) && (houseLease >= minLease) && (houseLease <= maxLease) &&
                             (houseBed >= minBed) && (houseBed <= maxBed)) {
                         list.add(id);
-                        houseSearch.add(h);
                     }
                 }
-                search(list,houseSearch);
+                search(list);
                 //Intent intent = new Intent(AdvancedFilters.this, ResultsPage.class);
                 //startActivity(intent);
 
@@ -331,10 +329,9 @@ public class AdvancedFilters extends AppCompatActivity {
         }
 
 
-    public void search(ArrayList<String> list,ArrayList<House> house){
+    public void search(ArrayList<String> list){
         Intent intent = new Intent(AdvancedFilters.this, ResultsPage.class);
         intent.putExtra("thelist", list);
-        //intent.putExtra("houselist",house);
         this.startActivity(intent);
     }
 

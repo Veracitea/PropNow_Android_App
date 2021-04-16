@@ -129,7 +129,6 @@ public class ResultsPage extends AppCompatActivity {
         myList = (ListView)findViewById(R.id.MyList);
 
         ArrayList<String> newlist = (ArrayList<String>) getIntent().getSerializableExtra("thelist");
-        //ArrayList<House> house = (ArrayList<House>) getIntent().getSerializableExtra("houselist");
 
         adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,newlist);
         myList.setAdapter(adapter);

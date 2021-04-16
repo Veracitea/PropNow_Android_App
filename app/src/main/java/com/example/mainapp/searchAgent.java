@@ -49,7 +49,7 @@ public class searchAgent extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search_bar);
+        setContentView(R.layout.activity_search_agent);
         drawerLayout = findViewById(R.id.drawer_layout);
         mySearchView = findViewById(R.id.searchView);
         myList = findViewById(R.id.MyList);
@@ -134,6 +134,7 @@ public class searchAgent extends AppCompatActivity {
     public void ClickMenu(View view){
         MainActivity.openDrawer(drawerLayout);
     }
+
 
     //MAIN MENU
     public void ClickHome(View view){ MainActivity.redirectActivity(this,MainActivity.class); }
