@@ -119,7 +119,7 @@ public class searchAgent extends AppCompatActivity {
     }
 
     public void ClickBackBtn2(View view){
-        MainActivity.redirectActivity(this, MainActivity.class);
+        MainActivity.redirectActivity(this, ViewAgentInfo.class);
     }
 
 
