@@ -126,16 +126,17 @@ public class AddListings extends AppCompatActivity {
 
                     HouseDatabaseHelper houseDatabaseHelper = new HouseDatabaseHelper(AddListings.this);
                     boolean success = houseDatabaseHelper.addOne(house);
-                    Toast.makeText(AddListings.this, "Success = " + success, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddListings.this, "Listing successfully added!", Toast.LENGTH_SHORT).show();
+
+                    Intent intent = new Intent(AddListings.this, MyListings.class);
+                    startActivity(intent);
 
                 } catch (Exception e) {
                     System.out.println(e);
-                    Toast.makeText(AddListings.this, "error adding house", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddListings.this, "Invalid! Please fill in all fields", Toast.LENGTH_SHORT).show();
 
                 }
 
-            Intent intent = new Intent(AddListings.this, MyListings.class);
-            startActivity(intent);
 
             }
         });
