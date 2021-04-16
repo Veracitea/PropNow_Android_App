@@ -6,6 +6,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.SparseBooleanArray;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -17,6 +18,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static android.view.View.VISIBLE;
@@ -35,11 +37,16 @@ public class MyListings extends AppCompatActivity {
     ImageButton  del;
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_listings);
         drawerLayout = findViewById(R.id.drawer_layout);
+        ArrayList itemList = new ArrayList<>();
+        ArrayAdapter adapter = new ArrayAdapter<String>(MyListings.this, android.R.layout.simple_list_item_multiple_choice,itemList);
+
         //for sidebar - show options by domain
         mainmenu = findViewById(R.id.mainmenu);
         viewgrants = findViewById(R.id.viewgrants);
@@ -92,21 +99,18 @@ public class MyListings extends AppCompatActivity {
         lv_listings.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                House clickedhouse = (House) parent.getItemAtPosition(position);
-                HouseDatabaseHelper houseDatabaseHelper = new HouseDatabaseHelper(MyListings.this);
-                houseDatabaseHelper.DeleteOne(clickedhouse);
 
-                ArrayAdapter houseArrayAdapter = new ArrayAdapter<House>(MyListings.this, android.R.layout.simple_list_item_1, (List<House>) houseDatabaseHelper);
+                House clickedHouse = (House) parent.getAdapter().getItem(position);
+                HouseDatabaseHelper houseDatabaseHelper = new HouseDatabaseHelper(MyListings.this);
+                houseDatabaseHelper.DeleteOne(clickedHouse);
+                ArrayAdapter houseArrayAdapter = new ArrayAdapter<House>(MyListings.this, android.R.layout.simple_list_item_1, houseDatabaseHelper.getAll());
                 lv_listings.setAdapter(houseArrayAdapter);
-                Toast.makeText(MyListings.this, "deleted house ID" + clickedhouse.getId(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MyListings.this, "deleted house ID" + clickedHouse.getId(), Toast.LENGTH_SHORT).show();
+
             }
         });
 
 
-
-//        House clickedhouse = (House) parent.getItemAtPosition(position);
-//        HouseDatabaseHelper.DeleteOne(clickedhouse);
-//        Toast.makeText(MyListings.this, "Deleted " + clickedhouse.toString(), Toast.LENGTH_SHORT).show()
 
         del = (ImageButton) findViewById(R.id.imageButton3);
 
@@ -114,15 +118,12 @@ public class MyListings extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intentloadnewactivity1 = new Intent(MyListings.this, DeleteListings.class);
-                startActivity(intentloadnewactivity1);
-
-
+                Intent intent = new Intent(MyListings.this, DeleteListings.class);
+                startActivity(intent);
             }
         });
 
     }
-
 
 
 
