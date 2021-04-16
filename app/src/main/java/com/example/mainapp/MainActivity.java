@@ -423,8 +423,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
     
-    
-    
     // SELF MADE FUNCTION
     private List<Messages> sms = new ArrayList<>();
 
