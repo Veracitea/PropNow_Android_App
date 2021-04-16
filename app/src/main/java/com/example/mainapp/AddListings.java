@@ -24,7 +24,7 @@ public class AddListings extends AppCompatActivity {
     //references to buttons and other controls on layout
     DrawerLayout drawerLayout;
     ListView lv_houseList;
-    ImageButton myimagebutton;
+
 
     EditText et_blockNum, et_street, et_story, et_town, et_bedroomNum, et_floorArea, et_flatModel, et_leaseCommencement, et_remainingLease, et_resalePrice;
     ImageButton btn_addImage;
@@ -46,6 +46,7 @@ public class AddListings extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_listings);
+        drawerLayout = findViewById(R.id.drawer_layout);
 
         et_blockNum = findViewById(R.id.et_blockNum);
         et_street = findViewById(R.id.et_street);
@@ -142,31 +143,13 @@ public class AddListings extends AppCompatActivity {
 
             }
         });
-//        myimagebutton = (ImageButton) findViewById(R.id.imageButton6);
-//
-//        myimagebutton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                Intent intentloadnewactivity1 = new Intent(AddListings.this, MyListings.class);
-//                startActivity(intentloadnewactivity1);
-//
-//
-//            }
-//        });
-
-
-
-
-
-
 
 
     }
 
     public void ClickBack(View view){
-        Intent intentloadnewactivity1 = new Intent(AddListings.this, MyListings.class);
-        startActivity(intentloadnewactivity1);
+        Intent intent = new Intent(this, MyListings.class);
+        startActivity(intent);
     }
 
 
