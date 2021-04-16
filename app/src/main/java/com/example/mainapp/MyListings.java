@@ -2,12 +2,11 @@ package com.example.mainapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.SparseBooleanArray;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -19,6 +18,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static android.view.View.VISIBLE;
@@ -32,14 +32,11 @@ public class MyListings extends AppCompatActivity {
     LinearLayout mainmenu,viewgrants,viewagentinfo,homecalc,mylistings,inbox,settings;
     TextView username;
     ImageView picture,picture1,picture2;
-    Button btn_refresh, button;
-    RecyclerView lv_listings;
+
+    ListView lv_listings;
     ImageButton  del;
 
-    private RecyclerView recyclerView;
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager layoutManager;
-    private List<House> returnList;
+
 
 
     @Override
@@ -47,6 +44,9 @@ public class MyListings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_listings);
         drawerLayout = findViewById(R.id.drawer_layout);
+        ArrayList itemList = new ArrayList<>();
+        ArrayAdapter adapter = new ArrayAdapter<String>(MyListings.this, android.R.layout.simple_list_item_multiple_choice,itemList);
+
         //for sidebar - show options by domain
         mainmenu = findViewById(R.id.mainmenu);
         viewgrants = findViewById(R.id.viewgrants);
@@ -60,7 +60,6 @@ public class MyListings extends AppCompatActivity {
         picture1 = findViewById(R.id.picture1);
         picture1.setVisibility(View.GONE);
         picture2 = findViewById(R.id.picture2);
-        btn_refresh = findViewById(R.id.btn_refresh);
         lv_listings = findViewById(R.id.lv_listings);
         picture2.setVisibility(View.GONE);
 
@@ -81,62 +80,14 @@ public class MyListings extends AppCompatActivity {
         } else{  //for general users
             mylistings.setVisibility(View.GONE);
             inbox.setVisibility(View.GONE);
-
         }
-        //HouseDatabaseHelper houseDatabaseHelper = new HouseDatabaseHelper(MyListings.this);
 
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MyListings.this, EditListings.class);
-                startActivity(intent);
-            }
+        //to update listview automatically without refresh button
+        HouseDatabaseHelper houseDatabaseHelper = new HouseDatabaseHelper(MyListings.this);
+        List<House> all = houseDatabaseHelper.getAll();
+        ArrayAdapter houseArrayAdapter = new ArrayAdapter<House>(MyListings.this, android.R.layout.simple_list_item_1,all);
+        lv_listings.setAdapter(houseArrayAdapter);
 
-        });
-
-        recyclerView = findViewById(R.id.lv_listings);
-        recyclerView.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-
-        mAdapter = new RecycleViewAdapter(returnList,MyListings.this);
-        recyclerView.setAdapter(mAdapter);
-
-
-        btn_refresh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                HouseDatabaseHelper houseDatabaseHelper = new HouseDatabaseHelper(MyListings.this);
-                List<House> all = houseDatabaseHelper.getAll();
-
-                ArrayAdapter houseArrayAdapter = new ArrayAdapter<House>(MyListings.this, android.R.layout.simple_list_item_1,all);
-                //lv_listings.setAdapter(houseArrayAdapter);
-            }
-        });
-
-//        lv_listings.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                House clickedhouse = (House) parent.getItemAtPosition(position);
-//                HouseDatabaseHelper houseDatabaseHelper = new HouseDatabaseHelper(MyListings.this);
-//                houseDatabaseHelper.DeleteOne(clickedhouse);
-//
-//                ArrayAdapter houseArrayAdapter = new ArrayAdapter<House>(MyListings.this, android.R.layout.simple_list_item_1, (List<House>) houseDatabaseHelper);
-//                lv_listings.setAdapter(houseArrayAdapter);
-//                Toast.makeText(MyListings.this, "deleted house ID" + clickedhouse.getId(), Toast.LENGTH_SHORT).show();
-//            }
-//        });
-
-
-
-
-
-
-
-
-//        House clickedhouse = (House) parent.getItemAtPosition(position);
-//        HouseDatabaseHelper.DeleteOne(clickedhouse);
-//        Toast.makeText(MyListings.this, "Deleted " + clickedhouse.toString(), Toast.LENGTH_SHORT).show()
 
         del = (ImageButton) findViewById(R.id.imageButton3);
 
@@ -144,15 +95,12 @@ public class MyListings extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intentloadnewactivity1 = new Intent(MyListings.this, DeleteListings.class);
-                startActivity(intentloadnewactivity1);
-
-
+                Intent intent = new Intent(MyListings.this, DeleteListings.class);
+                startActivity(intent);
             }
         });
 
     }
-
 
 
 

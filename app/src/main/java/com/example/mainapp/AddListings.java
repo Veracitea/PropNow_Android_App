@@ -27,7 +27,7 @@ public class AddListings extends AppCompatActivity {
 
 
     EditText et_blockNum, et_street, et_story, et_town, et_bedroomNum, et_floorArea, et_flatModel, et_leaseCommencement, et_remainingLease, et_resalePrice,et_imageURl;
-    ImageButton btn_addImage;
+    //ImageButton btn_addImage;
     Button btn_addListing;
 
 
