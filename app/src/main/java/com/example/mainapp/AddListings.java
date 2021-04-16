@@ -2,6 +2,7 @@ package com.example.mainapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.database.DatabaseUtils;
@@ -28,6 +29,7 @@ public class AddListings extends AppCompatActivity {
     EditText et_blockNum, et_street, et_story, et_town, et_bedroomNum, et_floorArea, et_flatModel, et_leaseCommencement, et_remainingLease, et_resalePrice;
     ImageButton btn_addImage;
     Button btn_addListing;
+
 
 
 
@@ -123,7 +125,7 @@ public class AddListings extends AppCompatActivity {
 
                     //System.out.println(house.toString());
                     //Toast.makeText(AddListings.this, house.toString(), Toast.LENGTH_SHORT).show();
-                    house = new House(-1,""," ","","","",0,"",0,"",0,130);
+                    //house = new House(-1,""," ","","","",0,"",0,"",0,130);
 
                     HouseDatabaseHelper houseDatabaseHelper = new HouseDatabaseHelper(AddListings.this);
                     boolean success = houseDatabaseHelper.addOne(house);

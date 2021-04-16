@@ -139,5 +139,25 @@
     <string name="delete_listings">Delete listings</string>
     <string name="done">Done</string>
     <string name="refresh">Refresh</string>
+    <string name="tv_id">ID:</string>
+    <string name="Block">Block:</string>
+    <string name="Street">Street:</string>
+    <string name="StoreyRange">Storey Range:</string>
+    <string name="Town">Town:</string>
+    <string name="Rooms">No. of Rooms:</string>
+    <string name="FloorArea">Floor Area:</string>
+    <string name="LeaseCommencementDate">Lease Commencement Date:</string>
+    <string name="ResalePrice">Resale Price:</string>
+    <string name="ReaminingLease">Remaining Lease:</string>
+    <string name="FlatModel">Flat Model:</string>
+    <string name="Confirm">Confirm</string>
+    <string name="Cancel">Cancel</string>
+    <string name="edit_storeyRange">Storey Range</string>
+    <string name="edit_town">town</string>
+    <string name="edit_floorArea">Floor Area</string>
+    <string name="edit_flatModel">Flat Model</string>
+    <string name="edit_leaseCommencementDate">Lease Year</string>
+    <string name="edit_remainingLease">Remaining Lease</string>
+    <string name="edit_resalePrice">Resale Price</string>
 
 </resources>
