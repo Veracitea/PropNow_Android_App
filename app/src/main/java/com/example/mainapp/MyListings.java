@@ -32,7 +32,7 @@ public class MyListings extends AppCompatActivity {
     LinearLayout mainmenu,viewgrants,viewagentinfo,homecalc,mylistings,inbox,settings;
     TextView username;
     ImageView picture,picture1,picture2;
-    Button btn_refresh;
+
     ListView lv_listings;
     ImageButton  del;
 
@@ -60,7 +60,6 @@ public class MyListings extends AppCompatActivity {
         picture1 = findViewById(R.id.picture1);
         picture1.setVisibility(View.GONE);
         picture2 = findViewById(R.id.picture2);
-        btn_refresh = findViewById(R.id.btn_refresh);
         lv_listings = findViewById(R.id.lv_listings);
         picture2.setVisibility(View.GONE);
 
@@ -82,34 +81,12 @@ public class MyListings extends AppCompatActivity {
             mylistings.setVisibility(View.GONE);
             inbox.setVisibility(View.GONE);
         }
-        //HouseDatabaseHelper houseDatabaseHelper = new HouseDatabaseHelper(MyListings.this);
 
-
-        btn_refresh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                HouseDatabaseHelper houseDatabaseHelper = new HouseDatabaseHelper(MyListings.this);
-                List<House> all = houseDatabaseHelper.getAll();
-
-                ArrayAdapter houseArrayAdapter = new ArrayAdapter<House>(MyListings.this, android.R.layout.simple_list_item_1,all);
-                lv_listings.setAdapter(houseArrayAdapter);
-            }
-        });
-
-        lv_listings.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                House clickedHouse = (House) parent.getAdapter().getItem(position);
-                HouseDatabaseHelper houseDatabaseHelper = new HouseDatabaseHelper(MyListings.this);
-                houseDatabaseHelper.DeleteOne(clickedHouse);
-                ArrayAdapter houseArrayAdapter = new ArrayAdapter<House>(MyListings.this, android.R.layout.simple_list_item_1, houseDatabaseHelper.getAll());
-                lv_listings.setAdapter(houseArrayAdapter);
-                Toast.makeText(MyListings.this, "deleted house ID" + clickedHouse.getId(), Toast.LENGTH_SHORT).show();
-
-            }
-        });
-
+        //to update listview automatically without refresh button
+        HouseDatabaseHelper houseDatabaseHelper = new HouseDatabaseHelper(MyListings.this);
+        List<House> all = houseDatabaseHelper.getAll();
+        ArrayAdapter houseArrayAdapter = new ArrayAdapter<House>(MyListings.this, android.R.layout.simple_list_item_1,all);
+        lv_listings.setAdapter(houseArrayAdapter);
 
 
         del = (ImageButton) findViewById(R.id.imageButton3);
