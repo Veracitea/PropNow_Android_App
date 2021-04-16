@@ -141,23 +141,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_camera" />
 
-            <Switch
-                android:id="@+id/switch2"
-                android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="52dp"
-                android:scaleX="1.5"
-                android:scaleY="1.5"
-                android:showText="true"
-                android:textColor="#281e5d"
-                android:textOff="Buy"
-                android:textOn="Sell"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.855"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
             <ImageButton
                 android:id="@+id/imageButton2"
                 android:layout_width="51dp"

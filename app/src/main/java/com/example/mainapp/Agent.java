@@ -11,6 +11,16 @@ public class Agent {
     private String compName;
     private String name;
 
+    public Agent(int agentID, String company, String username, String password, String domain, String email, String number) {
+        this.UserId = agentID;
+        this.Company = company;
+        this.Username = username;
+        this.Password = password;
+        this.Domain = domain;
+        this.Email = email;
+        this.Number = number;
+    }
+
     public int getUserId() {
         return UserId;
     }

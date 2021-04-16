@@ -154,30 +154,13 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@android:drawable/ic_menu_camera" />
 
-            <Switch
-                android:id="@+id/switch2"
-                android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="16dp"
-                android:scaleX="1.5"
-                android:scaleY="1.5"
-                android:showText="true"
-                android:textColor="#281e5d"
-                android:textOff="Buy"
-                android:textOn="Sell"
-                android:textSize="18dp"
-                android:textStyle="normal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.916"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
             <TextView
                 android:id="@+id/textView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="444dp"
                 android:text="Blk 76, #08-456"
+                android:onClick="ClickHouseInfo"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.098"
@@ -202,6 +185,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="472dp"
                 android:text="West Coast Road "
+                android:onClick="ClickHouseInfo"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.086"
