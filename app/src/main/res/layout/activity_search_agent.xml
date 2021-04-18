@@ -35,6 +35,7 @@
                 android:id="@+id/searchView"
                 android:layout_width="297dp"
                 android:layout_height="53dp"
+                android:animateLayoutChanges="true"
                 android:iconifiedByDefault="false"
                 android:queryHint="Search Here"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -42,9 +43,7 @@
                 app:layout_constraintHorizontal_bias="0.289"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:animateLayoutChanges="true"
-                app:layout_constraintVertical_bias="0.064"
-                tools:layout_editor_absoluteX="30dp" >
+                app:layout_constraintVertical_bias="0.064">
 
                 <TextView
                     android:id="@+id/textView2"

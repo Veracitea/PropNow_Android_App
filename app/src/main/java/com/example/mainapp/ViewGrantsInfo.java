@@ -1,11 +1,8 @@
 package com.example.mainapp;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -120,7 +117,7 @@ public class ViewGrantsInfo extends AppCompatActivity {
 
     //INBOX
     public void ClickInbox(View view){
-        MainActivity.redirectActivity(this,Inbox.class);
+        MainActivity.redirectActivity(this, InboxMgr.class);
     }
     public void ClickEditInbox(View view){
         MainActivity.redirectActivity(this,EditInbox.class);

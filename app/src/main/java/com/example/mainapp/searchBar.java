@@ -1,11 +1,7 @@
 package com.example.mainapp;
 
-import android.app.Activity;
-import android.content.ClipData;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -29,7 +25,6 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 import static android.view.View.VISIBLE;
-import static java.lang.Boolean.FALSE;
 
 public class searchBar extends AppCompatActivity {
     DrawerLayout drawerLayout;
@@ -198,7 +193,7 @@ public class searchBar extends AppCompatActivity {
 
     //INBOX
     public void ClickInbox(View view){
-        MainActivity.redirectActivity(this,Inbox.class);
+        MainActivity.redirectActivity(this, InboxMgr.class);
     }
     public void ClickEditInbox(View view){
         MainActivity.redirectActivity(this,EditInbox.class);

@@ -1,6 +1,5 @@
 package com.example.mainapp;
 
-import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -26,10 +25,8 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Set;
 
 import static android.view.View.VISIBLE;
-import static java.lang.Boolean.FALSE;
 
 public class AdvancedFilters extends AppCompatActivity {
 
@@ -392,7 +389,7 @@ public class AdvancedFilters extends AppCompatActivity {
 
     //INBOX
     public void ClickInbox(View view){
-        MainActivity.redirectActivity(this,Inbox.class);
+        MainActivity.redirectActivity(this, InboxMgr.class);
     }
     public void ClickEditInbox(View view){
         MainActivity.redirectActivity(this,EditInbox.class);

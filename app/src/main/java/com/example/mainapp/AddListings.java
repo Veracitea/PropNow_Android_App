@@ -2,15 +2,12 @@ package com.example.mainapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.database.DatabaseUtils;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -125,8 +122,8 @@ public class AddListings extends AppCompatActivity {
 
                     );
 
-                    HouseDatabaseHelper houseDatabaseHelper = new HouseDatabaseHelper(AddListings.this);
-                    boolean success = houseDatabaseHelper.addOne(house);
+                    HouseMgr houseMgr = new HouseMgr(AddListings.this);
+                    boolean success = houseMgr.addOne(house);
                     Toast.makeText(AddListings.this, "Listing successfully added!", Toast.LENGTH_SHORT).show();
 
                     Intent intent = new Intent(AddListings.this, MyListings.class);
@@ -199,7 +196,7 @@ public class AddListings extends AppCompatActivity {
 
     //INBOX
     public void ClickInbox(View view){
-        MainActivity.redirectActivity(this,Inbox.class);
+        MainActivity.redirectActivity(this, InboxMgr.class);
     }
     public void ClickEditInbox(View view){
         MainActivity.redirectActivity(this,EditInbox.class);

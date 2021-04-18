@@ -13,7 +13,7 @@ import android.widget.TextView;
 import static android.view.View.VISIBLE;
 import static java.lang.Boolean.FALSE;
 
-public class Inbox extends AppCompatActivity {
+public class InboxMgr extends AppCompatActivity {
     DrawerLayout drawerLayout;
     //getting domain and loggedIn status
     String domain = MainActivity.getDomain();

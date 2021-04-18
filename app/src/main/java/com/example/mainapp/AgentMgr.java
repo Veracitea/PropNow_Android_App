@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AgentDatabaseHelper extends SQLiteOpenHelper {
+public class AgentMgr extends SQLiteOpenHelper {
 
     public static final String AGENT_TABLE = "AGENT_TABLE";
     public static final String COL_ID = "id";
@@ -22,7 +22,7 @@ public class AgentDatabaseHelper extends SQLiteOpenHelper {
     public static final String COL_EMAIL = "email";
     public static final String COL_NUMBER = "number";
 
-    public AgentDatabaseHelper(@Nullable Context context) {
+    public AgentMgr(@Nullable Context context) {
         super(context, "Agent.db", null, 1);
     }
 

@@ -3,11 +3,9 @@ package com.example.mainapp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -168,7 +166,7 @@ public class searchAgent extends AppCompatActivity {
 
     //INBOX
     public void ClickInbox(View view){
-        MainActivity.redirectActivity(this,Inbox.class);
+        MainActivity.redirectActivity(this, InboxMgr.class);
     }
     public void ClickEditInbox(View view){
         MainActivity.redirectActivity(this,EditInbox.class);

@@ -5,18 +5,13 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.SparseBooleanArray;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -83,8 +78,8 @@ public class MyListings extends AppCompatActivity {
         }
 
         //to update listview automatically without refresh button
-        HouseDatabaseHelper houseDatabaseHelper = new HouseDatabaseHelper(MyListings.this);
-        List<House> all = houseDatabaseHelper.getAll();
+        HouseMgr houseMgr = new HouseMgr(MyListings.this);
+        List<House> all = houseMgr.getAll();
         ArrayAdapter houseArrayAdapter = new ArrayAdapter<House>(MyListings.this, android.R.layout.simple_list_item_1,all);
         lv_listings.setAdapter(houseArrayAdapter);
 
@@ -151,7 +146,7 @@ public class MyListings extends AppCompatActivity {
 
     //INBOX
     public void ClickInbox(View view){
-        MainActivity.redirectActivity(this,Inbox.class);
+        MainActivity.redirectActivity(this, InboxMgr.class);
     }
     public void ClickEditInbox(View view){
         MainActivity.redirectActivity(this,EditInbox.class);

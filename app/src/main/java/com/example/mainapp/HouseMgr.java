@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HouseDatabaseHelper extends SQLiteOpenHelper {
+public class HouseMgr extends SQLiteOpenHelper {
 
     public static final String HOUSE_TABLE = "HOUSE_TABLE";
     public static final String COL_ID = "id";
@@ -29,7 +29,7 @@ public class HouseDatabaseHelper extends SQLiteOpenHelper {
     public static final String COL_IMAGE_URL = "imageURL";
 
 
-    public HouseDatabaseHelper(@Nullable Context context) {
+    public HouseMgr(@Nullable Context context) {
         super(context, "House.db", null, 1);
     }
 

@@ -18,14 +18,12 @@
         <activity android:name=".DeleteListings" />
         <activity android:name=".AddListings" />
         <activity android:name=".Chat" />
-        <activity android:name=".Login" />
-        <activity android:name=".Homecalc3" />
-        <activity android:name=".Homecalc2" />
+        <activity android:name=".LoginMgr" />
         <activity android:name=".ViewEligibility" />
         <activity android:name=".MyListings" />
         <activity android:name=".EditInbox" />
         <activity android:name=".MonicaGeller" />
-        <activity android:name=".Inbox" />
+        <activity android:name=".InboxMgr" />
         <activity android:name=".Settings" />
         <activity android:name=".HomeCalculator" />
         <activity android:name=".ResultsPage" />
@@ -35,6 +33,7 @@
         <activity android:name=".ViewGrantsInfo" />
         <activity android:name=".ViewAgentInfo" />
         <activity android:name=".AdvancedFilters" />
+        <activity android:name=".searchAgent" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

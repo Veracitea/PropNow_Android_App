@@ -10,7 +10,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import static android.view.View.VISIBLE;
-import static java.lang.Boolean.FALSE;
 
 public class Settings extends AppCompatActivity {
     DrawerLayout drawerLayout;
@@ -109,7 +108,7 @@ public class Settings extends AppCompatActivity {
 
     //INBOX
     public void ClickInbox(View view){
-        MainActivity.redirectActivity(this,Inbox.class);
+        MainActivity.redirectActivity(this, InboxMgr.class);
     }
     public void ClickEditInbox(View view){
         MainActivity.redirectActivity(this,EditInbox.class);

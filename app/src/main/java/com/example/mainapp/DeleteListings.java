@@ -1,29 +1,21 @@
 package com.example.mainapp;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CheckedTextView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static android.view.View.VISIBLE;
@@ -54,8 +46,8 @@ public class DeleteListings extends AppCompatActivity {
         setContentView(R.layout.activity_delete_listings);
         drawerLayout = findViewById(R.id.drawer_layout);
         lv_listings = findViewById(R.id.lv_listings);
-        HouseDatabaseHelper houseDatabaseHelper = new HouseDatabaseHelper(DeleteListings.this);
-        List<House> all = houseDatabaseHelper.getAll();
+        HouseMgr houseMgr = new HouseMgr(DeleteListings.this);
+        List<House> all = houseMgr.getAll();
         ArrayAdapter houseArrayAdapter = new ArrayAdapter<House>(DeleteListings.this, android.R.layout.simple_list_item_1,all);
         lv_listings.setAdapter(houseArrayAdapter);
 
@@ -98,9 +90,9 @@ public class DeleteListings extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 House clickedHouse = (House) parent.getAdapter().getItem(position);
-                HouseDatabaseHelper houseDatabaseHelper = new HouseDatabaseHelper(DeleteListings.this);
-                houseDatabaseHelper.DeleteOne(clickedHouse);
-                ArrayAdapter houseArrayAdapter = new ArrayAdapter<House>(DeleteListings.this, android.R.layout.simple_list_item_1, houseDatabaseHelper.getAll());
+                HouseMgr houseMgr = new HouseMgr(DeleteListings.this);
+                houseMgr.DeleteOne(clickedHouse);
+                ArrayAdapter houseArrayAdapter = new ArrayAdapter<House>(DeleteListings.this, android.R.layout.simple_list_item_1, houseMgr.getAll());
                 lv_listings.setAdapter(houseArrayAdapter);
                 Toast.makeText(DeleteListings.this, "deleted house ID" + clickedHouse.getId(), Toast.LENGTH_SHORT).show();
 

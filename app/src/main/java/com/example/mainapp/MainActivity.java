@@ -4,41 +4,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.ToggleButton;
 
 import static android.view.View.VISIBLE;
-import static java.lang.Boolean.FALSE;
-import static java.lang.Boolean.TRUE;
-
-import android.os.Bundle;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.util.Log;
-import android.view.View;
-
-import android.view.Menu;
-import android.view.MenuItem;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -90,8 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
         readUserData(); //SELF CREATED FUNC database
         readAgentData(); //SELF CREATED FUNC database
-        readHouseData(); //^
-        readMessageData();//^
+        readHouse(); //^
 
         //addListenerOnButton();
         drawerLayout = findViewById(R.id.drawer_layout);
@@ -172,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 //activity.finishAffinity();
                 //REDIRECT TO LOGIN PAGE !!!!!!!!!!!!!!!!!!!!!!!!!!!
-                redirectActivity(activity, Login.class);
+                redirectActivity(activity, LoginMgr.class);
             }
         });
 //        //back
@@ -244,7 +222,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void ClickLogin(View view) {
-        redirectActivity(this, Login.class);
+        redirectActivity(this, LoginMgr.class);
     }
 
     ;
@@ -294,7 +272,7 @@ public class MainActivity extends AppCompatActivity {
 
     //INBOX
     public void ClickInbox(View view) {
-        redirectActivity(this, Inbox.class);
+        redirectActivity(this, InboxMgr.class);
     }
 
     public void ClickEditInbox(View view) {
@@ -382,9 +360,9 @@ public class MainActivity extends AppCompatActivity {
     }
     
     // SELF MADE FUNCTION
-    private List<databass3> housedb = new ArrayList<>();
+    private List<House> HouseList = new ArrayList<>();
 
-    private void readHouseData() {
+    private void readHouse(){
         InputStream isss = getResources().openRawResource(R.raw.house); //imp class
         BufferedReader reader = new BufferedReader(
                 new InputStreamReader(isss, Charset.forName("UTF-8")) //alt enter and import class charset
@@ -397,65 +375,31 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("MyActivity", "Line: " + line);
                 String[] tokens = line.split(",");
 
-                databass3 houses = new databass3();
-                houses.setAgent(Integer.parseInt(tokens[0]));
-                houses.setMonth(tokens[1]);  //
+                House houses = new House();
+                houses.setId(Integer.parseInt(tokens[0]));
+                //   houses.setMonth(tokens[1]);
                 houses.setTown(tokens[2]);
                 houses.setFlat_type(tokens[3]);
                 houses.setBlock(tokens[4]);
                 houses.setStreet_name(tokens[5]);
-                houses.setStorey_range(tokens[6]); //
+                houses.setStorey_range(tokens[6]);
                 houses.setFloor_area_sqm(Integer.parseInt(tokens[7]));
                 houses.setFlat_model(tokens[8]);
                 houses.setLease_commence_date(Integer.parseInt(tokens[9]));
                 houses.setRemaining_lease(tokens[10]);
                 houses.setResale_price(Integer.parseInt(tokens[11]));
-                //also have agent id
+                houses.setAgent_id(Integer.parseInt(tokens[0]));  //changed
 
-                housedb.add(houses);
+                HouseList.add(houses);
                 Log.d("MyActivity", "Just Created: " + houses);
             }
         } catch (IOException e) {
             Log.wtf("MyActivity", "Error reading on Line: " + line, e);
             e.printStackTrace();
         }
-
-
     }
     
-    // SELF MADE FUNCTION
-    private List<Messages> sms = new ArrayList<>();
 
-    private void readMessageData() {
-        InputStream issss = getResources().openRawResource(R.raw.message); //imp class
-        BufferedReader reader = new BufferedReader(
-                new InputStreamReader(issss, Charset.forName("UTF-8")) //alt enter and import class charset
-        );
-
-        String line = "";
-        try {
-            reader.readLine();
-            while ((line = reader.readLine()) != null) {
-                Log.d("MyActivity", "Line: " + line);
-                String[] tokens = line.split(",");
-
-                Messages mes = new Messages();
-                mes.setAgent(Integer.parseInt(tokens[0]));
-                mes.setNonagent(Integer.parseInt(tokens[1]));  //
-                mes.setMessage(tokens[2]);
-                mes.setSender(Integer.parseInt(tokens[3]));
-                //also have agent id
-
-                sms.add(mes);
-                Log.d("MyActivity", "Just Created: " + mes);
-            }
-        } catch (IOException e) {
-            Log.wtf("MyActivity", "Error reading on Line: " + line, e);
-            e.printStackTrace();
-        }
-
-
-    }
     
     
     

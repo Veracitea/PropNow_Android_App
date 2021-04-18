@@ -12,7 +12,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,9 +24,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static android.view.View.VISIBLE;
-import static java.lang.Boolean.FALSE;
 
-public class Login extends AppCompatActivity {
+public class LoginMgr extends AppCompatActivity {
     android.widget.Spinner spinner;
     private EditText Username,Password;
     private Button Login;
@@ -106,11 +104,11 @@ public class Login extends AppCompatActivity {
     }
 
     private void setDomain(String domain){
-        com.example.mainapp.Login.domain = domain;
+        LoginMgr.domain = domain;
     }
 
     public static String getDomain(){
-        return com.example.mainapp.Login.domain;
+        return LoginMgr.domain;
     }
 
     boolean loggedIn = MainActivity.setLoggedIn();
@@ -127,7 +125,7 @@ public class Login extends AppCompatActivity {
                 if((userName.equals(username))&&(userPassword.equals(password))){
                     setDomain("AGENT");
                     MainActivity.domain = "AGENT";
-                    Intent intent = new Intent(Login.this, MainActivity.class);
+                    Intent intent = new Intent(LoginMgr.this, MainActivity.class);
                     startActivity(intent);
                     correct = true;
                     break;
@@ -142,7 +140,7 @@ public class Login extends AppCompatActivity {
                     if ((userName.equals(username)) && (userPassword.equals(password))) {
                         setDomain("NON-AGENT");
                         MainActivity.domain = "NON-AGENT";
-                        Intent intent = new Intent(Login.this, MainActivity.class);
+                        Intent intent = new Intent(LoginMgr.this, MainActivity.class);
                         startActivity(intent);
                         correct = true;
                         break;
@@ -155,7 +153,7 @@ public class Login extends AppCompatActivity {
             counter--;
             Username.setText("");
             Password.setText("");
-            Toast.makeText(Login.this, "Invalid Credentials! Please try again", Toast.LENGTH_SHORT).show();
+            Toast.makeText(LoginMgr.this, "Invalid Credentials! Please try again", Toast.LENGTH_SHORT).show();
             Info.setText("Number of attempt remaining: " + counter);
 
             if(counter == 0) {
@@ -163,7 +161,7 @@ public class Login extends AppCompatActivity {
                 setDomain("GENERAL");
                 MainActivity.domain = "GENERAL";
                 //print out - ure not authorized to login?
-                Toast.makeText(Login.this, "You are not authorized to login!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginMgr.this, "You are not authorized to login!", Toast.LENGTH_SHORT).show();
             }
 
         }
@@ -291,7 +289,7 @@ public class Login extends AppCompatActivity {
 
     //INBOX
     public void ClickInbox(View view){
-        MainActivity.redirectActivity(this,Inbox.class);
+        MainActivity.redirectActivity(this, InboxMgr.class);
     }
     public void ClickEditInbox(View view){
         MainActivity.redirectActivity(this,EditInbox.class);

@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import static android.view.View.VISIBLE;
-import static java.lang.Boolean.FALSE;
 
 public class favorites extends AppCompatActivity {
     DrawerLayout drawerLayout;
@@ -110,7 +109,7 @@ public class favorites extends AppCompatActivity {
 
     //INBOX
     public void ClickInbox(View view){
-        MainActivity.redirectActivity(this,Inbox.class);
+        MainActivity.redirectActivity(this, InboxMgr.class);
     }
     public void ClickEditInbox(View view){
         MainActivity.redirectActivity(this,EditInbox.class);
