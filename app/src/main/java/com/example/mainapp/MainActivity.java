@@ -173,7 +173,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 //redirect to CAMERA!!!!!!!!!!!
-                redirectActivity(activity, HomeCalculator.class);
+              //  redirectActivity(activity, HomeCalculator.class);
             }
         });
 //        //back
