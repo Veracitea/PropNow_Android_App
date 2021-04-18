@@ -106,7 +106,7 @@ public class AddListings extends AppCompatActivity {
 
 
                 try {
-                     house = new House(-1,
+                    house = new House(-1,
                             et_town.getText().toString(),
                             et_bedroomNum.getText().toString(),
                             et_blockNum.getText().toString(),
@@ -118,7 +118,7 @@ public class AddListings extends AppCompatActivity {
                             et_remainingLease.getText().toString(),
                             Integer.parseInt(et_resalePrice.getText().toString()),
                             130,
-                             et_imageURl.getText().toString()
+                            et_imageURl.getText().toString()
 
                     );
 
