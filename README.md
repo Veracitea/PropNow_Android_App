@@ -8,3 +8,4 @@ Extract code and run on an Android device. Do not run at Android studio(prone to
 ### Other information:
 Read SRS.pdf for report, note that not all sequence diagrams were shown, only relevant ones were pointed out
 https://youtu.be/Fz17YCfglOc
+Anything uploaded online for this project was last touched/recorded in late 2020/early 2021.
